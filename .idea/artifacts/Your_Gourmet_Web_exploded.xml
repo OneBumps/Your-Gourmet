@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="Your-Gourmet:Web exploded">
-    <output-path>$PROJECT_DIR$/out/artifacts/Your_Gourmet_Web_exploded</output-path>
+    <output-path>$PROJECT_DIR$/web/WEB-INF/classes/artifacts/Your_Gourmet_Web_exploded</output-path>
     <root id="root">
       <element id="javaee-facet-resources" facet="Your-Gourmet/web/Web" />
       <element id="directory" name="WEB-INF">
