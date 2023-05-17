@@ -5,12 +5,14 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 public class C3P0Util {
-    private static DataSource dataSource = null;
+    private static DataSource dataSource;
 
     static {
         dataSource = new com.mchange.v2.c3p0.ComboPooledDataSource("mysqlConn");
     }
-
+    public static DataSource getDataSource() {
+        return dataSource;
+    }
     public static Connection getConnection() {
         try {
             System.out.println("connection ok!");
