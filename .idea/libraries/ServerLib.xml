@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="servlet-api">
+  <library name="ServerLib">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/servlet-api.jar!/" />
     </CLASSES>
