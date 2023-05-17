@@ -15,7 +15,6 @@ public class C3P0Util {
     }
     public static Connection getConnection() {
         try {
-            System.out.println("connection ok!");
             return dataSource.getConnection();
         } catch (SQLException e) {
             e.printStackTrace();

@@ -1,0 +1,118 @@
+body{
+    background-color: lightgray;
+}
+main{
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 1000px;
+}
+p,h3,ul,li{
+    margin: 0;
+    padding: 0;
+}
+
+ul,li{
+    list-style: none;
+}
+
+hr{
+    size: 1;
+    width: 300px;
+    margin: 20px 1px;
+}
+
+.nav{
+    height: 40px;
+    background-color: white;
+    border: 1px solid lightgreen;
+}
+
+.nav > div{
+    margin-left: 16px;
+    line-height: 40px;
+    font-size: 16px;
+    color: grey;
+}
+
+section{
+    display: flex;
+}
+.naviBar{
+    width: 30%;
+    background-color: white;
+    border: 1px solid lightpink;
+}
+
+.menuMessages{
+    width: 70%;
+    background-color: white;
+    border: 1px solid lightblue;
+}
+
+#dishname{
+    display: block;
+    margin-top: 15px;
+    margin-left: 25px;
+    font-size: 20px;
+}
+
+.text{
+    display: flex;
+    font-size: 14px;
+    color: grey;
+}
+
+.menuMessages .text div:nth-child(1) > img{
+    margin-top: 25px;
+    margin-left: 25px;
+    height: 150px;
+    width: 200px;
+}
+.menuMessages .text div:nth-child(2){
+    height: 200px;
+    margin-left: 50px;
+    margin-top: 25px;
+}
+.menuMessages .text div:nth-child(2) #material{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 18px;
+    font-size: 18px;
+    color: black;
+}
+.menuMessages .text div:nth-child(2) #material > p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 16px;
+    font-size: 16px;
+    color: grey;
+}
+.menuMessages .text div:nth-child(2) .icon{
+    position: absolute;
+    float: left;
+    width: 425px;
+}
+.menuMessages .text div:nth-child(2) > div span{
+    margin-left: 50px;
+}
+
+.text1{
+    margin-top: 10px;
+    border: 1px solid green;
+}
+.text1 li div{
+    display: flex;
+}
+.text1 li div > img{
+    width: 150px;
+    height: 100px;
+    border: 1px solid red;
+}
+
+
+
+
+
+footer{
+    background-color: lightgrey;;
+}
