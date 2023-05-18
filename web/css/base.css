@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+img{
+    border:0;
+    vertical-align:middle;
+}
+em,
+i{
+    font-style:normal;
+}
+a{
+    text-decoration: none;
+    color: #4b4a4a;
+}
+input,
+button{
+    border: 0;
+    outline: none;
+}
