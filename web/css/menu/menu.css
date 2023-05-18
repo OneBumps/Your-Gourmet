@@ -73,6 +73,13 @@ section{
     margin-left: 50px;
     margin-top: 25px;
 }
+
+.menuMessages .text div:nth-child(2) .icon{
+    position: absolute;
+    float: left;
+    width: 425px;
+}
+
 .menuMessages .text div:nth-child(2) #material{
     margin-top: 10px;
     margin-bottom: 10px;
@@ -87,11 +94,7 @@ section{
     font-size: 16px;
     color: grey;
 }
-.menuMessages .text div:nth-child(2) .icon{
-    position: absolute;
-    float: left;
-    width: 425px;
-}
+
 .menuMessages .text div:nth-child(2) > div span{
     margin-left: 50px;
 }
