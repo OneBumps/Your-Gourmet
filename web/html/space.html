@@ -7,38 +7,65 @@
     <title>个人中心 - #</title>
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/space/main.css">
+    <link rel="stylesheet" href="../css/space/collection.css">
 </head>
 
 <body>
-    <div id="header">
-
-    </div>
-    <div id="nav">
-
-    </div>
+    <div id="header"></div>
+    <div id="nav"></div>
     <div id="wrapper">
-        <div id="secondary-nav">
-            <div id="brief">
-                <div id="avatar"></div>
-                <div id="nav-username">
-                    $username$
-                </div>
+        <div id="brief">
+            <div id="avatar">
+                <img src="../img/profile/avatar.jpg" alt="头像" />
             </div>
+            <div id="user_info">
+                <h1>美食家</h1>
+                <p id="location">成都</p>
+                <button>编辑个人资料</button>
+            </div>
+        </div>
+        <div class="subnav-list">
             <ul>
-                <li><a href="#" id="nav-summary">简介</a></li>
-                <li><a href="#" id="nav-menu">菜谱</a></li>
-                <li><a href="#" id="nav-data">数据</a></li>
+                <li><a href="#">我的收藏</a></li>
+                <li><a href="#">我的菜谱</a></li>
+                <li id="nav-tracker"></li>
             </ul>
-            <div id="nav-tracker"></div>
         </div>
-        <div id="main">
-
+        <div id="collection">
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="../img/profile/avatar.jpg" alt="菜谱" />
+                        <div id="info">
+                            <h2>菜谱名称</h2>
+                            <p>菜谱描述</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../img/profile/avatar.jpg" alt="菜谱" />
+                        <div id="info">
+                            <h2>菜谱名称</h2>
+                            <p>菜谱描述</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="../img/profile/avatar.jpg" alt="菜谱" />
+                        <div id="menu_info">
+                            <h2>菜谱名称</h2>
+                            <p>菜谱描述</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
-    <div id="footer">
-
-    </div>
+    <div id="footer"></div>
 </body>
+<script src='../js/util/jquery.js'></script>
 <script src="../js/space/main.js"></script>
 
 </html>
