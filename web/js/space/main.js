@@ -3,7 +3,7 @@
  * 依赖于/js/util/ajax.js
  */
 
-document.write("<script src='/js/util/ajax.js'></script>");
+document.write("<script src='../js/util/ajax.js'></script>");
 
 function getPage_Summary() {
     sendRequest("/space/summary", "", "POST", function () {
