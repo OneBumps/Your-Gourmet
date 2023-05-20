@@ -35,6 +35,9 @@
     float: right;
     font-size: 14px;
 }
+.login a{
+    color: #1ba1e6;
+}
 .login a:hover{
     color: #c81523;
 }
@@ -51,6 +54,7 @@
 .reg_form ul li{
     margin-bottom: 20px;
 }
+
 .reg_form ul li input{
     width: 242px;
     height: 37px;
