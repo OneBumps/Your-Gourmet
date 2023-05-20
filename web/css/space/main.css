@@ -1,85 +1,100 @@
-/*设置全局*/
+/*设置全局样式*/
 body {
-    background-color: burlywood;
+    background-color: #ff8c00;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
 }
 
 a {
     color: black;
+    display: block;
 }
 
-a:hover {
-    color: white;
+button {
+    padding: 8px 16px;
+    border-radius: 10px;
+    background-color: inherit;
+    border: 2px solid rgb(115, 115, 119);
 }
 
 /*设置wrapper样式*/
 #wrapper {
-    display: flex;
-    flex-direction: row;
-    width: 90%;
     margin: 0 auto;
-    padding: 15px;
-}
-
-/*设置侧边栏样式*/
-#secondary-nav {
-    background-color: rgb(250, 250, 250);
-    flex: none;
-    justify-items: center;
-    border: 1px solid rgb(221, 221, 221);
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
+    margin-top: 50px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 1300px;
     position: relative;
+    box-shadow:
+        19.4px 20.4px 23.4px rgba(0, 0, 0, 0.068),
+        31.1px 32.7px 58.1px rgba(0, 0, 0, 0.108),
+        42.7px 44.9px 128.4px rgba(0, 0, 0, 0.152),
+        59px 62px 438px rgba(0, 0, 0, 0.24);
 }
 
 /*设置简介区样式*/
 #brief {
-    position: absolute;
-    left: -25px;
-    width: 180px;
-    padding: 10px;
-    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    padding: 60px 0;
+    position: relative;
 }
 
+/*设置头像布局样式*/
 #avatar {
-    width: 120px;
-    height: 120px;
+    margin-right: 50px;
+}
+
+#avatar img {
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
-    margin: 15px auto;
-    background-color: rgb(190, 188, 188);
 }
 
-#nav-username {
+/*设置内容样式*/
+#user_info {
+    display: flex;
+    flex-direction: column;
+}
+
+#user_info :nth-child(n) {
+    flex: 1;
+}
+
+#location {
+    line-height: 60px;
+}
+
+/*二级列表样式*/
+.subnav-list {
+    position: relative;
+    overflow: hidden;
+    padding: 15px 20px;
+}
+
+.subnav-list li {
+    float: left;
+    margin-right: 5px;
+    width: 100px;
     text-align: center;
-    font-size: 1.3em;
-    font-weight: bold;
 }
 
-/*设置侧边栏列表项样式*/
-#secondary-nav ul {
-    width: 150px;
-    line-height: 50px;
-    text-align: center;
-    margin-top: 200px;
+.subnav-list li:nth-child(1) a:hover {
+    color: #ff8c00;
 }
 
-#secondary-nav ul li:hover {
-    background-color: cornflowerblue;
-    border-radius: 15px;
-    transform: scale(1.1);
+.subnav-list li:nth-child(2) a:hover {
+    color: #2600ff;
 }
 
-/*把链接显示为块元素可使整个链接区域可点击*/
-#secondary-nav ul a {
-    display: block;
-    width: 100%;
-    height: 100%;
-}
-
-/*设置主界面样式*/
-#main {
-    background-color: white;
-    flex: 1 0 auto;
-    width: 850px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
+/*跟踪条样式*/
+#nav-tracker {
+    position: absolute;
+    left: 20px;
+    bottom: 0;
+    width: 100px;
+    height: 5px;
+    background-color: #ff8c00;
+    transition: all 0.3s ease-in-out;
 }
