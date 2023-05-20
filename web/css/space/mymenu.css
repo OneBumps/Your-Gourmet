@@ -1,20 +1,23 @@
-#collection {
+/*全局设置*/
+#mymenu {
     padding: 50px;
     padding-top: 0px;
 }
 
-#collection a {
+/*设置块状选择区*/
+#mymenu a {
     display: flex;
     flex-direction: row;
     border-radius: 15px;
     padding: 15px;
 }
 
-#collection a:hover {
+#mymenu a:hover {
     background-color: rgba(255, 255, 255, 0.4);
 }
 
-#collection img {
+/*设置菜谱列表样式*/
+#mymenu img {
     flex: none;
     display: block;
     width: 130px;
@@ -24,12 +27,12 @@
     margin-right: 50px;
 }
 
-#collection h2 {
+#mymenu h2 {
     line-height: 40px;
 }
 
-#collection p {
-    max-width: 950px;
+#mymenu p {
+    max-width: 900px;
     text-indent: 2em;
     line-height: 1.4em;
     word-wrap: break-word;
@@ -40,6 +43,24 @@
     -webkit-box-orient: vertical;
 }
 
-#collection h2 {
+/*设置设置样式*/
+#mymenu .setting {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#mymenu label{
+    text-align: center;
+}
+
+/*设置标题和菜系在同一排*/
+#mymenu h2 {
     display: inline;
+}
+
+#mymenu input[type="checkbox"]{
+    width: 30px;
+    height: 30px;
 }
