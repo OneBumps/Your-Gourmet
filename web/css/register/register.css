@@ -1,3 +1,6 @@
+a{
+    color: #4b4a4a;
+}
 .w{
     width: 1200px;
     margin: 0 auto;
@@ -44,7 +47,7 @@
 .reg_form{
     width: 600px;
     
-    margin: 0 auto;
+    margin: 10px auto;
 }
 .reg_form ul li label{
     display: inline-block;
@@ -70,15 +73,7 @@
     padding: 0 12px;
     color: #fff;
 }
-.ruo{
-    background-color: #de1111;
-}
-.zhon{
-    background-color: #f79100;
-}
-.qian{
-    background-color: #40b83f;
-}
+
 .safe{
     padding-left: 200px;
 }

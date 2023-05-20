@@ -6,13 +6,14 @@ main{
     margin-top: 30px;
     width: 1000px;
 }
-p,h3,ul,li{
+p,h4,ul,li{
     margin: 0;
     padding: 0;
 }
 
 ul,li{
     list-style: none;
+    margin: 10px;
 }
 
 hr{
@@ -24,9 +25,8 @@ hr{
 .nav{
     height: 40px;
     background-color: white;
-    border: 1px solid lightgreen;
+    border: 1px solid red;
 }
-
 .nav > div{
     margin-left: 16px;
     line-height: 40px;
@@ -34,83 +34,86 @@ hr{
     color: grey;
 }
 
-section{
+.section{
     display: flex;
 }
-.naviBar{
+.section .menuNavi{
     width: 30%;
     background-color: white;
-    border: 1px solid lightpink;
+    border: 1px solid red;
 }
-
-.menuMessages{
+.section .menuMessages{
     width: 70%;
     background-color: white;
-    border: 1px solid lightblue;
+    border: 1px solid red;
+    padding-bottom: 25px;
 }
-
-#dishname{
+.section .menuMessages #dishname{
     display: block;
     margin-top: 15px;
     margin-left: 25px;
     font-size: 20px;
 }
 
-.text{
+.section .menuMessages .text{
     display: flex;
+    margin: 0px 25px;
     font-size: 14px;
     color: grey;
+    border: 1px solid green;
 }
 
-.menuMessages .text div:nth-child(1) > img{
+.section .menuMessages .text div:nth-child(1) > img{
     margin-top: 25px;
     margin-left: 25px;
     height: 150px;
     width: 200px;
 }
-.menuMessages .text div:nth-child(2){
+.section .menuMessages .text div:nth-child(2){
     height: 200px;
     margin-left: 50px;
     margin-top: 25px;
 }
-
-.menuMessages .text div:nth-child(2) .icon{
+.section .menuMessages .text div:nth-child(2) .icon{
     position: absolute;
     float: left;
     width: 425px;
 }
-
-.menuMessages .text div:nth-child(2) #material{
+.section .menuMessages .text div:nth-child(2) #material{
     margin-top: 10px;
     margin-bottom: 10px;
     line-height: 18px;
     font-size: 18px;
     color: black;
 }
-.menuMessages .text div:nth-child(2) #material > p{
+.section .menuMessages .text div:nth-child(2) #material > p{
     margin-top: 10px;
     margin-bottom: 10px;
     line-height: 16px;
     font-size: 16px;
     color: grey;
 }
-
-.menuMessages .text div:nth-child(2) > div span{
+.section .menuMessages .text div:nth-child(2) > div span{
     margin-left: 50px;
 }
-
-.menuMessages .text div:nth-child(2) > div #viewing:nth-child(1):active{
+.section .menuMessages .text div:nth-child(2) > div #viewing:nth-child(1):active{
     background: url();
 }
 
-.text1{
-    margin-top: 10px;
+.section .menuMessages .text1{
+    margin: 0px 25px;
+    /* margin-top: 0px; */
     border: 1px solid green;
 }
-.text1 li div{
-    display: flex;
+.section .menuMessages .text1 #steps{
+    margin-bottom: 10px;
+    font-size: 18px;
 }
-.text1 li div > img{
+.section .menuMessages .text1 li div{
+    display: flex;
+    margin: 10px;
+}
+.section .menuMessages .text1 li div > img{
     width: 150px;
     height: 100px;
     border: 1px solid red;
@@ -121,5 +124,6 @@ section{
 
 
 footer{
-    background-color: lightgrey;;
+    background-color: white;
+    border: 1px solid red;
 }
