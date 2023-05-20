@@ -20,4 +20,10 @@ input,
 button{
     border: 0;
     outline: none;
+<<<<<<< HEAD:web/css/register/base.css
+}
+.ls{
+    text-indent: 10px;
+=======
+>>>>>>> cd59daf0d209717bc452327de0b766be4c59e660:web/css/base.css
 }
