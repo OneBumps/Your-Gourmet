@@ -106,3 +106,11 @@ a{
 .copyright{
     line-height: 20px;
 }
+/*下面是从base.css弄下来的*/
+.ls{
+    text-indent: 10px;
+}
+em,
+i{
+    font-style:normal;
+}

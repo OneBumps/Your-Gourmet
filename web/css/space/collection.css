@@ -1,3 +1,45 @@
 #collection {
     padding: 50px;
 }
+
+#collection a {
+    display: flex;
+    flex-direction: row;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+#collection a:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+#collection img {
+    flex: none;
+    display: block;
+    width: 130px;
+    height: 90px;
+    margin: 10px;
+    border-radius: 12px;
+    margin-right: 50px;
+}
+
+#collection h2 {
+    line-height: 40px;
+}
+
+#collection p {
+    max-width: 950px;
+    text-indent: 2em;
+    line-height: 1.4em;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+#collection h2 {
+    display: inline;
+}

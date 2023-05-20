@@ -11,4 +11,11 @@ $(".subnav-list a").click(function () {
     //设置全局背景色为当前点击的a标签的颜色
     $("body").css("background-color", color);
 });
-$("")
+
+
+
+$(document).ready(function() {
+    // slide up from the bottom when the page is ready
+    $("#wrapper").animate({top: 0}, "slow");
+    $("#wrapper").css("position", "absolute");
+  });
