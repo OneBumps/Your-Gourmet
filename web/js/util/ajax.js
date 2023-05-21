@@ -3,7 +3,7 @@ var httpRequest = null; //定义XMLHttpRequest对象
 function createXHR() {
     var httpRequest = new XMLHttpRequest();
     if (!httpRequest) {
-        alert("创建httpRequest失败");
+        console.log("创建httpRequest失败");
     }
 }
 
@@ -17,11 +17,11 @@ function sendRequest(url, params, method, handler) {
     createXHR();
     if (!httpRequest) return false;
     httpRequest.onreadystatechange = handler;
-    if (method == "GET") {
+    if (method === "GET") {
         httpRequest.open(method, url + '?' + params, true);
         httpRequest.send(null);
     }
-    if (method == "POST") {
+    if (method === "POST") {
         httpRequest.open(method, url, true);
         httpRequest.setRequestHeader("Content-type",
             "application/x-www-form-urlencoded");
