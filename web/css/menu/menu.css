@@ -1,5 +1,5 @@
 body{
-    background-color: lightgray;
+    background-color: #666;
 }
 main{
     margin: 0 auto;
@@ -91,13 +91,12 @@ ul,li{
     color: grey;
 }
 
-/* 右边区块步骤 */
 .section .menuMessages .text1{
     border-top: 1px solid green;
 }
 .section .menuMessages .text1 > div{
     margin: 10px 25px;
-    /* border: 1px solid red; */
+    border: 1px solid red;
 }
 .section .menuMessages .text1 #steps{
     margin-bottom: 10px;
