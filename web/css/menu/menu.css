@@ -1,12 +1,19 @@
 body{
-    background-color: #666;
+    background-color: white;
+    min-width: 1024px;
 }
 main{
+    background-color: orange;
     margin: 0 auto;
-    margin-top: 30px;
+    margin-top: 60px;
     width: 1000px;
+    box-shadow:
+        19.4px 20.4px 23.4px rgba(0, 0, 0, 0.068),
+        31.1px 32.7px 58.1px rgba(0, 0, 0, 0.108),
+        42.7px 44.9px 128.4px rgba(0, 0, 0, 0.152),
+        59px 62px 438px rgba(0, 0, 0, 0.24);
 }
-p,h4,ul,li{
+p,h4{
     margin: 0;
     padding: 0;
 }
@@ -19,7 +26,8 @@ ul,li{
 .header{
     height: 40px;
     background-color: white;
-    border: 1px solid green;
+    border-bottom: 1px solid green;
+    border-radius: 25px 25px 0 0;
 }
 /* 头部设置 */
 .header > div{
@@ -36,13 +44,13 @@ ul,li{
 .section .menuNavi{
     width: 30%;
     background-color: white;
-    border: 1px solid green;
+    border-right: 1px solid green;
 }
 /* 导航栏右边区块 */
 .section .menuMessages{
     width: 70%;
     background-color: white;
-    border: 1px solid green;
+    /* border: 1px solid green; */
     padding-bottom: 25px;
 }
 /* 右边区块标题菜名 */
@@ -72,12 +80,29 @@ ul,li{
 
 /* 点赞图标块 */
 .section .menuMessages .text > div:nth-child(2) .icon{
+    /* border: 1px solid blue; */
+    box-sizing: border-box;
+    width: 32px;
+    height: 200px;
+    position: fixed;
+    top: 300px;
+    right: 50px;
     display: flex;
-    justify-content: space-between;
-    border: 1px solid blue;
-    width: 200px;
-    padding: 1px;
-    line-height: 16px;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.section .menuMessages .text > div:nth-child(2) .icon span{
+    margin: 30px auto;
+    margin-bottom: 30px;
+}
+.section .menuMessages .text > div:nth-child(2) .icon span:last-child{
+    /* margin-bottom: 0px; */
+}
+.section .menuMessages .text > div:nth-child(2) .icon span > img{
+    /* border: 1px solid red; */
+    position: flex;
+    left: 0;
+    right: 0;
 }
 
 /* 菜品用料 */
@@ -91,12 +116,15 @@ ul,li{
     color: grey;
 }
 
+
+
+/* 步骤部分 */
 .section .menuMessages .text1{
     border-top: 1px solid green;
 }
 .section .menuMessages .text1 > div{
     margin: 10px 25px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 .section .menuMessages .text1 #steps{
     margin-bottom: 10px;
@@ -118,6 +146,9 @@ ul,li{
 
 /* 底部 */
 footer{
+    height: 100px;
+    width: 100%;
     background-color: white;
-    border: 1px solid green;
+    border-top: 1px solid green;
+    border-radius: 0 0 25px 25px;
 }
