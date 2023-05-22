@@ -16,106 +16,84 @@ ul,li{
     margin: 10px;
 }
 
-hr{
-    size: 1;
-    width: 300px;
-    margin: 20px 1px;
-}
-
-.nav{
+.header{
     height: 40px;
     background-color: white;
-    border: 1px solid red;
+    border: 1px solid green;
 }
-.nav > div{
+/* 头部设置 */
+.header > div{
     margin-left: 16px;
     line-height: 40px;
     font-size: 16px;
     color: grey;
 }
-
+/* 最大的section设置 */
 .section{
     display: flex;
 }
+/* 左边导航栏 */
 .section .menuNavi{
     width: 30%;
     background-color: white;
-    border: 1px solid red;
+    border: 1px solid green;
 }
+/* 导航栏右边区块 */
 .section .menuMessages{
     width: 70%;
     background-color: white;
-    border: 1px solid red;
+    border: 1px solid green;
     padding-bottom: 25px;
 }
+/* 右边区块标题菜名 */
 .section .menuMessages #dishname{
     display: block;
-    margin-top: 15px;
-    margin-left: 25px;
-    margin-bottom: 15px;
+    margin: 15px 25px;
     font-size: 20px;
+    /* border: 1px solid red; */
 }
 
+
+/* 右边区块菜名下方区域 */
 .section .menuMessages .text{
+    /* border: 1px solid red; */
     display: flex;
-    margin: 0px 25px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    font-size: 14px;
-    color: grey;
-    border: 1px solid green;
+    margin: 10px 25px;
+    justify-content: center;
 }
-<!--设置icon图片-->
-.section .menuMessages .text div:nth-child(1) > img{
-    margin-top: 25px;
-    margin-left: 25px;
-    height: 150px;
+/* 菜名图片 */
+.section .menuMessages .text > div:nth-child(1){
+    /* border: 1px solid blue; */
+    margin: 5px;
+    margin-left: 0px;
     width: 200px;
+    height: 150px;
 }
-<!--设置菜名区域--> */
-.section .menuMessages .text .two{
-    height: 200px;
-    margin-left: 50px;
-    border: 1px solid red;
+/* 点赞图标块 */
+.section .menuMessages .text > div:nth-child(2) .icon{
+    /* border: 1px solid blue; */
+}
+/* 菜品用料 */
+.section .menuMessages .text > div:nth-child(2) #material{
+    /* border: 1px solid blue; */
     margin-top: 25px;
+    margin-left: 10px;
+    font-size: 15px;
+}
+.section .menuMessages .text > div:nth-child(2) #material > p{
+    color: grey;
 }
 
-<!--设置菜名区域div图标块-->
-.section .menuMessages .text div:nth-child(2) .icon{
-    position: fixed;
-    float: left;
-}
-<!--设置菜品用料-->
-.section .menuMessages .text div:nth-child(2) #material{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    line-height: 18px;
-    font-size: 18px;
-    color: black;
-    border: 1px solid red ;
-}
-.section .menuMessages .text div:nth-child(2) #material > p{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    line-height: 16px;
-    font-size: 16px;
-    color: grey;
-}
-<!--设置图标位置-->
-.section .menuMessages .text div:nth-child(2) > div span{
-    margin-left: 50px;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    border: 1px solid red;
-}
-<!--步骤设置-->
+
+
+
+/* 右边区块步骤 */
 .section .menuMessages .text1{
-    margin: 0px 25px;
-    border: 1px solid green;
+    border-top: 1px solid green;
+}
+.section .menuMessages .text1 > div{
+    margin: 10px 25px;
+    /* border: 1px solid red; */
 }
 .section .menuMessages .text1 #steps{
     margin-bottom: 10px;
@@ -128,7 +106,6 @@ hr{
 .section .menuMessages .text1 li div > img{
     width: 150px;
     height: 100px;
-    border: 1px solid red;
 }
 .section .menuMessages .text1 li div > span{
     display: block;
@@ -136,7 +113,8 @@ hr{
     margin-top: 20px;
 }
 
+/* 底部 */
 footer{
     background-color: white;
-    border: 1px solid red;
+    border: 1px solid green;
 }
