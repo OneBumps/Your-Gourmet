@@ -1,7 +1,0 @@
-/*管理菜单样式*/
-.manageItem {
-    padding: 5px 50px;
-    display: flex;
-    justify-content: end;
-    height: 40px;
-}
