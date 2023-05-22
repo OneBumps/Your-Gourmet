@@ -1,29 +1,23 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-li{
+
+li {
     list-style: none;
 }
-img{
-    border:0;
-    vertical-align:middle;
+
+img {
+    border: 0;
+    vertical-align: middle;
 }
-em,
-i{
-    font-style:normal;
-}
-a{
+
+a {
     text-decoration: none;
 }
+
 input,
-button{
+button {
     border: 0;
     outline: none;
-<<<<<<< HEAD:web/css/register/base.css
-}
-.ls{
-    text-indent: 10px;
-=======
->>>>>>> cd59daf0d209717bc452327de0b766be4c59e660:web/css/base.css
 }
