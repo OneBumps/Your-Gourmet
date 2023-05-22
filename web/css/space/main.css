@@ -1,120 +1,26 @@
-/*设置全局样式*/
-body {
-    background-color: #ff8c00;
-    font-size: 16px;
-    transition: all 0.3s ease-in-out;
+.menu_title {
+    display: inline;
 }
 
-a {
-    color: black;
-    display: block;
+#collection p {
+    text-indent: 2em;
 }
 
-button {
-    padding: 8px 16px;
-    border-radius: 10px;
-    background-color: inherit;
-    border: 2px solid rgb(115, 115, 119);
-}
-
-button:hover {
-    background-color: rgba(115, 115, 119, 0.151);
-    cursor: pointer;
-}
-
-button:active {
-    border: #0d6feef6 3px solid;
-    outline: #0d6feef6 2px solid;
-    box-shadow:
-        19.4px 20.4px 23.4px rgba(0, 0, 0, 0.068),
-        31.1px 32.7px 58.1px rgba(0, 0, 0, 0.108),
-        42.7px 44.9px 128.4px rgba(0, 0, 0, 0.152),
-        59px 62px 438px rgba(0, 0, 0, 0.24);
-}
-
-/*设置wrapper样式*/
-#wrapper {
-    margin: 0 auto;
-    margin-top: 50px;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    background-color: rgba(255, 255, 255, 0.9);
-    width: 1300px;
-    position: fixed;
-    left: calc(50% - 650px);
-    top: 5000px;
-    box-shadow:
-        19.4px 20.4px 23.4px rgba(0, 0, 0, 0.068),
-        31.1px 32.7px 58.1px rgba(0, 0, 0, 0.108),
-        42.7px 44.9px 128.4px rgba(0, 0, 0, 0.152),
-        59px 62px 438px rgba(0, 0, 0, 0.24);
-}
-
-/*设置简介区样式*/
-#brief {
+/*管理菜单样式*/
+.manage {
+    padding: 5px 50px;
     display: flex;
-    justify-content: center;
-    padding: 60px 0;
-    position: relative;
+    justify-content: end;
+    height: 40px;
 }
 
-/*设置头像布局样式*/
-#avatar {
-    margin-right: 50px;
-}
-
-#avatar img {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-}
-
-/*设置内容样式*/
-#user_info {
+/*管理菜单项样式*/
+.manage-item {
+    flex: 0 0 1;
+    min-width: 80px;
+    text-align: center;
     display: flex;
     flex-direction: column;
-}
-
-#user_info :nth-child(n) {
-    flex: 0 0 33%;
-    min-width: 150px;
-}
-
-#location {
-    line-height: 40px;
-}
-
-/*二级列表样式*/
-.subnav-list {
-    position: relative;
-    overflow: hidden;
-    padding: 15px 20px;
-}
-
-.subnav-list li {
-    float: left;
-    margin-right: 5px;
-    width: 100px;
-    text-align: center;
-    font-weight: bold;
-}
-
-/*设置列表hover样式*/
-.subnav-list li:nth-child(1) a:hover {
-    color: #ff8c00;
-}
-
-.subnav-list li:nth-child(2) a:hover {
-    color: #7a6ada;
-}
-
-/*跟踪条样式*/
-#nav-tracker {
-    position: absolute;
-    left: 20px;
-    bottom: 0;
-    width: 100px;
-    height: 5px;
-    background-color: #ff8c00;
-    transition: all 0.3s ease-in-out;
+    justify-content: space-around;
+    display: none;
 }

@@ -1,0 +1,36 @@
+/* 示例：
+<div class="sub-nav">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+        </ul>
+        <div id="nav-tracker"></div>
+    </div>
+*/
+
+/*列表样式*/
+.sub-nav {
+    position: relative;
+    overflow: hidden;
+    margin: 0 20px;
+    height: 30px;
+}
+
+.sub-nav li {
+    float: left;
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/*跟踪条样式*/
+.nav-tracker {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 0 10px;
+    width: 80px;
+    height: 5px;
+    transition: all 0.3s ease-in-out;
+    background-color: black;
+}
