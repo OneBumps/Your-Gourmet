@@ -52,12 +52,15 @@ hr{
     display: block;
     margin-top: 15px;
     margin-left: 25px;
+    margin-bottom: 15px;
     font-size: 20px;
 }
 
 .section .menuMessages .text{
     display: flex;
     margin: 0px 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     font-size: 14px;
     color: grey;
     border: 1px solid green;
@@ -69,17 +72,18 @@ hr{
     height: 150px;
     width: 200px;
 }
-<!--设置菜名区域-->
-.section .menuMessages .text div:nth-child(2){
+<!--设置菜名区域--> */
+.section .menuMessages .text .two{
     height: 200px;
     margin-left: 50px;
+    border: 1px solid red;
     margin-top: 25px;
 }
+
 <!--设置菜名区域div图标块-->
 .section .menuMessages .text div:nth-child(2) .icon{
     position: fixed;
     float: left;
-    width: 425px;
 }
 <!--设置菜品用料-->
 .section .menuMessages .text div:nth-child(2) #material{
@@ -88,6 +92,7 @@ hr{
     line-height: 18px;
     font-size: 18px;
     color: black;
+    border: 1px solid red ;
 }
 .section .menuMessages .text div:nth-child(2) #material > p{
     margin-top: 10px;
@@ -124,6 +129,11 @@ hr{
     width: 150px;
     height: 100px;
     border: 1px solid red;
+}
+.section .menuMessages .text1 li div > span{
+    display: block;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 
 footer{
