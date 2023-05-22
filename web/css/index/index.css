@@ -1,0 +1,12 @@
+header{
+    display: flex;
+}
+.login{
+    flex:1;
+}
+.search{
+    flex:1;
+}
+.logo{
+    flex:1;
+}
