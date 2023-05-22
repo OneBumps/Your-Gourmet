@@ -1,36 +1,37 @@
-#collection {
-    padding: 50px;
-    padding-top: 0px;
+.list-box {
+    margin: 20px;
 }
 
-#collection a {
+.list-info {
+    flex: 1;
+}
+
+.list-box a {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
     border-radius: 15px;
-    padding: 15px;
+    padding: 10px;
 }
 
-#collection a:hover {
-    background-color: rgba(255, 255, 255, 0.4);
+.list-box a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
-#collection img {
-    flex: none;
+.list-box img {
     display: block;
+    flex: none;
     width: 130px;
     height: 90px;
     margin: 10px;
-    border-radius: 12px;
+    border-radius: 5px;
     margin-right: 50px;
 }
 
-#collection h2 {
+.list-box h2 {
     line-height: 40px;
 }
 
-#collection p {
-    max-width: 950px;
-    text-indent: 2em;
+.list-box p {
     line-height: 1.4em;
     word-wrap: break-word;
     overflow: hidden;
@@ -38,8 +39,4 @@
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-}
-
-#collection h2 {
-    display: inline;
 }
