@@ -1,6 +1,7 @@
 // 设置基准浮标和颜色
 var index = 0;
 var colors = ["#ff8c00", "#7a6ada"];
+var box_name = ["#collection", "#my-menu"];
 var color = colors[0];
 
 // 点击二级导航栏切换
@@ -15,18 +16,17 @@ function toggleAnimation(now_index, now_color) {
 }
 
 // 区块内容改变
-function changeBlock(index) {
-    switch (index) {
-        case 0:
-            $("#collection").css("display", "block");
-            $("#mymenu").css("display", "none");
-            break;
-        case 1:
-            $("#collection").css("display", "none");
-            $("#mymenu").css("display", "block");
-            break;
+function changeBlock(now_index) {
+    if (now_index != undefined) {
+        for (var i = 0; i < box_name.length; i++) {
+            $(box_name[i]).css("display", "none");
+        }
+        $(box_name[now_index]).css("display", "block");
     }
+    //重置选项栏样式
+    
 }
+
 $(".sub-nav a").click(function () {
     // 更新索引为当前点击的a标签所在的li的索引
     index = $(this).parent().index();
@@ -59,6 +59,6 @@ $(document).ready(function () {
     // 设置全局的背景色
     $("body").css("background-color", color);
     // 区块内容改变
-    changeBlock(index);
+    changeBlock();
 }
 );
