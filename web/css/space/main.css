@@ -1,26 +1,14 @@
+/*设置按钮样式*/
+.manage button,
+.list-box button {
+    border: 2px transparent solid;
+}
+
+/*listbox项目样式*/
 .menu_title {
     display: inline;
 }
 
-#collection p {
+.list-box p {
     text-indent: 2em;
-}
-
-/*管理菜单样式*/
-.manage {
-    padding: 5px 50px;
-    display: flex;
-    justify-content: end;
-    height: 40px;
-}
-
-/*管理菜单项样式*/
-.manage-item {
-    flex: 0 0 1;
-    min-width: 80px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    display: none;
 }
