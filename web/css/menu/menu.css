@@ -1,5 +1,5 @@
 body{
-    background-color: white;
+    background-color: lightgrey;
     min-width: 1024px;
 }
 main{
@@ -94,9 +94,6 @@ ul,li{
 .section .menuMessages .text > div:nth-child(2) .icon span{
     margin: 30px auto;
     margin-bottom: 30px;
-}
-.section .menuMessages .text > div:nth-child(2) .icon span:last-child{
-    /* margin-bottom: 0px; */
 }
 .section .menuMessages .text > div:nth-child(2) .icon span > img{
     /* border: 1px solid red; */
