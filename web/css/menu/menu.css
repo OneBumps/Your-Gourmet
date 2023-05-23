@@ -13,13 +13,8 @@ main{
         42.7px 44.9px 128.4px rgba(0, 0, 0, 0.152),
         59px 62px 438px rgba(0, 0, 0, 0.24);
 }
-p,h4{
-    margin: 0;
-    padding: 0;
-}
 
 ul,li{
-    list-style: none;
     margin: 10px;
 }
 
@@ -75,15 +70,14 @@ ul,li{
     margin-left: 0px;
     width: 200px;
     height: 150px;
+    cursor: pointer;
 }
-
 
 /* 点赞图标块 */
 .section .menuMessages .text > div:nth-child(2) .icon{
-    /* border: 1px solid blue; */
+    border: 1px solid blue;
     box-sizing: border-box;
     width: 32px;
-    height: 200px;
     position: fixed;
     top: 300px;
     right: 50px;
@@ -92,14 +86,28 @@ ul,li{
     justify-content: flex-end;
 }
 .section .menuMessages .text > div:nth-child(2) .icon span{
+    width: 16px;
+    height: 16px;
     margin: 30px auto;
     margin-bottom: 30px;
+    border: 1px solid green;
+    cursor: pointer;
+}
+/* 设置icon变化 */
+.section .menuMessages .text > div:nth-child(2) .icon span:nth-child(odd):hover{
+    transform: rotate(-10deg) scale(2,1.8);
+    transition: all 0.3s linear;
+}
+.section .menuMessages .text > div:nth-child(2) .icon span:nth-child(even):hover{
+    transform: rotate(10deg) scale(2,1.8);
+    transition: all 0.3s linear;
 }
 .section .menuMessages .text > div:nth-child(2) .icon span > img{
-    /* border: 1px solid red; */
-    position: flex;
+    border: 1px solid red;
+    /* position: flex;
     left: 0;
-    right: 0;
+    right: 0; */
+    margin: 0 auto;
 }
 
 /* 菜品用料 */
@@ -112,8 +120,6 @@ ul,li{
 .section .menuMessages .text > div:nth-child(2) #material > p{
     color: grey;
 }
-
-
 
 /* 步骤部分 */
 .section .menuMessages .text1{
