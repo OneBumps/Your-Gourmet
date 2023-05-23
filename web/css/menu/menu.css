@@ -94,14 +94,14 @@ ul,li{
     cursor: pointer;
 }
 /* 设置icon变化 */
-.section .menuMessages .text > div:nth-child(2) .icon span:nth-child(odd):hover{
+/* .section .menuMessages .text > div:nth-child(2) .icon span:nth-child(odd):hover{
     transform: rotate(-10deg) scale(2,1.8);
     transition: all 0.3s linear;
 }
 .section .menuMessages .text > div:nth-child(2) .icon span:nth-child(even):hover{
     transform: rotate(10deg) scale(2,1.8);
     transition: all 0.3s linear;
-}
+} */
 .section .menuMessages .text > div:nth-child(2) .icon span > img{
     border: 1px solid red;
     /* position: flex;
