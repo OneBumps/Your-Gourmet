@@ -3,7 +3,7 @@
 CREATE TABLE User (
     UserId INT PRIMARY KEY AUTO_INCREMENT COMMENT '用户ID',
     UserGroup VARCHAR(20) DEFAULT 'USER' COMMENT '用户分组',
-    Nickname VARCHAR(50) NOT NULL COMMENT '昵称',
+    UserName VARCHAR(50) NOT NULL COMMENT '用户名称',
     Password VARCHAR(50) COMMENT '密码',
     Avatar BLOB COMMENT '头像',
     Phone VARCHAR(20) NOT NULL COMMENT '电话',
@@ -32,7 +32,7 @@ CREATE TABLE Recipe (
     UserId INT COMMENT '用户ID',
     RecipePublishTime DATETIME NOT NULL COMMENT '菜谱发布时间',
     DishName VARCHAR(50) NOT NULL COMMENT '菜名',
-    RecipeImage VARCHAR(100) COMMENT '菜谱图片',
+    RecipeImage BLOB COMMENT '菜谱图片',
     RecipeVideoLocation VARCHAR(100) COMMENT '菜谱视频位置',
     RecipeIntro VARCHAR(200) COMMENT '菜谱简介',
     LikeCount INT DEFAULT 0 COMMENT '喜欢数',
@@ -58,7 +58,7 @@ CREATE TABLE Review (
     ReviewTime DATETIME COMMENT '评价时间',
     RecipeId INT COMMENT '菜谱ID',
     ReviewTextContent VARCHAR(200) NOT NULL COMMENT '评价文本内容',
-    ReviewImage VARCHAR(100) COMMENT '评价图片',
+    ReviewImageLocation VARCHAR(100) COMMENT '评价图片位置',
     PRIMARY KEY (UserId, ReviewTime, RecipeId),
     FOREIGN KEY (UserId) REFERENCES User (UserId) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (RecipeId) REFERENCES Recipe (RecipeId) ON DELETE CASCADE ON UPDATE CASCADE
@@ -106,7 +106,7 @@ CREATE TABLE Uses (
 CREATE TABLE User (
     UserId INT PRIMARY KEY AUTO_INCREMENT COMMENT '用户ID',
     UserGroup VARCHAR(20) DEFAULT 'USER' COMMENT '用户分组',
-    Nickname VARCHAR(50) NOT NULL COMMENT '昵称',
+    UserName VARCHAR(50) NOT NULL COMMENT '用户名称',
     Password VARCHAR(50) COMMENT '密码',
     Avatar BLOB COMMENT '头像',
     Phone VARCHAR(20) COMMENT '电话',
@@ -135,7 +135,7 @@ CREATE TABLE Recipe (
     UserId INT COMMENT '用户ID',
     RecipePublishTime DATETIME NOT NULL COMMENT '菜谱发布时间',
     DishName VARCHAR(50) NOT NULL COMMENT '菜名',
-    RecipeImage VARCHAR(100) COMMENT '菜谱图片',
+    RecipeImage BLOB COMMENT '菜谱图片',
     RecipeVideoLocation VARCHAR(100) COMMENT '菜谱视频位置',
     RecipeIntro VARCHAR(200) COMMENT '菜谱简介',
     LikeCount INT DEFAULT 0 COMMENT '喜欢数',
@@ -156,7 +156,7 @@ CREATE TABLE Review (
     UserId INT COMMENT '用户ID',
     ReviewTime DATETIME COMMENT '评价时间',
     RecipeId INT COMMENT '菜谱ID' ReviewTextContent VARCHAR(200) NOT NULL COMMENT '评价文本内容',
-    ReviewImage VARCHAR(100) COMMENT '评价图片',
+    ReviewImageLocation VARCHAR(100) COMMENT '评价图片位置',
     PRIMARY KEY (UserId, ReviewTime, RecipeId)
 );
 
