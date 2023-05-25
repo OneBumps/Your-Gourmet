@@ -1,0 +1,21 @@
+main{
+    
+    margin: 10px auto; 
+}
+main .main_h{
+    width: 100%;
+    height: 500px;
+    display: flex;
+}
+.main_h .picture{
+    width: 65%;
+    height: 400px;
+    background-color: #d74242;
+}
+.main_h .rang{
+    width: 25%;
+    height: 480px;
+    flex: 1;
+    background-color: #75d937;
+    margin-left: 10px;
+}
