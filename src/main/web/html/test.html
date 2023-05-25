@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滑动验证test</title>
+
+    <style>
+        #canvas {
+            border: 1px solid grey;
+            border-radius: 25px;
+            box-shadow: 5px 5px 5px grey;
+        }
+    </style>
+
+</head>
+
+<body>
+    <canvas id="canvas" width="500px" height="300px">
+        <h1>您的浏览器不支持canvas!</h1>
+    </canvas>
+    <canvas id="block" width="500px" height="300px" class="block">
+        您的浏览器不支持canvas!
+    </canvas>
+
+    <script language="javascript">
+
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+            var block = document.getElementById("block");
+            var blockCtx = block.getContext("2d");
+            // 加载随机图片
+            var img = new Image();
+            img.src = getRandomImgSrc();
+            img.onload = function () {
+                // 绘制背景图像
+                context.drawImage(img, 0, 0, 500, 300);
+                blockCtx.drawImage(img, 0, 0, 500, 300);
+                // 调用draw函数
+                draw();
+            }
+        }
+
+        // 定义画布的宽度和高度
+        const w = 500;
+        const h = 300;
+
+        //1绘制拼图
+        const x = 30;//起始点x坐标
+        const y = 30;//起始点y坐标
+        const l = 42;//正方形边长
+        const r = 10;//圆的半径
+        const PI = Math.PI;
+        const ll = l + r * 2; // 拼图的边长
+
+        // 定义绘制或裁剪拼图的函数
+        function draw(ctx, operation, x, y) {
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x + l / 2, y);//绘制边
+            ctx.arc(x + l / 2, y - r + 2, r, 0, 2 * PI);//绘制上圆
+            ctx.lineTo(x + l / 2, y);//返回到边的结束点
+
+            //1.2绘制第二个圆
+            ctx.lineTo(x + l, y);
+            ctx.lineTo(x + l, y + l / 2);
+            ctx.arc(x + l + r - 2, y + l / 2, r, 0, 2 * PI);
+            ctx.lineTo(x + l, y + l / 2);
+
+            //1.3绘制剩下的正方形
+            ctx.lineTo(x + l, y + l);
+            ctx.lineTo(x, y + l);
+            ctx.lineTo(x, y);
+
+            //1.4异或处理上述正方形
+            ctx.fillStyle = "#fff";
+            ctx[operation]();//填充或裁剪上述正方形
+            ctx.beginPath();
+            ctx.arc(x, y + l / 2, r, 1.5 * PI, 0.5 * PI);
+            ctx.globalCompositeOperation = "xor";//异或处理
+            ctx.fill();
+        }
+
+        //2通过基本的随机数字函数调用：
+        function getRandomNumberByRange(start, end) {
+            return Math.round(Math.random() * (end - start) + start);
+        }
+
+        function getRandomImgSrc() {
+            return (
+                "../img/icon/slidevirifypage/slideimg.jpg" + getRandomNumberByRange(0, 100)
+            );
+        }
+        //拼图随机位置也是通过随机函数限定边界在画布内随机出现
+        function draw() {
+            x = getRandomNumberByRange(ll + 10, w - (ll + 10));//10为设定的最小空隙,ll是保证滑块到最终位置和初始位置至少不会重叠
+            y = getRandomNumberByRange(10 + r * 2, h - (ll + 10));
+            draw(context, "fill", x, y);
+            draw(blockCtx, "clip", x, y);
+        }
+
+    </script>
+</body>
+
+</html>
