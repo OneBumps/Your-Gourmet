@@ -1,0 +1,26 @@
+/*设置简介区样式*/
+#profile {
+    display: flex;
+    justify-content: center;
+    padding: 60px 0;
+    position: relative;
+}
+
+/*设置头像布局样式*/
+.avatar {
+    margin-right: 50px;
+}
+
+.avatar img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+}
+
+/*设置内容样式*/
+#detail-list :nth-child(n) {
+    height: 40px;
+}
+.desc {
+    line-height: 40px;
+}

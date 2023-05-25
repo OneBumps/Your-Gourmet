@@ -1,0 +1,14 @@
+/*设置按钮样式*/
+.manage button,
+.list-box button {
+    border: 2px transparent solid;
+}
+
+/*listbox项目样式*/
+.menu_title {
+    display: inline;
+}
+
+.list-box p {
+    text-indent: 2em;
+}

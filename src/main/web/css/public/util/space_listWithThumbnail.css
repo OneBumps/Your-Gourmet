@@ -1,0 +1,42 @@
+.list-box {
+    margin: 0 20px;
+}
+
+.list-info {
+    flex: 1;
+}
+
+.list-box a {
+    display: flex;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.list-box a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.list-box img {
+    display: block;
+    flex: none;
+    width: 130px;
+    height: 90px;
+    margin: 10px;
+    border-radius: 5px;
+    margin-right: 50px;
+}
+
+.list-box h2 {
+    line-height: 40px;
+}
+
+.list-box p {
+    line-height: 1.4em;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
