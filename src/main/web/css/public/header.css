@@ -1,5 +1,4 @@
 body{
-    width: 1300px;
     margin: 0 auto;
 }
 /* 头部开始 */
@@ -19,7 +18,7 @@ header{
     /* background-color: rgb(135, 235, 210); */
 }
 .login ul li{
-    text-align: right;
+    text-align: center;
     font-size: 16px;
     font-weight: bold;
 }
@@ -80,6 +79,10 @@ nav{
     height: 80px;
     background-color: rgba(234, 41, 41, 0.75);
 }
+.nav_box{
+    width: 1300px;
+    margin: 0 auto;
+}
 .navitems{
     position: relative;
     overflow: hidden;
@@ -95,7 +98,7 @@ nav{
 .navitems ul li a{
     color: black;
 }
-#nav-tracker{
+#public_nav-tracker{
     position: absolute;
     left: 20px;
     bottom: 0;
