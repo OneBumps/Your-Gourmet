@@ -1,4 +1,5 @@
 function changeImgs(){
+	alert("hello");
 	var img1 = document.getElementById("img1");
 	var imgSrc = "../../img/icon/menupage/viewing.png";
 	if(img1.src == imgSrc){
