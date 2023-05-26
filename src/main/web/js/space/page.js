@@ -22,10 +22,5 @@ document.getElementsByClassName("select-all-manage")[0].addEventListener("click"
     }
 });
 
-// 设置多彩导航栏效果
-// const subNavScript = document.createElement('script');
-// // 加载完成后再调用
-// subNavScript.onload = function () {
-//     getColorfulTracker(".sub-nav a", ".nav-tracker", ["#ff8c00", "#7a6ada"], 0, 0, true, ["#collection", "#my-menu"]);
-// };
-// document.body.appendChild(subNavScript);
+getColorfulTracker(".sub-nav a", ".nav-tracker", ["#ff8c00", "#7a6ada"], 0, 0, true, ["#collection", "#my-menu"]);
+getColorfulTracker(".navitems a", "#public_nav-tracker", ["#ff8c00", "#7a6ada", "#b1191a", "#6ada84", "#6a95da", "#1564AF"], 0, 20);
