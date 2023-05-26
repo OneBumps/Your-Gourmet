@@ -6,9 +6,9 @@ var color = colors[0];
 
 function toggleAnimation(now_index, now_color) {
     //设置偏移
-    $("#nav-tracker").css("left", now_index * 150 + 20 + "px");
+    $("#public_nav-tracker").css("left", now_index * 150 + 20 + "px");
     // 设置nav-tracker的背景颜色为当前点击的a标签的颜色
-    $("#nav-tracker").css("background-color", now_color);
+    $("#public_nav-tracker").css("background-color", now_color);
     // 设置a标签变色
     $(".navitems a").css("color", now_color);
     $($(".navitems a").parent()[now_index]).siblings().children().css("color", "#000");
