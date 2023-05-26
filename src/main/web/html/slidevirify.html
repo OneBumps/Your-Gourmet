@@ -27,23 +27,6 @@
 
     <script language="javascript">
 
-        window.onload = function () {
-            var canvas = document.getElementById("canvas");
-            var context = canvas.getContext("2d");
-            var block = document.getElementById("block");
-            var blockCtx = block.getContext("2d");
-            // 加载随机图片
-            var img = new Image();
-            img.src = getRandomImgSrc();
-            img.onload = function () {
-                // 绘制背景图像
-                context.drawImage(img, 0, 0, 500, 300);
-                blockCtx.drawImage(img, 0, 0, 500, 300);
-                // 调用draw函数
-                draw();
-            }
-        }
-
         // 定义画布的宽度和高度
         const w = 500;
         const h = 300;
@@ -55,6 +38,43 @@
         const r = 10;//圆的半径
         const PI = Math.PI;
         const ll = l + r * 2; // 拼图的边长
+
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+            var block = document.getElementById("block");
+            var blockCtx = block.getContext("2d");
+
+            //拼图随机位置也是通过随机函数限定边界在画布内随机出现
+            function draw() {
+                this.x = getRandomNumberByRange(ll + 10, w - (ll + 10));//10为设定的最小空隙,ll是保证滑块到最终位置和初始位置至少不会重叠
+                this.y = getRandomNumberByRange(10 + r * 2, h - (ll + 10));
+                draw(context, "fill", x, y);
+                draw(blockCtx, "clip", x, y);
+            }
+
+            //2通过基本的随机数字函数调用：
+            function getRandomNumberByRange(start, end) {
+                return Math.round(Math.random() * (end - start) + start);
+            }
+
+            function getRandomImgSrc() {
+                return (
+                    "../img/icon/slidevirifypage/slideimg.jpg" + getRandomNumberByRange(0, 100)
+                );
+            }
+
+            // 加载随机图片
+            var img = new Image();
+            img.src = getRandomImgSrc();
+            img.onload = function () {
+                // 绘制背景图像
+                context.drawImage(img, 0, 0, 500, 300);
+                blockCtx.drawImage(img, 0, 0, 500, 300);
+                // 调用draw函数
+                draw();
+            }
+        }
 
         // 定义绘制或裁剪拼图的函数
         function draw(ctx, operation, x, y) {
@@ -83,24 +103,6 @@
             ctx.globalCompositeOperation = "xor";//异或处理
             ctx.fill();
             ctx.stroke();
-        }
-
-        //2通过基本的随机数字函数调用：
-        function getRandomNumberByRange(start, end) {
-            return Math.round(Math.random() * (end - start) + start);
-        }
-
-        function getRandomImgSrc() {
-            return (
-                "../img/icon/slidevirifypage/slideimg.jpg" + getRandomNumberByRange(0, 100)
-            );
-        }
-        //拼图随机位置也是通过随机函数限定边界在画布内随机出现
-        function draw() {
-            this.x = getRandomNumberByRange(ll + 10, w - (ll + 10));//10为设定的最小空隙,ll是保证滑块到最终位置和初始位置至少不会重叠
-            this.y = getRandomNumberByRange(10 + r * 2, h - (ll + 10));
-            draw(context, "fill", x, y);
-            draw(blockCtx, "clip", x, y);
         }
 
     </script>
