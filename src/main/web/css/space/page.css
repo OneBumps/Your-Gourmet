@@ -1,7 +1,6 @@
 /*设置页面样式*/
 body {
     transition: all 0.3s ease-in-out;
-    background-color: #ff8c00;
 }
 
 p {
@@ -31,20 +30,20 @@ a {
 }
 
 /*动画：将wrapper自下而上浮出*/
-@keyframes float {
+@keyframes floatFromBottom {
     0% {
-        top: 5000px;
+        top: 1200px;
     }
 
-    90% {
-        top: -20px;
+    70% {
+        top: 200px;
     }
 
     100% {
-        top: 0px;
+        top: 240px;
     }
 }
 
-.wrapper {
-    animation: float 1s ease-in-out;
+.wrapperAnimation {
+    animation: floatFromBottom 1s ease-in-out;
 }
