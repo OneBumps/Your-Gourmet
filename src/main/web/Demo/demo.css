@@ -1,9 +1,0 @@
-/* 在没有二级导航栏sub-nav时 建议使用"1300px"作为main的宽度 */
-.main #no-sub-nav {
-    width: 1300px;
-}
-
-/* 在存在二级导航栏sub-nav时 建议使用"1000px"作为main的宽度 */
-.main #exist-sub-nav {
-    width: 1000px;
-}
