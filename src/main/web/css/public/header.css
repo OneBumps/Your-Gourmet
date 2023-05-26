@@ -2,8 +2,7 @@ body{
     margin: 0 auto;
 }
 /* 头部开始 */
-header{
-    
+.header{
     display: flex;
     height: 100px;
     /* background-color: #dc8a0d; */
