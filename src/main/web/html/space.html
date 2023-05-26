@@ -17,18 +17,47 @@
     <link rel="stylesheet" href="../css/space/main.css">
     <link rel="stylesheet" href="../css/space/manage.css">
     <!-- 组件 -->
-    <link rel="stylesheet" href="../css/public/util/space_listWithThumbnail.css">
-    <link rel="stylesheet" href="../css/public/util/space_nav.css">
-    <link rel="stylesheet" href="../css/public/util/space_button.css">
+    <link rel="stylesheet" href="../css/space/listWithThumbnail.css">
+    <link rel="stylesheet" href="../css/space/sub_nav.css">
+    <link rel="stylesheet" href="../css/public/util/button.css">
 </head>
 
 <body>
     <!-- 公有部分 -->
-    <div class="header"></div>
+    <header>
+        <div class="logo">
+            <img src="../img/logo.png">
+        </div>
+        <div class="search">
+            <div class="s_i_b">
+                <input type="search" name="search" placeholder="想吃什么~">
+                <button>
+                    搜索
+                </button>
+            </div>
+
+        </div>
+        <div class="login">
+            <ul>
+                <li><img src="" alt=""><a href="/html/login.html">登录</a> | <a href="../html/register.html">注册</a></li>
+            </ul>
+        </div>
+    </header>
     <nav>
-        <div id="nav"></div>
+        <div class="nav_box">
+            <div class="navitems">
+                <ul>
+                    <li><a>首页</a></li>
+                    <li><a href="#">家常菜谱</a></li>
+                    <li><a href="#">家常菜谱</a></li>
+                    <li><a href="#">家常菜谱</a></li>
+                    <li><a href="#">家常菜谱</a></li>
+                    <li><a href="#">家常菜谱</a></li>
+                </ul>
+                <div id="public_nav-tracker"></div>
+            </div>
+        </div>
     </nav>
-    <!-- 主要部分 -->
     <div class="wrapper">
         <!-- 简介区 -->
         <div id="profile">
@@ -36,16 +65,19 @@
                 <img src="../img/profile/avatar.jpg" alt="头像">
             </div>
             <div id="detail-list">
-                <h1 class="desc" id="username">美食家</h1>
-                <p class="desc" id="location">成都</p>
-                <button id="edit-profile">编辑个人资料</button>
+                <form action="./userprofile.html" method="GET">
+                    <h1 class="desc" id="username">美食家</h1>
+                    <p class="desc" id="location">成都</p>
+                    <button id="edit-profile">编辑个人资料</button>
+                    <input type="hidden" name="userId" value="test" />
+                </form>
             </div>
         </div>
         <!-- 二级导航栏 -->
         <div class="sub-nav">
             <ul>
                 <li><a href="#collection" id="collection-item">我的收藏</a></li>
-                <li><a href="#menu" id="menu-item">我的菜谱</a></li>
+                <li><a href="#my-menu" id="menu-item">我的菜谱</a></li>
             </ul>
             <div class="nav-tracker"></div>
         </div>
@@ -60,7 +92,7 @@
             <div class="list-box" id="collection">
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="https://www.example.com/another-page">
                             <img src="../img/profile/avatar.jpg" alt="菜谱图片" />
                             <div class="list-info">
                                 <h2 class="menu_title">麻婆豆腐</h2>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cuisines">川菜</span>
@@ -127,12 +159,14 @@
     <!-- 公有部分 -->
     <div class="footer"></div>
     <!-- js 基础样式引入 -->
-    <script src='../js/public/header.js'></script>
+    <script src='../js/public/util/colorful-tracker.js'></script>
+    <script src='../js/public/jQuery.js'></script>
     <!-- js 自定义样式引入-->
     <script src='../js/space/page.js'></script>
-    <script src='../js/public/util/colorful-tracker.js'></script>
+    <script src='../js/space/once-animation.js'></script>
     <script>
-        getColorfulTracker(".sub-nav a", ".nav-tracker", ["#ff8c00", "#7a6ada"], 0, 0, true);
+        getColorfulTracker(".sub-nav a", ".nav-tracker", ["#ff8c00", "#7a6ada"], 0, 0, true, ["#collection", "#my-menu"]);
+        getColorfulTracker(".navitems a", "#public_nav-tracker", ["#ff8c00", "#7a6ada", "#b1191a", "#6ada84", "#6a95da", "#1564AF"], 0, 20);
     </script>
 </body>
 
