@@ -1,0 +1,62 @@
+/* 底部开始 */
+footer {
+    height: 250px;
+    background-color: #343333;
+}
+
+footer .footer {
+    width: 1300px;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+.copy {
+    float: left;
+    font-size: 12px;
+    color: #efe6e6;
+}
+
+.copy img {
+    width: 150px;
+    height: 100px;
+    margin: 20px 0 15px 0;
+}
+
+.footer .tel {
+    width: 400px;
+    height: 200px;
+    float: left;
+    color: #e0dada;
+}
+
+.footer .tel h2 {
+    padding-top: 30px;
+    margin-left: 100px;
+}
+
+.link {
+    float: right;
+}
+
+.link dl {
+    float: left;
+    margin-left: 30px;
+}
+
+.link dl dt {
+    font-size: 20px;
+    color: #e6dfdf;
+    margin-bottom: 12px;
+}
+
+.link dl dd a {
+    color: #e0dada;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.link dl dd a:hover {
+    color: red;
+}
+
+/* 底部结束 */
