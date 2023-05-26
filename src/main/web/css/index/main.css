@@ -2,6 +2,7 @@ main{
     width: 1300px;
     margin: 10px auto; 
 }
+/* 轮播图开始 */
 main .main_h{
     width: 100%;
     height: 500px;
@@ -21,7 +22,7 @@ main .main_h{
     bottom: 0;
 }
 .picture_text ul li{
-    height: 60px;
+    height: 65px;
     width: 20%;
     border: 0px solid red ;
     float: left;
@@ -35,3 +36,165 @@ main .main_h{
     background-color: #75d937;
     margin-left: 10px;
 }
+.picture .wrapper{
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+}
+.wrapper #list{
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 4225px;
+    height: 100%;
+    display: flex;
+    animation: 20s move infinite;
+}
+.wrapper #list:hover{
+    animation-play-state: paused;
+}
+.wrapper #list li{
+    width: 845px;
+    height: 100%;
+    flex: 1;
+}
+.wrapper #list li img{
+    width: 845px;
+    height: 400px;
+}
+@keyframes move{
+    0%,10%{
+        left: 0px;
+    }
+    20%,30%{
+        left: -845px;
+    }
+    40%,50%{
+        left: -1690px;
+    }
+    60%,70%{
+        left: 2535px;
+    }
+    80%,90%{
+        left: 3380px;
+    }
+    100%{
+        left:4225px;
+    }
+    
+}
+/* 轮播图结束 */
+/* 视频开始 */
+.main_mid{
+    width: 100%;
+    
+}
+.main_mid .video{
+    width: 100%;
+    height: 450px;
+    display: flex;
+    justify-content: space-between;
+
+}
+.main_mid .video h2{
+    font-weight: bold;
+    font-size: 20px;
+}
+.main_mid .video video{
+    display: block;
+    width: 18%;
+    height: 450px;
+    flex: 1;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+/* 视频结束 */
+/* 核心内容开始 */
+.main_f{
+    margin-top: 40px;
+}
+.main_f .box-bd ul{
+    width: 100%;
+    display: flex;
+}
+.box-bd ul li{
+    flex: 1;
+    width: 250px;
+    height: 325px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    background-color: rgb(236, 227, 227);
+}
+.box-bd ul li h4{
+    margin: 10px 20px 10px 25px;
+    font-size: 18px;
+    color:#050505 ;
+    font-weight: bold;
+}
+.box-bd ul li #img_main{
+   width: 100%;
+   height: 260px;
+}
+.box-bd .info{
+    margin: 10px 20px 5px 25px;
+    font-size: 16px;
+    color: #999;
+}
+.box-bd .info span{
+    color: #ff7c2d;
+    font-weight: bold;
+    margin-right: 100px;
+}
+/* 核心内容结束 */
+/* 底部开始 */
+footer{
+    height: 250px;
+    background-color: #343333;
+}
+footer .footer_box{
+    width: 1300px;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+.copy{
+    float: left;
+    font-size: 12px;
+    color: #efe6e6;
+}
+.copy img{
+    width: 150px;
+    height: 100px;
+    margin: 20px 0 15px 0;
+} 
+.footer_box .tel{
+    width: 400px;
+    height: 200px;
+    float: left;
+    color: #e0dada;
+}
+.footer_box .tel h2{
+    padding-top: 30px;
+    margin-left: 100px;
+}
+.link{
+    float: right;
+}
+.link dl{
+    float: left;
+    margin-left: 30px;
+}
+.link dl dt{
+    font-size:20px ;
+    color:#e6dfdf;
+    margin-bottom: 12px;
+}
+.link dl dd a{
+    color: #e0dada;
+    font-size: 16px;
+    text-decoration: none;
+}
+.link dl dd a:hover{
+    color: red;
+}
+/* 底部结束 */
