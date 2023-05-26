@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="你的美食家是一个专业的美食网站，提供各式各样的菜谱和食谱，让你轻松学会做出各种美味佳肴。你还可以在这里展示作品，并与其他用户交流心得，分享作品，互相学习">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>你的美食家</title>
-    <link rel="stylesheet" href="../css/index/header.css">
-    <link rel="stylesheet" href="../css/register/base.css">
+    <!-- CSS 基础样式引入-->
+    <link rel="stylesheet" href="../css/public/base.css">
+    <link rel="stylesheet" href="../css/public/header.css">
+    <link rel="stylesheet" href="../css/public/nav.css">
+    <link rel="stylesheet" href="../css/public/footer.css">
+    <!-- CSS 自定义样式引入-->
     <link rel="stylesheet" href="../css/index/main.css">
 </head>
+
 <body>
     <!-- 头部开始 -->
     <header>
         <div class="logo">
             <img src="../img/logo.png">
         </div>
-         
+
         <div class="search">
-            <div class="s_i_b"> 
+            <div class="s_i_b">
                 <input type="search" name="search" placeholder="想吃什么~">
                 <button>
                     搜索
                 </button>
             </div>
-           
+
         </div>
         <div class="login">
             <ul>
-                <li><img src="" alt=""><a href="../html/login.html">登录</a> | <a href="../html/register.html">注册</a></li>
+                <li><img src="" alt=""><a href="/html/login.html">登录</a> | <a href="../html/register.html">注册</a></li>
             </ul>
         </div>
     </header>
@@ -36,7 +42,7 @@
     <!-- 导航栏开始 -->
     <nav>
         <div class="nav_box">
-            <div class="navitems" >
+            <div class="navitems">
                 <ul>
                     <li><a>首页</a></li>
                     <li><a href="#">家常菜谱</a></li>
@@ -44,27 +50,191 @@
                     <li><a href="#">家常菜谱</a></li>
                     <li><a href="#">家常菜谱</a></li>
                     <li><a href="#">家常菜谱</a></li>
-                    <li id="nav-tracker"></li>
+                    <li id="public_nav-tracker"></li>
                 </ul>
             </div>
         </div>
-        
+
     </nav>
     <!-- 导航栏结束 -->
     <!-- 主题开始 -->
     <main>
         <div class="main_h">
             <div class="picture">
+                <div class="wrapper">
+                    <ul id="list">
+                        <li><a href="#">
+                                <img src="../img/login.png" alt="">
+                            </a></li>
+                        <li><a href="#">
+                                <img src="../img/logo.png" alt="">
+                            </a></li>
+                        <li><a href="#">
+                                <img src="../img/profile/avatar.jpg" alt="">
+                            </a></li>
+                        <li><a href="#">
+                                <img src="" alt="">
+                            </a></li>
+                        <li><a href="#">
+                                <img src="" alt="">
+                            </a></li>
+                    </ul>
+                </div>
+
+                <div class="picture_text">
+                    <ul>
+                        <li><a href="#">西餐</a> </li>
+                        <li><a href="">粤菜</a></li>
+                        <li><a href="">川菜</a></li>
+                        <li><a href="">家常菜</a></li>
+                        <li><a href="">点心</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="rang">
 
             </div>
-            <div class="rang">
-    
+        </div>
+        <div class="main_mid">
+            <h2>今日热门菜谱视频</h2>
+            <div class="video">
+
+                <video controls>
+                    <source src="" type="">
+                </video>
+                <video controls>
+                    <source src="" type="">
+                </video>
+                <video controls>
+                    <source src="" type="">
+                </video>
+                <video controls>
+                    <source src="" type="">
+                </video>
             </div>
         </div>
-        
+        <div class="main_f">
+            <h2>推荐菜谱</h2>
+            <div class="box-bd">
+                <ul>
+
+                    <li>
+                        <img src="../img/logo.png" alt="" id="img_main">
+                        <h4>酸辣土豆丝</h4>
+                        <div class="info">
+                            <span>热</span>
+                            <img src="" alt=""> 1125
+                        </div>
+                    </li>
+                    <li>
+                        <img src="../img/logo.png" alt="" id="img_main">
+                        <h4>酸辣土豆丝</h4>
+                        <div class="info">
+                            <span>热</span>
+                            <img src="" alt=""> 1125
+                        </div>
+                    </li>
+                    <li>
+                        <img src="../img/logo.png" alt="" id="img_main">
+                        <h4>酸辣土豆丝</h4>
+                        <div class="info">
+                            <span>热</span>
+                            <img src="" alt=""> 1125
+                        </div>
+                    </li>
+                    <li>
+                        <img src="../img/logo.png" alt="" id="img_main">
+                        <h4>酸辣土豆丝</h4>
+                        <div class="info">
+                            <span>热</span>
+                            <img src="" alt=""> 1125
+                        </div>
+                    </li>
+                    <li>
+                        <img src="../img/logo.png" alt="" id="img_main">
+                        <h4>酸辣土豆丝</h4>
+                        <div class="info">
+                            <span>热</span>
+                            <img src="" alt=""> 1125
+                        </div>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <img src="../img/logo.png" alt="" id="img_main">
+                        <h4>酸辣土豆丝</h4>
+                        <div class="info">
+                            <span>热</span>
+                            <img src="" alt=""> 1125
+                        </div>
+                    </li>
+                    <li>
+                        <img src="../img/logo.png" alt="" id="img_main">
+                        <h4>酸辣土豆丝</h4>
+                        <div class="info">
+                            <span>热</span>
+                            <img src="" alt=""> 1125
+                        </div>
+                    </li>
+                    <li>
+                        <img src="../img/logo.png" alt="" id="img_main">
+                        <h4>酸辣土豆丝</h4>
+                        <div class="info">
+                            <span>热</span>
+                            <img src="" alt=""> 1125
+                        </div>
+                    </li>
+                    <li>
+                        <img src="../img/logo.png" alt="" id="img_main">
+                        <h4>酸辣土豆丝</h4>
+                        <div class="info">
+                            <span>热</span>
+                            <img src="" alt=""> 1125
+                        </div>
+                    </li>
+                    <li>
+                        <img src="../img/logo.png" alt="" id="img_main">
+                        <h4>酸辣土豆丝</h4>
+                        <div class="info">
+                            <span>热</span>
+                            <img src="" alt=""> 1125
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </main>
     <!-- 主体结束 -->
+    <!-- 底部开始 -->
+    <footer>
+        <div class="footer_box">
+            <div class="copy">
+                <img src="../img/logo.png" alt="">
+                <p>信息网络传播视听节目许可证：0910417</p>
+            </div>
+            <div class="tel">
+                <h2>客服电话：3256151</h2>
+                <h2>商务合作：13415641464</h2>
+            </div>
+            <div class="link">
+
+                <dl>
+                    <dt>关于你的美食家</dt>
+                    <dd><a href="#">简介</a></dd>
+                    <dd><a href="#">团队管理</a></dd>
+                    <dd><a href="#">工作机会</a></dd>
+                    <dd><a href="#">客户服务</a></dd>
+                    <dd><a href="#">帮助</a></dd>
+                </dl>
+            </div>
+        </div>
+
+    </footer>
+    <!-- js 基础样式引入 -->
+    <script src='../js/public/header.js'></script>
+    <!-- js 自定义样式引入-->
 </body>
-    <script src="../js/util/jquery.js"></script>
-    <script src="../js/index.js"></script>
+
+
 </html>

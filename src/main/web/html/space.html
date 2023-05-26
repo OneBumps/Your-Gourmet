@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人中心 - #</title>
-    <link rel="stylesheet" href="../css/public/util/space_listWithThumbnail.css">
-    <!-- CSS 样式引入-->
+    <!-- CSS 基础样式引入-->
     <link rel="stylesheet" href="../css/public/base.css">
     <link rel="stylesheet" href="../css/public/header.css">
+    <link rel="stylesheet" href="../css/public/nav.css">
+    <link rel="stylesheet" href="../css/public/footer.css">
+    <!-- CSS 自定义样式引入-->
     <link rel="stylesheet" href="../css/space/page.css">
     <link rel="stylesheet" href="../css/space/profile.css">
     <link rel="stylesheet" href="../css/space/main.css">
     <link rel="stylesheet" href="../css/space/manage.css">
     <!-- 组件 -->
+    <link rel="stylesheet" href="../css/public/util/space_listWithThumbnail.css">
     <link rel="stylesheet" href="../css/public/util/space_nav.css">
     <link rel="stylesheet" href="../css/public/util/space_button.css">
 </head>
@@ -22,7 +25,9 @@
 <body>
     <!-- 公有部分 -->
     <div class="header"></div>
-    <nav class="nav"></nav>
+    <nav>
+        <div id="nav"></div>
+    </nav>
     <!-- 主要部分 -->
     <div class="wrapper">
         <!-- 简介区 -->
@@ -121,10 +126,14 @@
     </div>
     <!-- 公有部分 -->
     <div class="footer"></div>
+    <!-- js 基础样式引入 -->
+    <script src='../js/public/header.js'></script>
+    <!-- js 自定义样式引入-->
+    <script src='../js/space/page.js'></script>
+    <script src='../js/public/util/colorful-tracker.js'></script>
+    <script>
+        getColorfulTracker(".sub-nav a", ".nav-tracker", ["#ff8c00", "#7a6ada"], 0, 0, true);
+    </script>
 </body>
-
-<script src='../js/util/jQuery.js'></script>
-<script src='../js/space/page.js'></script>
-<script src='../js/space/tracker.js'></script>
 
 </html>
