@@ -6,20 +6,25 @@
  * @param pageIndex 目前导航条所在的索引
  * @param leftOffset 左偏移量设置
  * @param changeBg 是否改变背景色
- * @param changeBlock 是否改变区块内容
  * @param {String[]} boxes 区块内容的名称数组(使用CSS选择器)
  * @author OneBumps
  */
-let getColorfulTracker = function (clickItems, trackerItem, colors, pageIndex = 0, leftOffset = 0, changeBg = false) {
+const getColorfulTracker = function (clickItems, trackerItem, colors, pageIndex = 0, leftOffset = 0, changeBg = false, changeBlock = []) {
     // 初始化变量
     let index = pageIndex;
-    let trackerElement = document.querySelector(trackerItem);
-    let clickElements = document.querySelectorAll(clickItems);
-    let liElements = document.querySelector(clickItems).parentElement.parentElement.children;
+    const trackerElement = document.querySelector(trackerItem);
+    const clickElements = document.querySelectorAll(clickItems);
+    const liElements = document.querySelector(clickItems).parentElement.parentElement.children;
     // 工作函数
+    function changeBk() {
+        for (let i = 0; i < changeBlock.length; i++) {
+            document.querySelector(changeBlock[i]).style.display = "none";
+        }
+        document.querySelector(changeBlock[index]).style.display = "block";
+    }
     function toggleStatus(nowIndex, nowColor) {
         // 设置偏移
-        trackerElement.style.left = leftOffset + nowIndex * clickElements[0].parentElement.offsetWidth + "px";
+        trackerElement.style.left = leftOffset + nowIndex * (+clickElements[0].parentElement.offsetWidth) + "px";
         // 设置变色
         trackerElement.style.backgroundColor = nowColor;
         // 设置点击项变色
@@ -36,6 +41,8 @@ let getColorfulTracker = function (clickItems, trackerItem, colors, pageIndex = 
         if (changeBg) {
             document.body.style.backgroundColor = colors[index];
         }
+        // 设置区块内容
+        if (changeBlock.length > 0) changeBk();
     }
     function enterNav() {
         let tempIndex = Array.from(liElements).indexOf(this.parentElement);
@@ -48,12 +55,14 @@ let getColorfulTracker = function (clickItems, trackerItem, colors, pageIndex = 
     clickElements.forEach(function (element) {
         element.addEventListener("click", clickNav);
         element.addEventListener("mouseenter", enterNav);
-        element.addEventListener("mouseleave", leaveNav);
     });
+    clickElements[0].parentElement.parentElement.addEventListener("mouseleave", leaveNav);
     // 初始化界面
     toggleStatus(index, colors[index]);
     // 设置全局的背景色
     if (changeBg) {
         document.body.style.backgroundColor = colors[index];
     }
+    // 设置区块内容
+    if (changeBlock.length > 0) changeBk();
 };
