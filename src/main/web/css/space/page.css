@@ -1,4 +1,4 @@
-/*设置页面样式*/
+/*--- page ---*/
 body {
     transition: all 0.3s ease-in-out;
 }
@@ -11,7 +11,7 @@ a {
     color: black;
 }
 
-/*设置wrapper样式*/
+/*--- wrapper ---*/
 .wrapper {
     margin: 50px auto;
     border-top-left-radius: 25px;
@@ -46,4 +46,50 @@ a {
 
 .wrapperAnimation {
     animation: floatFromBottom 1s ease-in-out;
+}
+
+/*--- main ---*/
+.main{
+    padding-top: 10px;
+}
+/*设置按钮样式*/
+.manage button,
+.list-box button {
+    border: 2px transparent solid;
+}
+
+/*listbox项目样式*/
+.menu_title {
+    display: inline;
+}
+
+.list-box p {
+    text-indent: 2em;
+}
+/*--- sub-nav ---*/
+/*列表样式*/
+.sub-nav {
+    position: relative;
+    overflow: hidden;
+    margin: 0 20px;
+    height: 30px;
+}
+
+.sub-nav li {
+    float: left;
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/*跟踪条样式*/
+.nav-tracker {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 0 10px;
+    width: 80px;
+    height: 4px;
+    transition: all 0.3s ease-in-out;
+    background-color: black;
 }
