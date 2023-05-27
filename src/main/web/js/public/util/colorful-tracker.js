@@ -33,9 +33,11 @@ const getColorfulTracker = function (clickItems, trackerItem, colors, pageIndex 
         }
         liElements[nowIndex].children[0].style.color = nowColor;
     }
-    function clickNav() {
+    function clickNav(e) {
+        e.stopPropagation();
+        if (e.target.tagName !== "A") return;
         // 更新索引为当前点击的标签所在的li的索引
-        index = Array.from(liElements).indexOf(this.parentElement);
+        index = Array.from(liElements).indexOf(e.target.parentElement);
         toggleStatus(index, colors[index]);
         // 设置全局的背景色
         if (changeBg) {
@@ -53,9 +55,9 @@ const getColorfulTracker = function (clickItems, trackerItem, colors, pageIndex 
     }
     // 设置事件
     clickElements.forEach(function (element) {
-        element.addEventListener("click", clickNav);
         element.addEventListener("mouseenter", enterNav);
     });
+    clickElements[0].parentElement.parentElement.addEventListener("click", clickNav);
     clickElements[0].parentElement.parentElement.addEventListener("mouseleave", leaveNav);
     // 初始化界面
     toggleStatus(index, colors[index]);
