@@ -24,9 +24,9 @@ nav{
 #public_nav-tracker{
     position: absolute;
     bottom: 0;
-    width: 150px;
+    margin: 0 15px;
+    width: 120px;
     height: 5px;
-    background-color: #ff8c00;
     transition: all 0.3s ease-in-out;
 }
 /* 导航栏结束 */
