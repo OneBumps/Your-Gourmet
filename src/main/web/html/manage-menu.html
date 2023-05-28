@@ -8,7 +8,7 @@
     <meta name="description" content="你的美食家是一个专业的美食网站，提供各式各样的菜谱和食谱，让你轻松学会做出各种美味佳肴。你还可以在这里展示作品，并与其他用户交流心得，分享作品，互相学习">
     <meta name="keywords" content="菜谱,食谱,美食,家常菜,美食网,你的美食家">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <title>填入名字</title>
+    <title>编辑菜谱</title>
     <!-- CSS 基础样式引入-->
     <link rel="stylesheet" href="../css/public/base.css">
     <link rel="stylesheet" href="../css/public/common.css">
@@ -56,13 +56,27 @@
     </nav>
     <!-- 主要部分 -->
     <div class="wrapper">
-        <!-- 你需要编写的内容 -->
-        <!-- 有二级导航需求时使用 -->
-        <div class="sub-nav"></div>
-        <!-- 主体内容使用 -->
+        <div class="sub-nav">
+            <div class="sub-nav-items">
+                <ul>
+                    <li><a href="#">我的菜谱</a></li>
+                    <li><a href="#">菜谱分类</a></li>
+                    <li><a href="#">菜谱专辑</a></li>
+                    <li><a href="#">菜谱食材</a></li>
+                </ul>
+            </div>
+            <div class="manage-menu">
+                <ul>
+                    <li>
+                        <input type="tex" name="menu-classification" class="menu-cla-select" placeholder="类型"
+                            autocomplete="off" readonly>
+                        <option value="ingredient">食材</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+        </div>
         <div class="main"></div>
-        <!-- 有侧边栏需求时使用 -->
-        <div class="aside"></div>
     </div>
     <!-- 公有部分 -->
     <footer>

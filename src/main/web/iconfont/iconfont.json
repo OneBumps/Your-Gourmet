@@ -1,0 +1,16 @@
+{
+  "id": "4091335",
+  "name": "yourgourmet",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "7461690",
+      "name": "下拉",
+      "font_class": "xiala",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    }
+  ]
+}

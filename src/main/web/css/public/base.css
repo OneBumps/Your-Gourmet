@@ -1,13 +1,16 @@
 /*
     全局样式：
-    1.清除默认内外边距
-    2.清除列表样式
-    3.清除链接下划线
+    1. 清除默认内外边距
+    2. 清除列表样式
+    3. 清除链接下划线
+    4. 设置默认字体族
+    5. 清除浮动影响
 */
 
 * {
     margin: 0;
     padding: 0;
+    font-family: Microsoft YaHei, sans-serif;
 }
 
 li {
@@ -16,4 +19,14 @@ li {
 
 a {
     text-decoration: none;
+}
+
+.clearfix::before,
+.clearfix::after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
 }
