@@ -15,6 +15,14 @@
     <link rel="stylesheet" href="../iconfont/iconfont.css">
     <style>
         #canvas {
+            margin: 200px 400px;
+            border: 1px solid grey;
+            border-radius: 25px;
+            box-shadow: 5px 5px 5px grey;
+        }
+        #block{
+            margin: 100px auto;
+            margin-right: 400px;
             border: 1px solid grey;
             border-radius: 25px;
             box-shadow: 5px 5px 5px grey;
@@ -24,9 +32,11 @@
 </head>
 
 <body>
+    <!-- 图片显示画布 -->
     <canvas id="canvas" width="500px" height="300px">
         <h1>您的浏览器不支持canvas!</h1>
     </canvas>
+    <!-- 拼图块画布 -->
     <canvas id="block" width="500px" height="300px" class="block">
         您的浏览器不支持canvas!
     </canvas>

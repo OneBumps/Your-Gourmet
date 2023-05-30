@@ -3,10 +3,11 @@ body{
     min-width: 1024px;
 }
 main{
-    background-color: orange;
+    background-color: lightgrey;
+    border-radius: 25px;
     margin: 0 auto;
-    margin-top: 60px;
-    width: 1000px;
+    margin-top: 40px;
+    width: 1300px;
     box-shadow:
         19.4px 20.4px 23.4px rgba(0, 0, 0, 0.068),
         31.1px 32.7px 58.1px rgba(0, 0, 0, 0.108),
@@ -18,14 +19,14 @@ ul,li{
     margin: 10px;
 }
 
-.header{
+.header1{
     height: 40px;
     background-color: white;
     border-bottom: 1px solid green;
     border-radius: 25px 25px 0 0;
 }
 /* 头部设置 */
-.header > div{
+.header1 > div{
     margin-left: 16px;
     line-height: 40px;
     font-size: 16px;
@@ -75,7 +76,6 @@ ul,li{
 
 /* 点赞图标块 */
 .section .menuMessages .text > div:nth-child(2) .icon{
-    border: 1px solid blue;
     box-sizing: border-box;
     width: 32px;
     position: fixed;
@@ -90,7 +90,6 @@ ul,li{
     height: 16px;
     margin: 30px auto;
     margin-bottom: 30px;
-    border: 1px solid green;
     cursor: pointer;
 }
 /* 设置icon变化 */
