@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="你的美食家是一个专业的美食网站，提供各式各样的菜谱和食谱，让你轻松学会做出各种美味佳肴。你还可以在这里展示作品，并与其他用户交流心得，分享作品，互相学习">
+    <meta name="keywords" content="菜谱,食谱,美食,家常菜,美食网,你的美食家">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <title>填入名字</title>
+    <!-- CSS 基础样式引入-->
+    <link rel="stylesheet" href="../css/public/base.css">
+    <link rel="stylesheet" href="../css/public/common.css">
+    <link rel="stylesheet" href="../iconfont/iconfont.css">
+    <!-- CSS 自定义样式引入-->
+    <link rel="stylesheet" href="../css/release-menu/main.css">
+</head>
+
+<body>
+    <!-- 公有部分 -->
+
+    <nav>
+        <div class="nav">
+            <div class="navitems">
+                <ul>
+                    <li><a>首页</a></li>
+                    <li><a href="#">家常菜谱</a></li>
+                    <li><a href="#">家常菜谱</a></li>
+                    <li><a href="#">家常菜谱</a></li>
+                    <li><a href="#">家常菜谱</a></li>
+                    <li><a href="#">家常菜谱</a></li>
+                </ul>
+                <div id="public_nav-tracker"></div>
+            </div>
+        </div>
+    </nav>
+    <!-- 主要部分 -->
+    <main>
+        <div class="main">
+            <div class="top-bar wrapper">
+                <i class="iconfont icon-edit"></i>
+                <h1>发布菜谱</h1>
+            </div>
+            <form action="/FormProcess" method="POST" enctype="multipart/form-data">
+                <div class="menu-name wrapper">
+                    <h4 class="required-items">菜谱名称</h4>
+                    <input type="text" name="menuName" placeholder="把你的菜谱名字分享给大家吧" autofocus>
+                    <span class="text-warning" id="unavailable">该名字不可用</span>
+                </div>
+                <div class="menu-photos wrapper">
+                    <h4 class="required-items">菜谱介绍图<span>至少一张</span><span>最多九张</span></h4>
+                    <div class="photo-bar"><img><img>
+                        <label>
+                            <input type="file" name="menuPhotos" max="10000000" multiple accept="image/*">
+                            <i class="iconfont icon-icadd "></i>
+                        </label>
+                    </div>
+                </div>
+                <div class="menu-introduction wrapper">
+                    <h4>菜谱描述</h4>
+                    <textarea name="menuIntroduction" placeholder="介绍一下你的菜谱，给你的菜谱加点料"></textarea>
+                    <div class="additional"><span>0</span> / 500 字</div>
+                </div>
+                <div class="ingredient wrapper">
+                    <h4 class="required-items">所需的食材</h4>
+                    <div class="ingredient-group">
+                        <input type="text" name="ingredient" placeholder="输入食材名称">
+                        <input type="text" name="dosage" placeholder="输入食材用量">
+                        <a>
+                            <div class="iconfont icon-iconset0323 add-ingredient" id="addIngredient"></div>
+                        </a>
+                    </div>
+                    <div class="ingredient-group">
+                        <input type="text" name="ingredient" placeholder="输入食材名称">
+                        <input type="text" name="dosage" placeholder="输入食材用量">
+                        <a>
+                            <div class="iconfont icon-iconset0323 add-ingredient" id="addIngredient"></div>
+                        </a>
+                    </div>
+                    <div class="ingredient-group">
+                        <input type="text" name="ingredient" placeholder="输入食材名称">
+                        <input type="text" name="dosage" placeholder="输入食材用量">
+                        <a>
+                            <div class="iconfont icon-iconset0323 add-ingredient" id="addIngredient"></div>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="menu-steps wrapper">
+                    <h4 class="required-items">添加步骤</h4>
+                    <span>拖动序号移动步骤顺序</span>
+                    <div class="step-group">
+                        <label>
+                            <input type="file" name="menuSteps" max="10000000" accept="image/*">
+                            <i class="iconfont icon-icadd"></i>
+                            <span>添加图片</span>
+                        </label>
+                        <div class="step-list">1</div>
+                        <textarea name="stepDescription" placeholder="请输入步骤描述"></textarea>
+                        <div class="step-action-bar">
+                            <a href="#"><i class="iconfont icon-icadd">添加</i></a>
+                            <a href="#"><i class="iconfont icon-delete delete-step">删除</i></a>
+                        </div>
+                    </div>
+                    <div class="step-group">
+                        <label>
+                            <input type="file" name="menuSteps" max="10000000" accept="image/*">
+                            <i class="iconfont icon-icadd"></i>
+                            <span>添加图片</span>
+                        </label>
+                        <div class="step-list">2</div>
+                        <textarea name="stepDescription" placeholder="请输入步骤描述"></textarea>
+                        <div class="step-action-bar">
+                            <a href="#"><i class="iconfont icon-icadd">添加</i></a>
+                            <a href="#"><i class="iconfont icon-delete delete-step">删除</i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="publish-menu wrapper">
+                    <button type="button" class="submit-menu">发布菜谱</button>
+                    <button type="button" class="save-menu">保存菜谱</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <!-- 公有部分 -->
+    <footer>
+        <div class="footer">
+            <div class="copy">
+                <img src="../img/logo.png" alt="">
+                <p>信息网络传播视听节目许可证：0910417</p>
+            </div>
+            <div class="tel">
+                <h2>客服电话：3256151</h2>
+                <h2>商务合作：13415641464</h2>
+            </div>
+            <div class="link">
+                <dl>
+                    <dt>关于你的美食家</dt>
+                    <dd><a href="#">简介</a></dd>
+                    <dd><a href="#">团队管理</a></dd>
+                    <dd><a href="#">工作机会</a></dd>
+                    <dd><a href="#">客户服务</a></dd>
+                    <dd><a href="#">帮助</a></dd>
+                </dl>
+            </div>
+        </div>
+    </footer>
+    <!-- js 基础样式引入 -->
+    <script src='../js/public/header.js'></script>
+    <!-- js 自定义样式引入-->
+</body>
+
+</html>

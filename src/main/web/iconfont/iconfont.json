@@ -6,6 +6,34 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "548073",
+      "name": "delete",
+      "font_class": "delete",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "554376",
+      "name": "购物篮-添加",
+      "font_class": "iconset0323",
+      "unicode": "e6de",
+      "unicode_decimal": 59102
+    },
+    {
+      "icon_id": "540343",
+      "name": "ic_add",
+      "font_class": "icadd",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "8106219",
+      "name": "edit",
+      "font_class": "edit",
+      "unicode": "e69a",
+      "unicode_decimal": 59034
+    },
+    {
       "icon_id": "7461690",
       "name": "下拉",
       "font_class": "xiala",
