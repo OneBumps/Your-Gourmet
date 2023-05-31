@@ -11,6 +11,23 @@ a {
     color: black;
 }
 
+button {
+    padding: 8px 16px;
+    border-radius: 10px;
+    background-color: inherit;
+    border: 2px solid rgb(115, 115, 119);
+}
+
+button:hover {
+    background-color: rgba(115, 115, 119, 0.151);
+    cursor: pointer;
+}
+
+button:active {
+    border: #0d6feef6 2px solid;
+    outline: #0d6feef6 2px solid;
+}
+
 /*--- wrapper ---*/
 .wrapper {
     margin: 50px auto;
@@ -49,9 +66,10 @@ a {
 }
 
 /*--- main ---*/
-.main{
+.main {
     padding-top: 10px;
 }
+
 /*设置按钮样式*/
 .manage button,
 .list-box button {
@@ -66,6 +84,7 @@ a {
 .list-box p {
     text-indent: 2em;
 }
+
 /*--- sub-nav ---*/
 /*列表样式*/
 .sub-nav {
