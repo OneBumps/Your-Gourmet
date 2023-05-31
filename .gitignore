@@ -40,4 +40,4 @@ build/
 
 
 
-!**/src/main/web/video/
+/src/main/web/video/
