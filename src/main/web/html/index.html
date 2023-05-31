@@ -43,7 +43,7 @@
     <!-- 头部介绍 -->
     <!-- 导航栏开始 -->
     <nav>
-        <div class="nav_box">
+        <div class="nav">
             <div class="navitems">
                 <ul>
                     <li><a>首页</a></li>
@@ -60,10 +60,10 @@
     </nav>
     <!-- 导航栏结束 -->
     <!-- 主题开始 -->
-    <main>
-        <div class="main_h">
-            <div class="picture">
-                <div class="wrapper">
+    <div class="wrapper">
+        <div class="main">
+            <div class="main_hea">
+                <div class="picture">
                     <ul id="list">
                         <li><a href="#">
                                 <img src="../img/login.png" alt="">
@@ -85,7 +85,7 @@
 
                 <div class="picture_text">
                     <ul>
-                        <li><a href="#">西餐</a> </li>
+                        <li id="bn1" onmouseover="check()"><a href="#">西餐</a> </li>
                         <li><a href="">粤菜</a></li>
                         <li><a href="">川菜</a></li>
                         <li><a href="">家常菜</a></li>
@@ -101,19 +101,29 @@
         <div class="main_mid">
             <h2>今日热门菜谱视频</h2>
             <div class="video">
-
-                <video controls>
-                    <source src="" type="">
-                </video>
-                <video controls>
-                    <source src="" type="">
-                </video>
-                <video controls>
-                    <source src="" type="">
-                </video>
-                <video controls>
-                    <source src="" type="">
-                </video>
+                <ul>
+                    <li>
+                        <video   loop="loop" controls>
+                            <source src="../video/FIFA 23 2022-12-17 15-24-15.mp4" type="video/MP4" >
+                        </video>
+                    </li>
+                    <li>
+                        <video controls>
+                            <source src="" type="">
+                        </video>
+                    </li>
+                    <li>
+                        <video controls>
+                            <source src="" type="">
+                        </video>
+                    </li>
+                    <li>
+                        <video controls>
+                            <source src="" type="">
+                        </video>
+                    </li>
+                </ul>
+                
             </div>
         </div>
         <div class="main_f">
@@ -206,11 +216,13 @@
                 </ul>
             </div>
         </div>
-    </main>
+    </div>
+        
+   
     <!-- 主体结束 -->
     <!-- 底部开始 -->
     <footer>
-        <div class="footer_box">
+        <div class="footer">
             <div class="copy">
                 <img src="../img/logo.png" alt="">
                 <p>信息网络传播视听节目许可证：0910417</p>
@@ -237,6 +249,6 @@
     <script src='../js/public/header.js'></script>
     <!-- js 自定义样式引入-->
 </body>
-
+<script src="../js/index/main.js"></script>
 
 </html>
