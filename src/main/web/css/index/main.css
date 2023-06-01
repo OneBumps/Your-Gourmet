@@ -144,8 +144,38 @@
     justify-content: space-between;
     margin-left: 10px;
     margin-top: 20px;
+    position: relative;
 }
+.main_mid .video video{
+    border-radius: 8%;
+    height: 100%;
+    width: 100%;
+    object-fit:fill;
+   
+}
+.video.prism-big-play-btn {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 48%;
+    width: 64px;
+    height: 64px;
+    background: url("../../img/9e61bca1432146d2bb39c4e09521af32.png") no-repeat;
+    background-size: contain;
+    cursor: pointer;
 
+}
+.video.prism-big-play-btn.outter{
+    border: 7px solid rgba(255, 255, 255, 0.51);
+            width: 64px;
+            height: 64px;
+            border-radius: 100%;
+            position: absolute;
+            box-sizing: border-box;
+            top: 0;
+            left: 0;
+
+}
 /* 视频结束 */
 /* 核心内容开始 */
 .main_f {
@@ -189,11 +219,7 @@
     font-weight: bold;
     margin-right: 100px;
 }
-.main_mid .video video{
-    border-radius: 8%;
-    height: 100%;
-    width: 100%;
-}
+
 .main_mid .video video::-webkit-media-controls-current-time-display{
     display: none;
 }
@@ -212,9 +238,13 @@
 .main_mid .video video::-webkit-media-controls-fullscreen-button{
     display: none;
 }
-/* .main_mid .video video::-webkit-media-controls-play-button{
-    display: none;
-} */
+.main_mid .video video::-webkit-media-controls-play-button{
+    position: absolute;
+    left: 150px;
+    top: -10px;
+    width: 10px;
+    height: 50px;
+} 
 .main_mid .video video::-webkit-media-controls-mute-button{
     display: none;
 }
