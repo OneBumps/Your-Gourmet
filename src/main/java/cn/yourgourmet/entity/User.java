@@ -1,115 +1,120 @@
 package cn.yourgourmet.entity;
 
+import org.apache.ibatis.type.Alias;
+
+import java.util.Arrays;
+
 /**
  * 用户实体类 用户表
  */
+@Alias("User")
 public class User implements java.io.Serializable {
 
-    private static final long serialVersionUID = 838026389105996578L;
-    private int userId;
-    private String userName;
-    private String password;
-    private String email;
-    private String phone;
+    private static final long serialVersionUID = 2990519417178527722L;
+    private String userId;
+    private String username;
+    private String userPassword;
+    private String userEmail;
+    private String userPhone;
     private String userGroup;
-    private String gender;
-    private String userIntro;
-    private byte[] avatar;
+    private String userGender;
+    private String userIntroduction;
+    private byte[] userAvatar;
 
     public User() {
     }
 
     /**
      * @param userId    用户Id
-     * @param userName  用户名
-     * @param password  密码
-     * @param email     邮箱
-     * @param phone     电话
+     * @param username  用户名
+     * @param userPassword  密码
+     * @param userEmail     邮箱
+     * @param userPhone     电话
      * @param userGroup 用户分组
-     * @param gender    性别
-     * @param userIntro 用户简介
-     * @param avatar    头像
+     * @param userGender    性别
+     * @param userIntroduction 用户简介
+     * @param userAvatar    头像
      */
-    public User(int userId, String userName, String password, String email, String phone, String userGroup, String gender, String userIntro, byte[] avatar) {
+    public User(String userId, String username, String userPassword, String userEmail, String userPhone, String userGroup, String userGender, String userIntroduction, byte[] userAvatar) {
         this.userId = userId;
-        this.userName = userName;
-        this.password = password;
-        this.email = email;
-        this.phone = phone;
+        this.username = username;
+        this.userPassword = userPassword;
+        this.userEmail = userEmail;
+        this.userPhone = userPhone;
         this.userGroup = userGroup;
-        this.gender = gender;
-        this.userIntro = userIntro;
-        this.avatar = avatar;
+        this.userGender = userGender;
+        this.userIntroduction = userIntroduction;
+        this.userAvatar = userAvatar;
     }
 
     /**
      * @return 用户Id
      */
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
     /**
      * @param userId 用户Id
      */
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
     /**
      * @return 用户名
      */
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
     /**
-     * @param userName 用户名
+     * @param username 用户名
      */
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     /**
      * @return 密码
      */
-    public String getPassword() {
-        return password;
+    public String getUserPassword() {
+        return userPassword;
     }
 
     /**
-     * @param password 密码
+     * @param userPassword 密码
      */
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
     /**
      * @return 邮箱
      */
-    public String getEmail() {
-        return email;
+    public String getUserEmail() {
+        return userEmail;
     }
 
     /**
-     * @param email 邮箱
+     * @param userEmail 邮箱
      */
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     /**
      * @return 电话
      */
-    public String getPhone() {
-        return phone;
+    public String getUserPhone() {
+        return userPhone;
     }
 
     /**
-     * @param phone 电话
+     * @param userPhone 电话
      */
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone;
     }
 
     /**
@@ -129,42 +134,57 @@ public class User implements java.io.Serializable {
     /**
      * @return 性别
      */
-    public String getGender() {
-        return gender;
+    public String getUserGender() {
+        return userGender;
     }
 
     /**
-     * @param gender 性别
+     * @param userGender 性别
      */
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setUserGender(String userGender) {
+        this.userGender = userGender;
     }
 
     /**
      * @return 用户简介
      */
-    public String getUserIntro() {
-        return userIntro;
+    public String getUserIntroduction() {
+        return userIntroduction;
     }
 
     /**
-     * @param userIntro 用户简介
+     * @param userIntroduction 用户简介
      */
-    public void setUserIntro(String userIntro) {
-        this.userIntro = userIntro;
+    public void setUserIntroduction(String userIntroduction) {
+        this.userIntroduction = userIntroduction;
     }
 
     /**
      * @return 头像
      */
-    public byte[] getAvatar() {
-        return avatar;
+    public byte[] getUserAvatar() {
+        return userAvatar;
     }
 
     /**
-     * @param avatar 头像
+     * @param userAvatar 头像
      */
-    public void setAvatar(byte[] avatar) {
-        this.avatar = avatar;
+    public void setUserAvatar(byte[] userAvatar) {
+        this.userAvatar = userAvatar;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", userName='" + username + '\'' +
+                ", password='" + userPassword + '\'' +
+                ", email='" + userEmail + '\'' +
+                ", phone='" + userPhone + '\'' +
+                ", userGroup='" + userGroup + '\'' +
+                ", gender='" + userGender + '\'' +
+                ", userIntro='" + userIntroduction + '\'' +
+                ", avatar=" + Arrays.toString(userAvatar) +
+                '}';
     }
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <package name="cn.yourgourmet.entity"/>
+    </typeAliases>
+    <environments default="development-mysql-c3p0">
+        <environment id="development-mysql-c3p0">
+            <transactionManager type="JDBC"/>
+            <dataSource type="cn.yourgourmet.util.C3P0Util" />
+        </environment>
+        <environment id="development-mysql-JDBC">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/yourgourmet?useSSL=false"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <package name="cn.yourgourmet.mapper"/>
+    </mappers>
+</configuration>    
