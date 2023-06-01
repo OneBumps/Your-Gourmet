@@ -1,13 +1,16 @@
 package cn.yourgourmet.entity;
 
+import org.apache.ibatis.type.Alias;
+
 /**
  * 用户实体类 归属表  【菜谱--归属--菜系】
  */
+@Alias("Belong")
 public class Belong implements java.io.Serializable {
     private static final long serialVersionUID = 5101892586614439416L;
 
-    private int recipeId;
-    private int cuisineId;
+    private Integer recipeId;
+    private Integer cuisineId;
 
     public Belong() {
     }
@@ -16,7 +19,7 @@ public class Belong implements java.io.Serializable {
      * @param recipeId  菜谱Id
      * @param cuisineId 菜系Id
      */
-    public Belong(int recipeId, int cuisineId) {
+    public Belong(Integer recipeId, Integer cuisineId) {
         this.recipeId = recipeId;
         this.cuisineId = cuisineId;
     }
@@ -24,28 +27,36 @@ public class Belong implements java.io.Serializable {
     /**
      * @return 菜谱Id
      */
-    public int getRecipeId() {
+    public Integer getRecipeId() {
         return recipeId;
     }
 
     /**
      * @param recipeId 菜谱Id
      */
-    public void setRecipeId(int recipeId) {
+    public void setRecipeId(Integer recipeId) {
         this.recipeId = recipeId;
     }
 
     /**
      * @return 菜系Id
      */
-    public int getCuisineId() {
+    public Integer getCuisineId() {
         return cuisineId;
     }
 
     /**
      * @param cuisineId 菜系Id
      */
-    public void setCuisineId(int cuisineId) {
+    public void setCuisineId(Integer cuisineId) {
         this.cuisineId = cuisineId;
+    }
+
+    @Override
+    public String toString() {
+        return "Belong{" +
+                "recipeId=" + recipeId +
+                ", cuisineId=" + cuisineId +
+                '}';
     }
 }

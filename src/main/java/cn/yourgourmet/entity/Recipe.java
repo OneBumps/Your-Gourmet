@@ -1,76 +1,77 @@
 package cn.yourgourmet.entity;
 
-import jdk.internal.org.objectweb.asm.ByteVector;
+import org.apache.ibatis.type.Alias;
 
-import java.awt.*;
+import java.util.Arrays;
 import java.util.Date;
 
 /**
  * 用户实体类 菜谱表
  */
+@Alias("Recipe")
 public class Recipe implements java.io.Serializable {
     private static final long serialVersionUID = 6859146815109407023L;
-    private int recipeId;
-    private int userId;
+    private Integer recipeId;
+    private String userId;
     private Date recipePublishTime;
-    private String DishName;
-    private byte[] recipeImage;
-    private String recipeIntro;
-    private String recipeVideoLocation;
-    private String likeCount;
-    private String dislikeCount;
+    private String recipeName;
+    private String recipeImage;
+    private String recipeIntroduction;
+    private String recipeVideo;
+    private Integer recipeLike;
+    private Integer recipeDislike;
 
     public Recipe() {
     }
 
     /**
-     * @param recipeId            菜谱ID
-     * @param userId              用户ID
-     * @param recipePublishTime   发布时间
-     * @param dishName            菜名
-     * @param recipeImage         菜谱图片
-     * @param recipeIntro         菜谱简介
-     * @param recipeVideoLocation 菜谱视频
-     * @param likeCount           点赞数
-     * @param dislikeCount        点踩数
+     * @param recipeId           菜谱ID
+     * @param userId             用户ID
+     * @param recipePublishTime  发布时间
+     * @param recipeName         菜名
+     * @param recipeImage        菜谱图片
+     * @param recipeIntroduction 菜谱简介
+     * @param recipeVideo        菜谱视频
+     * @param recipeLike         点赞数
+     * @param recipeDislike      点踩数
      */
-    public Recipe(int recipeId, int userId, Date recipePublishTime, String dishName, byte[] recipeImage, String recipeIntro, String recipeVideoLocation, String likeCount, String dislikeCount) {
+    public Recipe(Integer recipeId, String userId, Date recipePublishTime, String recipeName, String recipeImage, String recipeIntroduction, String recipeVideo, Integer recipeLike, Integer recipeDislike) {
         this.recipeId = recipeId;
         this.userId = userId;
         this.recipePublishTime = recipePublishTime;
-        DishName = dishName;
+        this.recipeName = recipeName;
         this.recipeImage = recipeImage;
-        this.recipeIntro = recipeIntro;
-        this.recipeVideoLocation = recipeVideoLocation;
-        this.likeCount = likeCount;
-        this.dislikeCount = dislikeCount;
+        this.recipeIntroduction = recipeIntroduction;
+        this.recipeVideo = recipeVideo;
+        this.recipeLike = recipeLike;
+        this.recipeDislike = recipeDislike;
     }
 
     /**
      * @return 菜谱ID
      */
-    public int getRecipeId() {
+    public Integer getRecipeId() {
         return recipeId;
     }
 
     /**
      * @param recipeId 菜谱ID
      */
-    public void setRecipeId(int recipeId) {
+    public void setRecipeId(Integer recipeId) {
         this.recipeId = recipeId;
     }
 
     /**
      * @return 用户ID
      */
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
     /**
      * @param userId 用户ID
      */
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -91,84 +92,99 @@ public class Recipe implements java.io.Serializable {
     /**
      * @return 菜名
      */
-    public String getDishName() {
-        return DishName;
+    public String getRecipeName() {
+        return recipeName;
     }
 
     /**
-     * @param dishName 菜名
+     * @param recipeName 菜名
      */
-    public void setDishName(String dishName) {
-        DishName = dishName;
+    public void setRecipeName(String recipeName) {
+        this.recipeName = recipeName;
     }
 
     /**
      * @return 菜谱图片
      */
-    public byte[] getRecipeImage() {
+    public String getRecipeImage() {
         return recipeImage;
     }
 
     /**
      * @param recipeImage 菜谱图片
      */
-    public void setRecipeImage(byte[] recipeImage) {
+    public void setRecipeImage(String recipeImage) {
         this.recipeImage = recipeImage;
     }
 
     /**
      * @return 菜谱简介
      */
-    public String getRecipeIntro() {
-        return recipeIntro;
+    public String getRecipeIntroduction() {
+        return recipeIntroduction;
     }
 
     /**
-     * @param recipeIntro 菜谱简介
+     * @param recipeIntroduction 菜谱简介
      */
-    public void setRecipeIntro(String recipeIntro) {
-        this.recipeIntro = recipeIntro;
+    public void setRecipeIntroduction(String recipeIntroduction) {
+        this.recipeIntroduction = recipeIntroduction;
     }
 
     /**
      * @return 菜谱视频
      */
-    public String getRecipeVideoLocation() {
-        return recipeVideoLocation;
+    public String getRecipeVideo() {
+        return recipeVideo;
     }
 
     /**
-     * @param recipeVideoLocation 菜谱视频
+     * @param recipeVideo 菜谱视频
      */
-    public void setRecipeVideoLocation(String recipeVideoLocation) {
-        this.recipeVideoLocation = recipeVideoLocation;
+    public void setRecipeVideo(String recipeVideo) {
+        this.recipeVideo = recipeVideo;
     }
 
     /**
      * @return 点赞数
      */
-    public String getLikeCount() {
-        return likeCount;
+    public Integer getRecipeLike() {
+        return recipeLike;
     }
 
     /**
-     * @param likeCount 点赞数
+     * @param recipeLike 点赞数
      */
-    public void setLikeCount(String likeCount) {
-        this.likeCount = likeCount;
+    public void setRecipeLike(Integer recipeLike) {
+        this.recipeLike = recipeLike;
     }
 
     /**
      * @return 点踩数
      */
-    public String getDislikeCount() {
-        return dislikeCount;
+    public Integer getRecipeDislike() {
+        return recipeDislike;
     }
 
     /**
-     * @param dislikeCount 点踩数
+     * @param recipeDislike 点踩数
      */
-    public void setDislikeCount(String dislikeCount) {
-        this.dislikeCount = dislikeCount;
+    public void setRecipeDislike(Integer recipeDislike) {
+        this.recipeDislike = recipeDislike;
+    }
+
+    @Override
+    public String toString() {
+        return "Recipe{" +
+                "recipeId=" + recipeId +
+                ", userId='" + userId + '\'' +
+                ", recipePublishTime=" + recipePublishTime +
+                ", recipeName='" + recipeName + '\'' +
+                ", recipeImage='" + recipeImage + '\'' +
+                ", recipeIntroduction='" + recipeIntroduction + '\'' +
+                ", recipeVideo='" + recipeVideo + '\'' +
+                ", recipeLike=" + recipeLike +
+                ", recipeDislike=" + recipeDislike +
+                '}';
     }
 }

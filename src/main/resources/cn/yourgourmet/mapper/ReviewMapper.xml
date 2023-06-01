@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.yourgourmet.mapper.ReviewMapper">
+    <resultMap id="reviewResultMap" type="Review">
+        <result column="pk_fk_user_id" property="userId"/>
+        <result column="pk_fk_recipe_id" property="recipeId"/>
+        <result column="pk_review_time" property="reviewTime"/>
+        <result column="review_image" property="reviewImage"/>
+        <result column="review_content" property="reviewContent"/>
+    </resultMap>
+    <select id="" resultMap="reviewResultMap">
+
+    </select>
+</mapper>
