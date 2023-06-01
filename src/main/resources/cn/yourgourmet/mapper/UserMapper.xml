@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.yourgourmet.mapper.UserMapper">
+    <resultMap id="userResultMap" type="User">
+        <result column="pk_user_id" property="userId"/>
+        <result column="user_name" property="username"/>
+        <result column="user_phone" property="userPhone"/>
+        <result column="user_password" property="userPassword"/>
+        <result column="user_group" property="userGroup"/>
+        <result column="user_gender" property="userGender"/>
+        <result column="user_email" property="userEmail"/>
+        <result column="user_avatar" property="userAvatar"/>
+        <result column="user_introduction" property="userIntroduction"/>
+    </resultMap>
+    <select id="selectByUserIdAndPassword" resultMap="userResultMap">
+        SELECT pk_user_id, user_password
+        FROM user WHERE pk_user_id = #{userId} AND user_password = #{userPassword};
+    </select>
+</mapper>

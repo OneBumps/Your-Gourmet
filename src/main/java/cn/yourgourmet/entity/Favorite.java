@@ -1,12 +1,15 @@
 package cn.yourgourmet.entity;
 
+import org.apache.ibatis.type.Alias;
+
 /**
  * 用户实体类 收藏表  【用户--收藏--菜谱】
  */
+@Alias("Favorite")
 public class Favorite implements java.io.Serializable {
     private static final long serialVersionUID = -3232444241106115454L;
-    private int userId;
-    private int recipeId;
+    private String userId;
+    private Integer recipeId;
 
     public Favorite() {
     }
@@ -15,7 +18,7 @@ public class Favorite implements java.io.Serializable {
      * @param userId   用户id
      * @param recipeId 菜谱id
      */
-    public Favorite(int userId, int recipeId) {
+    public Favorite(String userId, Integer recipeId) {
         this.userId = userId;
         this.recipeId = recipeId;
     }
@@ -23,28 +26,36 @@ public class Favorite implements java.io.Serializable {
     /**
      * @return 用户id
      */
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
     /**
      * @param userId 用户id
      */
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
     /**
      * @return 菜谱id
      */
-    public int getRecipeId() {
+    public Integer getRecipeId() {
         return recipeId;
     }
 
     /**
      * @param recipeId 菜谱id
      */
-    public void setRecipeId(int recipeId) {
+    public void setRecipeId(Integer recipeId) {
         this.recipeId = recipeId;
+    }
+
+    @Override
+    public String toString() {
+        return "Favorite{" +
+                "userId=" + userId +
+                ", recipeId=" + recipeId +
+                '}';
     }
 }

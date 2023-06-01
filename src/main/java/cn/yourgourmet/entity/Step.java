@@ -1,13 +1,16 @@
 package cn.yourgourmet.entity;
 
+import org.apache.ibatis.type.Alias;
+
 /**
  * 用户实体类 步骤表
  */
+@Alias("Step")
 public class Step implements java.io.Serializable {
     private static final long serialVersionUID = -5282171077986990660L;
-    private int recipeId;
-    private int stepId;
-    private String stepImageLocation;
+    private Integer recipeId;
+    private Integer stepNumber;
+    private String stepImage;
     private String stepDescription;
 
     public Step() {
@@ -15,57 +18,57 @@ public class Step implements java.io.Serializable {
 
     /**
      * @param recipeId          菜谱Id
-     * @param stepId            步骤Id
-     * @param stepImageLocation 步骤图片位置
+     * @param stepNumber            步骤Id
+     * @param stepImage 步骤图片位置
      * @param stepDescription   步骤描述
      */
-    public Step(int recipeId, int stepId, String stepImageLocation, String stepDescription) {
+    public Step(Integer recipeId, Integer stepNumber, String stepImage, String stepDescription) {
         this.recipeId = recipeId;
-        this.stepId = stepId;
-        this.stepImageLocation = stepImageLocation;
+        this.stepNumber = stepNumber;
+        this.stepImage = stepImage;
         this.stepDescription = stepDescription;
     }
 
     /**
      * @return 菜谱Id
      */
-    public int getRecipeId() {
+    public Integer getRecipeId() {
         return recipeId;
     }
 
     /**
      * @param recipeId 菜谱Id
      */
-    public void setRecipeId(int recipeId) {
+    public void setRecipeId(Integer recipeId) {
         this.recipeId = recipeId;
     }
 
     /**
      * @return 步骤Id
      */
-    public int getStepId() {
-        return stepId;
+    public Integer getStepNumber() {
+        return stepNumber;
     }
 
     /**
-     * @param stepId 步骤Id
+     * @param stepNumber 步骤Id
      */
-    public void setStepId(int stepId) {
-        this.stepId = stepId;
+    public void setStepNumber(Integer stepNumber) {
+        this.stepNumber = stepNumber;
     }
 
     /**
      * @return 步骤图片位置
      */
-    public String getStepImageLocation() {
-        return stepImageLocation;
+    public String getStepImage() {
+        return stepImage;
     }
 
     /**
-     * @param stepImageLocation 步骤图片位置
+     * @param stepImage 步骤图片位置
      */
-    public void setStepImageLocation(String stepImageLocation) {
-        this.stepImageLocation = stepImageLocation;
+    public void setStepImage(String stepImage) {
+        this.stepImage = stepImage;
     }
 
     /**
@@ -80,6 +83,16 @@ public class Step implements java.io.Serializable {
      */
     public void setStepDescription(String stepDescription) {
         this.stepDescription = stepDescription;
+    }
+
+    @Override
+    public String toString() {
+        return "Step{" +
+                "recipeId=" + recipeId +
+                ", stepId=" + stepNumber +
+                ", stepImageLocation='" + stepImage + '\'' +
+                ", stepDescription='" + stepDescription + '\'' +
+                '}';
     }
 }
 
