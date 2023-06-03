@@ -6,3 +6,6 @@ function check(){
     pic.style.left='400px';
     
 }
+var video = document.getElementById('#qqq');
+//console.log(video); //通过打印拿到所有的属性和方法
+video[0]['disablePictureInPicture'] = true; //
