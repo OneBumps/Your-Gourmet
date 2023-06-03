@@ -5,7 +5,7 @@
 <mapper namespace="cn.yourgourmet.mapper.UserMapper">
     <resultMap id="userResultMap" type="User">
         <result column="pk_user_id" property="userId"/>
-        <result column="user_name" property="username"/>
+        <result column="user_name" property="userName"/>
         <result column="user_phone" property="userPhone"/>
         <result column="user_password" property="userPassword"/>
         <result column="user_group" property="userGroup"/>
@@ -14,8 +14,13 @@
         <result column="user_avatar" property="userAvatar"/>
         <result column="user_introduction" property="userIntroduction"/>
     </resultMap>
-    <select id="selectByUserIdAndPassword" resultMap="userResultMap">
-        SELECT pk_user_id, user_password
-        FROM user WHERE pk_user_id = #{userId} AND user_password = #{userPassword};
+    <insert id="insertUser">
+        INSERT INTO user(pk_user_id, user_name, user_password, user_phone) VALUES(#{userId}, #{userName}, #{userPassword}, #{userPhone});
+    </insert>
+    <select id="selectByUserIdAndPassword" resultType="java.lang.Boolean">
+        SELECT EXISTS(SELECT pk_user_id FROM user WHERE pk_user_id = #{userId} AND user_password = #{userPassword});
+    </select>
+    <select id="selectByUserId" resultType="java.lang.Boolean">
+        SELECT EXISTS(SELECT pk_user_id FROM user WHERE pk_user_id = #{userId});
     </select>
 </mapper>
