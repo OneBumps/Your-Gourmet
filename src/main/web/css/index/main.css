@@ -136,7 +136,7 @@
     font-size: 20px;
 }
 
-.main_mid .video li {
+.main_mid .video ul li {
     display: block;
     width: 18%;
     height: 450px;
@@ -153,7 +153,31 @@
     object-fit:fill;
    
 }
-.video.prism-big-play-btn {
+.main_mid .video li .text_m{
+    position: absolute;
+    bottom: 50px;
+    left: 15px;
+    width: 100px;
+    height: 50px;
+}
+.main_mid .video li .text_m h3,.h4{
+    color: rgb(252, 247, 247);
+    font-weight: bold;
+    line-height: 40px;
+    position: relative;
+}
+.main_mid .video li .text_m .h4 img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin: 5px 5px 5px 0;
+    padding-top: px;
+}
+.main_mid .video li .text_m .h4 span{
+    position: absolute;
+    bottom: 15px;
+} 
+video.prism-big-play-btn {
     position: absolute;
     transform: translate(-50%, -50%);
     left: 50%;
@@ -209,7 +233,7 @@
 }
 
 .box-bd .info {
-    margin: 8px 20px 5px 25px;
+    margin: 8px 20px 0px 25px;
     font-size: 16px;
     color: #999;
 }
@@ -229,10 +253,10 @@
 /* .main_mid .video video::-webkit-media-controls{
     display: none !important;
 } */
-.main_mid .video video::-webkit-media-controls-time-display{
+.main_mid .video video::-webkit-media-controls-time{
     display: none;
 }
-.main_mid .video video::-webkit-media-controls-remaining-display{
+.main_mid .video video::-webkit-media-controls-remaining{
     display: none;
 }
 .main_mid .video video::-webkit-media-controls-fullscreen-button{
@@ -245,10 +269,15 @@
     width: 10px;
     height: 50px;
 } 
+.main_mid .video video::-webkit-media-controls-time-remaining-display {
+    display: none !important;
+  }
+  
 .main_mid .video video::-webkit-media-controls-mute-button{
     display: none;
 }
 .main_mid .video video::-webkit-media-controls-toggle-closed-captions-button{
     display: none;
 }
+
 /* 核心内容结束 */

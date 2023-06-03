@@ -24,7 +24,9 @@ public class DemoTest {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         try (SqlSession session = sqlSessionFactory.openSession()) {
             UserMapper mapper = session.getMapper(UserMapper.class);
-            User s = mapper.selectByUserIdAndPassword("ADMINISTRATOR", "9c19ac.4f91e._r41c");
+            // test
+
+           int s = mapper.insert("id5448","1346574","kaka","12345679801");
             System.out.println(s);
         }
     }

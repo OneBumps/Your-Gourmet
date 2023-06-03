@@ -14,6 +14,11 @@
         <result column="user_avatar" property="userAvatar"/>
         <result column="user_introduction" property="userIntroduction"/>
     </resultMap>
+    <insert id="insert">
+        INSERT INTO user(pk_user_id, user_name,user_password,user_phone) VALUES(#{userId},#{userName}, #{userPassword},#{userPhone} );
+    </insert>
+
+
     <select id="selectByUserIdAndPassword" resultMap="userResultMap">
         SELECT pk_user_id, user_password
         FROM user WHERE pk_user_id = #{userId} AND user_password = #{userPassword};
