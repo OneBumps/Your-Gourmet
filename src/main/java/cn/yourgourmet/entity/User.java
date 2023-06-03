@@ -12,7 +12,7 @@ public class User implements java.io.Serializable {
 
     private static final long serialVersionUID = 2990519417178527722L;
     private String userId;
-    private String username;
+    private String userName;
     private String userPassword;
     private String userEmail;
     private String userPhone;
@@ -26,7 +26,7 @@ public class User implements java.io.Serializable {
 
     /**
      * @param userId    用户Id
-     * @param username  用户名
+     * @param userName  用户名
      * @param userPassword  密码
      * @param userEmail     邮箱
      * @param userPhone     电话
@@ -35,9 +35,9 @@ public class User implements java.io.Serializable {
      * @param userIntroduction 用户简介
      * @param userAvatar    头像
      */
-    public User(String userId, String username, String userPassword, String userEmail, String userPhone, String userGroup, String userGender, String userIntroduction, byte[] userAvatar) {
+    public User(String userId, String userName, String userPassword, String userEmail, String userPhone, String userGroup, String userGender, String userIntroduction, byte[] userAvatar) {
         this.userId = userId;
-        this.username = username;
+        this.userName = userName;
         this.userPassword = userPassword;
         this.userEmail = userEmail;
         this.userPhone = userPhone;
@@ -64,15 +64,15 @@ public class User implements java.io.Serializable {
     /**
      * @return 用户名
      */
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
     /**
-     * @param username 用户名
+     * @param userName 用户名
      */
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     /**
@@ -177,7 +177,7 @@ public class User implements java.io.Serializable {
     public String toString() {
         return "User{" +
                 "userId=" + userId +
-                ", userName='" + username + '\'' +
+                ", userName='" + userName + '\'' +
                 ", password='" + userPassword + '\'' +
                 ", email='" + userEmail + '\'' +
                 ", phone='" + userPhone + '\'' +
