@@ -15,26 +15,22 @@
     <link rel="stylesheet" href="../iconfont/iconfont.css">
     <style>
         #canvas {
-            margin: 200px 400px;
+            position: absolute;
+            margin-top: 200px;
+            margin-left: 300px;
             border: 1px solid grey;
             border-radius: 25px;
             box-shadow: 5px 5px 5px grey;
         }
 
         #block {
-            margin: 0 400px;
-            margin-right: 400px;
+            position: absolute;
+            margin-top: 200px ;
+            margin-left: 40px;
             border: 1px solid grey;
-            border-radius: 25px;
-            box-shadow: 5px 5px 5px grey;
-        }
-
-        img {
-            width: 500px;
-            height: 300px;
-            border-radius: 25px;
-            border: 1px solid grey;
-        }
+            /* border-radius: 25px;
+            box-shadow: 5px 5px 5px grey;*/
+        } 
     </style>
 
 </head>
@@ -47,55 +43,43 @@
     </canvas>
 
     <!-- 拼图块画布 -->
-    <canvas id="block" width="500px" height="300px" class="block">
+    <canvas id="block" width="500px" height="300px">
         您的浏览器不支持canvas!
     </canvas>
+    <div>
+        <img src="../img/icon/slidevirifypage/slidediv.png" alt="">
+    </div>
 
     <script language="javascript">
 
+        //背景图片画布
         var canvas = document.getElementById("canvas");
         var canvasCtx = canvas.getContext("2d");
+        //滑块图片画布
         var block = document.getElementById("block");
         var blockCtx = block.getContext("2d");
 
-        // 定义画布的宽度和高度
-        const w = 500;
-        const h = 300;
+        var cvsImg = new Image();
+        cvsImg.src = "../img/icon/slidevirifypage/slideimg.jpg";
 
-        var img = new Image();
-        img.src = "../img/icon/slidevirifypage/slideimg.jpg";
         window.onload = function () {
-            canvasCtx.drawImage(img, 0, 0, canvas.width, canvas.height);
-
+            canvasCtx.drawImage(cvsImg, 0, 0, 500, 300);
+            // 绘制画布背景图片
+            canvasCtx.beginPath();
+            canvasCtx.rect(350, 50, 50, 50);
+            canvasCtx.closePath();
+            canvasCtx.clearRect(300,50,50,50);
+            canvasCtx.closePath();
+            //绘制图片块
             blockCtx.beginPath();
-            blockCtx.moveTo(x, y);
-            blockCtx.lineTo(x + l / 2, y);//绘制边
-            blockCtx.arc(x + l / 2, y - r + 2, r, 0, 2 * PI);//绘制上圆
-            blockCtx.lineTo(x + l / 2, y);//返回到边的结束点
-
-            //1.2绘制第二个圆
-            blockCtx.lineTo(x + l, y);
-            blockCtx.lineTo(x + l, y + l / 2);
-            blockCtx.arc(x + l + r - 2, y + l / 2, r, 0, 2 * PI);
-            blockCtx.lineTo(x + l, y + l / 2);
-
-            //1.3绘制剩下的正方形
-            blockCtx.lineTo(x + l, y + l);
-            blockCtx.lineTo(x, y + l);
-            blockCtx.lineTo(x, y);
+            blockCtx.rect(300, 50, 50, 50);
             blockCtx.closePath();
-            // block.fill();
-            // block.stroke();
             blockCtx.clip();
-            blockCtx.drawImage(img, 0, 0, block.width, block.height);
-        }
+            blockCtx.drawImage(cvsImg, 0, 0, 500, 300);
 
-            // //1.4异或处理上述正方形
-            // block.fillStyle = "#fff";
-            // block[operation]();//填充或裁剪上述正方形
-            // block.beginPath();
-            // block.arc(x, y + l / 2, r, 1.5 * PI, 0.5 * PI);
-            // block.globalCompositeOperation = "xor";//异或处理
+
+
+        }
 
     </script>
 </body>
