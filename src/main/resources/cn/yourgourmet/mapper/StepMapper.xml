@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.yourgourmet.mapper.StepMapper">
+    <resultMap id="stepResultMap" type="Step">
+        <result column="pk_fk_recipe_id" property="recipeId"/>
+        <result column="pk_step_number" property="stepNumber"/>
+        <result column="step_image" property="stepImage"/>
+        <result column="step_description" property="stepDescription"/>
+    </resultMap>
+    <select id="" resultMap="stepResultMap">
+
+    </select>
+</mapper>

@@ -5,6 +5,14 @@
   padding: 0 75px;
 }
 
+.show-info{
+  display: inline-block;
+}
+
+.hide-info{
+  display: none;
+}
+
 a {
   color: #000;
 }
@@ -20,6 +28,20 @@ a:hover {
 .main h4 {
   color: rgb(107, 107, 107);
   margin-bottom: 5px;
+}
+
+/* 存储类样式 */
+.fixed-top-bar{
+  position: fixed;
+  z-index: 10;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  background-color: #fff;
+}
+
+.add-first-item-margin{
+  margin-top: 100px;
 }
 
 /*字体统一设置*/
@@ -88,9 +110,10 @@ button:active {
 /*--- top-bar ---*/
 .top-bar {
   height: 50px;
+  width: 1150px;
+  margin-bottom: 50px;
   display: flex;
   align-items: center;
-  margin-bottom: 50px;
 }
 
 .top-bar .icon-edit {
@@ -99,6 +122,7 @@ button:active {
 }
 
 .top-bar h1 {
+  width: 300px;
   margin-left: 10px;
 }
 

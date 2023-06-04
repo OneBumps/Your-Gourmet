@@ -35,7 +35,7 @@
         </div>
         <div class="login">
             <ul>
-                <li><img src="" alt=""><a href="/html/login.html">登录</a> | <a href="../html/register.html">注册</a></li>
+                <li><img src="" alt=""><a href="../html/login.html">登录</a> | <a href="../html/register.html">注册</a></li>
             </ul>
         </div>
     </header>
@@ -43,7 +43,7 @@
     <!-- 头部介绍 -->
     <!-- 导航栏开始 -->
     <nav>
-        <div class="nav_box">
+        <div class="nav">
             <div class="navitems">
                 <ul>
                     <li><a>首页</a></li>
@@ -60,10 +60,10 @@
     </nav>
     <!-- 导航栏结束 -->
     <!-- 主题开始 -->
-    <main>
-        <div class="main_h">
-            <div class="picture">
-                <div class="wrapper">
+    <div class="wrapper">
+        <div class="main">
+            <div class="main_hea">
+                <div class="picture">
                     <ul id="list">
                         <li><a href="#">
                                 <img src="../img/login.png" alt="">
@@ -85,7 +85,7 @@
 
                 <div class="picture_text">
                     <ul>
-                        <li><a href="#">西餐</a> </li>
+                        <li id="bn1" onmouseover="check()"><a href="#">西餐</a> </li>
                         <li><a href="">粤菜</a></li>
                         <li><a href="">川菜</a></li>
                         <li><a href="">家常菜</a></li>
@@ -101,19 +101,34 @@
         <div class="main_mid">
             <h2>今日热门菜谱视频</h2>
             <div class="video">
-
-                <video controls>
-                    <source src="" type="">
-                </video>
-                <video controls>
-                    <source src="" type="">
-                </video>
-                <video controls>
-                    <source src="" type="">
-                </video>
-                <video controls>
-                    <source src="" type="">
-                </video>
+                <ul>
+                    <li>
+                        <video  id="qqq" loop="loop" controls controlslist="nodownload nofullscreen noremoteplayback noplaybackrate"  disablePictureInPicture="ture">
+                            <source src="../video/FIFA 23 2022-12-17 15-24-15.mp4" type="video/MP4" >
+                        </video>
+                        <div class="text_m">
+                            <h3>番茄炒鸡蛋</h3>
+                            
+                            <div class="h4"><img src="../img/login.png" alt="" > <span>青蛙哥</span></div>
+                        </div>
+                    </li>
+                    <li>
+                        <video controls loop="loop" controls controlslist="nodownload nofullscreen noremoteplayback noplaybackrate"  disablePictureInPicture="ture">
+                            <source src="" type="">
+                        </video>
+                    </li>
+                    <li>
+                        <video controls loop="loop" controls controlslist="nodownload nofullscreen noremoteplayback noplaybackrate"  disablePictureInPicture="ture">
+                            <source src="" type="">
+                        </video>
+                    </li>
+                    <li>
+                        <video controls loop="loop" controls controlslist="nodownload nofullscreen noremoteplayback noplaybackrate"  disablePictureInPicture="ture">
+                            <source src="" type="">
+                        </video>
+                    </li>
+                </ul>
+                
             </div>
         </div>
         <div class="main_f">
@@ -206,11 +221,13 @@
                 </ul>
             </div>
         </div>
-    </main>
+    </div>
+        
+   
     <!-- 主体结束 -->
     <!-- 底部开始 -->
     <footer>
-        <div class="footer_box">
+        <div class="footer">
             <div class="copy">
                 <img src="../img/logo.png" alt="">
                 <p>信息网络传播视听节目许可证：0910417</p>
@@ -237,6 +254,6 @@
     <script src='../js/public/header.js'></script>
     <!-- js 自定义样式引入-->
 </body>
-
+<script src="../js/index/main.js"></script>
 
 </html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.yourgourmet.mapper.RecipeMapper">
+    <resultMap id="recipeResultMap" type="Recipe">
+        <result column="pk_recipe_id" property="recipeId"/>
+        <result column="fk_user_id" property="userId"/>
+        <result column="recipe_name" property="recipeName"/>
+        <result column="recipe_publish_time" property="recipePublishTime"/>
+        <result column="recipe_image" property="recipeImage"/>
+        <result column="recipe_video" property="recipeVideo"/>
+        <result column="recipe_introduce" property="recipeIntroduction"/>
+        <result column="recipe_like" property="recipeLike"/>
+        <result column="recipe_dislike" property="recipeDislike"/>
+    </resultMap>
+    <select id="selectByRecipeName" resultType="java.lang.Boolean">
+        SELECT EXISTS(SELECT recipe_name FROM recipe WHERE recipe_name = #{recipeName})
+    </select>
+
+</mapper>

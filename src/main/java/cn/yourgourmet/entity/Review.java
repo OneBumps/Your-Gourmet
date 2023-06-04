@@ -1,17 +1,20 @@
 package cn.yourgourmet.entity;
 
+import org.apache.ibatis.type.Alias;
+
 import java.util.Date;
 
 /**
  * 用户实体类 评论表
  */
+@Alias("Review")
 public class Review implements java.io.Serializable {
     private static final long serialVersionUID = -6713267836925470618L;
-    private int userId;
-    private int recipeId;
+    private String userId;
+    private Integer recipeId;
     private Date reviewTime;
-    private String reviewTextContent;
-    private String reviewImageLocation;
+    private String reviewContent;
+    private String reviewImage;
 
     public Review() {
     }
@@ -20,42 +23,42 @@ public class Review implements java.io.Serializable {
      * @param userId              用户id
      * @param recipeId            菜谱id
      * @param reviewTime          评论时间
-     * @param reviewTextContent   评论内容
-     * @param reviewImageLocation 评论图片
+     * @param reviewContent   评论内容
+     * @param reviewImage 评论图片
      */
-    public Review(int userId, int recipeId, Date reviewTime, String reviewTextContent, String reviewImageLocation) {
+    public Review(String userId, Integer recipeId, Date reviewTime, String reviewContent, String reviewImage) {
         this.userId = userId;
         this.recipeId = recipeId;
         this.reviewTime = reviewTime;
-        this.reviewTextContent = reviewTextContent;
-        this.reviewImageLocation = reviewImageLocation;
+        this.reviewContent = reviewContent;
+        this.reviewImage = reviewImage;
     }
 
     /**
      * @return 用户id
      */
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
     /**
      * @param userId 用户id
      */
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
     /**
      * @return 菜谱id
      */
-    public int getRecipeId() {
+    public Integer getRecipeId() {
         return recipeId;
     }
 
     /**
      * @param recipeId 菜谱id
      */
-    public void setRecipeId(int recipeId) {
+    public void setRecipeId(Integer recipeId) {
         this.recipeId = recipeId;
     }
 
@@ -76,28 +79,39 @@ public class Review implements java.io.Serializable {
     /**
      * @return 评论内容
      */
-    public String getReviewTextContent() {
-        return reviewTextContent;
+    public String getReviewContent() {
+        return reviewContent;
     }
 
     /**
-     * @param reviewTextContent 评论内容
+     * @param reviewContent 评论内容
      */
-    public void setReviewTextContent(String reviewTextContent) {
-        this.reviewTextContent = reviewTextContent;
+    public void setReviewContent(String reviewContent) {
+        this.reviewContent = reviewContent;
     }
 
     /**
      * @return 评论图片
      */
-    public String getReviewImageLocation() {
-        return reviewImageLocation;
+    public String getReviewImage() {
+        return reviewImage;
     }
 
     /**
-     * @param reviewImageLocation 评论图片
+     * @param reviewImage 评论图片
      */
-    public void setReviewImageLocation(String reviewImageLocation) {
-        this.reviewImageLocation = reviewImageLocation;
+    public void setReviewImage(String reviewImage) {
+        this.reviewImage = reviewImage;
+    }
+
+    @Override
+    public String toString() {
+        return "Review{" +
+                "userId=" + userId +
+                ", recipeId=" + recipeId +
+                ", reviewTime=" + reviewTime +
+                ", reviewTextContent='" + reviewContent + '\'' +
+                ", reviewImageLocation='" + reviewImage + '\'' +
+                '}';
     }
 }

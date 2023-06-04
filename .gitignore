@@ -37,3 +37,8 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+
+
+src/main/web/video/
+*/c3p0-config.xml
