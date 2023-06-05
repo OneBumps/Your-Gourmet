@@ -17,10 +17,16 @@
     <insert id="insertUser">
         INSERT INTO user(pk_user_id, user_name, user_password, user_phone) VALUES(#{userId}, #{userName}, #{userPassword}, #{userPhone});
     </insert>
-    <select id="selectByUserIdAndPassword" resultType="java.lang.Boolean">
+    <update id="updatePassword">
+        UPDATE user SET user_password = #{userPassword} WHERE pk_user_id = #{userId};
+    </update>
+    <select id="selectByUserIdAndPassword" resultType="java.lang.Integer">
         SELECT EXISTS(SELECT pk_user_id FROM user WHERE pk_user_id = #{userId} AND user_password = #{userPassword});
     </select>
     <select id="selectByUserId" resultType="java.lang.Boolean">
         SELECT EXISTS(SELECT pk_user_id FROM user WHERE pk_user_id = #{userId});
+    </select>
+    <select id="selectAllByUserId" resultMap="userResultMap">
+        SELECT user_name, user_phone, user_group, user_gender, user_email, user_avatar, user_introduction FROM user WHERE pk_user_id = #{userId};
     </select>
 </mapper>

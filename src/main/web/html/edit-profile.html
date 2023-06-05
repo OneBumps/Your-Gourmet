@@ -14,10 +14,10 @@
     <link rel="stylesheet" href="../css/public/common.css">
     <link rel="stylesheet" href="../iconfont/iconfont.css">
     <!-- CSS 自定义样式引入-->
+    <link rel="stylesheet" href="../css/edit-profile/main.css">
 </head>
 
 <body>
-    <!-- 头部开始 -->
     <header>
         <div class="logo">
             <img src="../img/logo.png">
@@ -34,7 +34,7 @@
         </div>
         <div class="login">
             <ul>
-                <li><img src="" alt=""><a href="/html/login.html">登录</a> | <a href="../html/register.html">注册</a></li>
+                <li><img src="" alt=""><a href="../html/login.html">登录</a> | <a href="../html/register.html">注册</a></li>
             </ul>
         </div>
     </header>
@@ -42,7 +42,7 @@
     <!-- 头部介绍 -->
     <!-- 导航栏开始 -->
     <nav>
-        <div class="nav_box">
+        <div class="nav">
             <div class="navitems">
                 <ul>
                     <li><a>首页</a></li>
@@ -59,7 +59,7 @@
     </nav>
     <!-- 导航栏结束 -->
     <!-- 主要部分 -->
-    <div class="wrapper">
+    <div class="main">
         <div class="sub-nav">
             <ul>
                 <li>基本信息</li>
@@ -70,61 +70,114 @@
                 <li>删除用户</li>
             </ul>
         </div>
-        <div class="main">
-            <div>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td rowspan="2"><input type="checkbox" name="collection-item-checkbox"
-                                    class="collection-item-checkbox" /></td>
-                            <td rowspan="2"><img src="../img/profile/avatar.jpg" alt="菜谱图片" /></td>
-                            <td>
-                                <h2>麻婆豆腐</h2>
-                            </td>
-                            <td>
-                                <p>川菜</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <p>麻婆豆腐（拼音：má pó dòu fu；英文：sauteed tofu in hot and spicy
-                                    sauce），是四川地区传统名菜之一，属于川菜，主料为：豆腐，辅料为：蒜苗、牛肉沫(其他肉也可以)，调料为：豆瓣、辣椒面和花椒面、酱油、生抽、老抽、糖、淀粉等，麻来自花椒，辣来自辣椒面，此菜成菜麻、辣、鲜、香、烫、脆、嫩、酥，将川菜麻辣味型的特点展现的淋漓尽致，如今，麻婆豆腐远渡重洋，在美国、加拿大、英国、法国、越南、新加坡、马来西亚、日本、澳大利亚等国安家落户，从一味家常小菜一跃而登上大雅之堂，成了国际名菜。
-                                </p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div class="wrapper">
+            <div data-title="base">
+                <h2>基本信息</h2>
+                <div class="contain-box base-info">
+                    <span id="username"></span> 你好，这是您的基本信息
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>昵称</th>
+                                <th>电话</th>
+                                <th>性别</th>
+                                <th>组别</th>
+                                <th>邮箱</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>普通用户</td>
+                                <td>1556984648945</td>
+                                <td>男</td>
+                                <td>User</td>
+                                <td>243252334324@rew.cd</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div>个人简介如下：<br>
+                        <textarea readonly></textarea>
+                    </div>
+                </div>
+                <div data-title="password">
+                    <h2>修改密码</h2>
+                    <form method="POST">
+                        <div class="contain-box password">
+                            <label>原始密码：<input name="oldPassword" type="password"></label>
+                            <label>新的密码：<input name="newPassword" type="password"></label>
+                            <label>确认密码：<input name="verify" type="password"></label>
+                            <button type="button">确认修改</button>
+                            <span class="err"></span>
+                        </div>
+                    </form>
+                </div>
+                <div data-title="avatar">
+                    <h2>修改头像</h2>
+                    <div class="contain-box avatar">
+                        <img src="" />
+                        <input type="file" name="avatar" id="avatar" />
+                    </div>
+                </div>
+                <div data-title="privacy">
+                    <h2>隐私管理</h2>
+                    <div class="contain-box">
+                        <label>启用自动定位 <input type="checkbox" name="autoLocation"></label>
+                    </div>
+                </div>
+                <div data-title="profile">
+                    <h2>修改资料</h2>
+                    <div class="contain-box profile">
+                        <form action="" method="POST">
+                            <label>修改昵称：<input name="userName" type="text" /></label>
+                            <label>修改电话：<input name="userPhone" type="text" /></label>
+                            <label>修改邮箱：<input name="userEmail" type="text" /></label>
+                            修改性别
+                            <label class="gender-box"><input type="radio" name="userGender" value="male" checked>男</label>
+                            <label  class="gender-box"><input type="radio" name="userGender" value="female">女</label>
+                            <label>修改简介:<textarea name="userIntroduction"></textarea></label>
+                            <button type="button">确认修改</button>
+                        </form>
+                    </div>
+                </div>
+                <div data-title="delete">
+                    <h2>删除用户</h2>
+                    <div class="contain-box">
+                        这将会删除您的所有信息，您确定要删除吗？
+                        <button type="button">确认删除</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- 底部开始 -->
-    <footer>
-        <div class="footer_box">
-            <div class="copy">
-                <img src="../img/logo.png" alt="">
-                <p>信息网络传播视听节目许可证：0910417</p>
-            </div>
-            <div class="tel">
-                <h2>客服电话：3256151</h2>
-                <h2>商务合作：13415641464</h2>
-            </div>
-            <div class="link">
+        <!-- 底部开始 -->
+        <footer>
+            <div class="footer_box">
+                <div class="copy">
+                    <img src="../img/logo.png" alt="">
+                    <p>信息网络传播视听节目许可证：0910417</p>
+                </div>
+                <div class="tel">
+                    <h2>客服电话：3256151</h2>
+                    <h2>商务合作：13415641464</h2>
+                </div>
+                <div class="link">
 
-                <dl>
-                    <dt>关于你的美食家</dt>
-                    <dd><a href="#">简介</a></dd>
-                    <dd><a href="#">团队管理</a></dd>
-                    <dd><a href="#">工作机会</a></dd>
-                    <dd><a href="#">客户服务</a></dd>
-                    <dd><a href="#">帮助</a></dd>
-                </dl>
+                    <dl>
+                        <dt>关于你的美食家</dt>
+                        <dd><a href="#">简介</a></dd>
+                        <dd><a href="#">团队管理</a></dd>
+                        <dd><a href="#">工作机会</a></dd>
+                        <dd><a href="#">客户服务</a></dd>
+                        <dd><a href="#">帮助</a></dd>
+                    </dl>
+                </div>
             </div>
-        </div>
 
-    </footer>
-    <!-- js 基础样式引入 -->
-    <script src='../js/public/header.js'></script>
-    <!-- js 自定义样式引入-->
+        </footer>
+        <!-- js 基础样式引入 -->
+        <script src="../js/public/header.js"></script>
+        <script src="../js/public/jQuery.js"></script>
+        <!-- js 自定义样式引入-->
+        <script src="../js/edit-profile/main.js"></script>
 </body>
 
 </html>

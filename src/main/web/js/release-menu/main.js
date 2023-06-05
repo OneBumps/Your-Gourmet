@@ -30,6 +30,7 @@
       menuNameWarning.innerHTML = '菜谱名字不能为空';
       return;
     } else {
+      // 菜谱不能与已有的重复
       $.ajax({
         method: 'GET',
         url: 'http://localhost/YourGourmet/Verify',
@@ -64,5 +65,5 @@
 
 // 保存到本地缓存
 (function(){
-  
+
 })();
