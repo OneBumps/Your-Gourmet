@@ -136,8 +136,30 @@ button:active {
 
 
 /*--- 修改头像 配置 ---*/
-.avatar {
+.avatar{
+  display: flex;
+}
+.avatar .show-avatar{
+  width: 200px;
+  height: 200px;
+}
+.avatar label{
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  line-height: 200px;
+  cursor: pointer;
+  border: 1px dashed #ccc;
+  margin-left: 20px;
+}
+.avatar input[type="file"]{
   display: none;
+}
+.avatar button{
+  align-self: center;
+  margin-left: 50px;
+  width: 100px;
+  height: 50px;
 }
 
 /*--- 修改资料 配置 ---*/
