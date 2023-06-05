@@ -43,6 +43,11 @@
 
     <script language="javascript">
 
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+        var block = document.getElementById("block");
+        var blockCtx = block.getContext("2d");
+
         // 定义画布的宽度和高度
         const w = 500;
         const h = 300;
@@ -56,11 +61,6 @@
         const ll = l + r * 2; // 拼图的边长
 
         window.onload = function () {
-            var canvas = document.getElementById("canvas");
-            var context = canvas.getContext("2d");
-            var block = document.getElementById("block");
-            var blockCtx = block.getContext("2d");
-
             //拼图随机位置也是通过随机函数限定边界在画布内随机出现
             function draw() {
                 this.x = getRandomNumberByRange(ll + 10, w - (ll + 10));//10为设定的最小空隙,ll是保证滑块到最终位置和初始位置至少不会重叠
@@ -68,18 +68,15 @@
                 draw(context, "fill", x, y);
                 draw(blockCtx, "clip", x, y);
             }
-
             //2通过基本的随机数字函数调用：
             function getRandomNumberByRange(start, end) {
                 return Math.round(Math.random() * (end - start) + start);
             }
-
             function getRandomImgSrc() {
                 return (
                     "../img/icon/slidevirifypage/slideimg.jpg" + getRandomNumberByRange(0, 100)
                 );
             }
-
             // 加载随机图片
             var img = new Image();
             img.src = getRandomImgSrc();
@@ -99,18 +96,16 @@
             ctx.lineTo(x + l / 2, y);//绘制边
             ctx.arc(x + l / 2, y - r + 2, r, 0, 2 * PI);//绘制上圆
             ctx.lineTo(x + l / 2, y);//返回到边的结束点
-
             //1.2绘制第二个圆
             ctx.lineTo(x + l, y);
             ctx.lineTo(x + l, y + l / 2);
             ctx.arc(x + l + r - 2, y + l / 2, r, 0, 2 * PI);
-            ctx.lineTo(x + l, y + l / 2);
-
+            ctx.lineTo(x + l, y + l / 2)
             //1.3绘制剩下的正方形
             ctx.lineTo(x + l, y + l);
             ctx.lineTo(x, y + l);
             ctx.lineTo(x, y);
-
+            ctx.closePath();
             //1.4异或处理上述正方形
             ctx.fillStyle = "#fff";
             ctx[operation]();//填充或裁剪上述正方形

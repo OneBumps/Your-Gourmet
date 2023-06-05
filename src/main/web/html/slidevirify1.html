@@ -15,49 +15,70 @@
     <link rel="stylesheet" href="../iconfont/iconfont.css">
     <style>
         #canvas {
-            margin: 200px 400px;
+            position: absolute;
+            margin-top: 200px;
+            margin-left: 300px;
             border: 1px solid grey;
             border-radius: 25px;
             box-shadow: 5px 5px 5px grey;
         }
-        /* #block{
-            margin: 100px auto;
-            margin-right: 400px;
+
+        #block {
+            position: absolute;
+            margin-top: 200px ;
+            margin-left: 40px;
             border: 1px solid grey;
-            border-radius: 25px;
-            box-shadow: 5px 5px 5px grey;
-        } */
-        img{
-            width: 500px;
-            height: 300px;
-            border-radius: 25px;
-            border: 1px solid grey;
-        }
+            /* border-radius: 25px;
+            box-shadow: 5px 5px 5px grey;*/
+        } 
     </style>
 
 </head>
 
 <body>
+
     <!-- 图片显示画布 -->
-    <img id="image" src="../img/icon/slidevirifypage/slideimg.jpg" alt="" >
     <canvas id="canvas" width="500px" height="300px">
         <h1>您的浏览器不支持canvas!</h1>
     </canvas>
 
+    <!-- 拼图块画布 -->
+    <canvas id="block" width="500px" height="300px">
+        您的浏览器不支持canvas!
+    </canvas>
+    <div>
+        <img src="../img/icon/slidevirifypage/slidediv.png" alt="">
+    </div>
+
     <script language="javascript">
 
-        // 定义画布的宽度和高度
-        const w = 500;
-        const h = 300;
+        //背景图片画布
+        var canvas = document.getElementById("canvas");
+        var canvasCtx = canvas.getContext("2d");
+        //滑块图片画布
+        var block = document.getElementById("block");
+        var blockCtx = block.getContext("2d");
+
+        var cvsImg = new Image();
+        cvsImg.src = "../img/icon/slidevirifypage/slideimg.jpg";
 
         window.onload = function () {
+            canvasCtx.drawImage(cvsImg, 0, 0, 500, 300);
+            // 绘制画布背景图片
+            canvasCtx.beginPath();
+            canvasCtx.rect(350, 50, 50, 50);
+            canvasCtx.closePath();
+            canvasCtx.clearRect(300,50,50,50);
+            canvasCtx.closePath();
+            //绘制图片块
+            blockCtx.beginPath();
+            blockCtx.rect(300, 50, 50, 50);
+            blockCtx.closePath();
+            blockCtx.clip();
+            blockCtx.drawImage(cvsImg, 0, 0, 500, 300);
 
-            var canvas = document.getElementById("canvas");
-            var context = canvas.getContext("2d");
 
-            var img = new Image();
-            img.src = document.getElementById("canvas").src;
-            context.drawImage(img,0,0,500,300);
+
         }
 
     </script>
