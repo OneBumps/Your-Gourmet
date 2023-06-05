@@ -1,0 +1,117 @@
+body{
+    background-color: lightgrey;
+    min-width: 1024px;
+}
+header{
+    display: flex;
+    height: 180px;
+    margin: 0 auto 32px;
+    justify-content: space-around;
+    background-color: #fff;
+}
+
+  .search_s {
+    position: relative;
+    width: 50%;
+    height: 100px;
+    margin-top: 30px;
+    /* background-color: rgb(235, 135, 227); */
+  
+  }
+  .search_s .s_i_b_s {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    border: 1px solid #ff6a00;
+  }
+  .search_s input {
+    width: 550px;
+    height: 40px;
+    border: 1px solid #670664;
+    border-right: 0;
+    font-size: 14px;
+    padding-left: 15px;
+    float: left;
+  
+  
+  }
+  .search_s button {
+    width: 80px;
+    height: 40px;
+    font-size: 16px;
+    float: left;
+    background-color: #b1191a;
+    color: #f1f1f1;
+  }
+  
+.wrapper_s{
+    background-color: #fff;
+    width: 1300px;
+    height: 100%;
+    margin: 0 auto;
+}
+.wrapper_s .nav_s{
+    width: 500px;
+    height: 100px;
+    
+}
+.nav_s .navitems{
+    position: relative;
+    overflow: hidden;
+    padding-top: 20px;
+}
+.wrapper_s .nav li{
+    width: 150px;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+.nav_s .public_nav-tracker{
+    position: absolute;
+    bottom: 0;
+    margin-right: 0 15px;
+    width: 120px;
+    height: 5px;
+    transition: all 0.3s ease-in-out;
+}
+.wrapper_s .list{
+    margin: 0 20px;
+}
+ .list .list-info {
+    flex: 1;
+}
+.list a{
+    display: flex;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 10px;
+}
+.list a:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.list ul li{
+    border-bottom: 2px solid #ededed;
+}
+.list img{
+    display: block;
+    flex: none;
+    width: 130px;
+    height: 90px;
+    margin: 10px;
+    border-radius: 5px;
+    margin-right: 50px;
+}
+
+.list h2{
+    line-height: 40px;
+}
+.list p{
+    line-height: 1.4em;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}

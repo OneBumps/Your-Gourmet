@@ -5,9 +5,9 @@ body {
 /* 头部开始 */
 header {
   display: flex;
-  height: 100px;
+  height: 162px;
   /* background-color: #dc8a0d; */
-  margin: 0 auto 62px;
+  margin: 0 auto 32px;
   justify-content: space-around;
 }
 
