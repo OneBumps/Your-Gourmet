@@ -42,5 +42,15 @@ public class Verify extends HttpServlet {
                 out.print("false");
             }
         }
+        if(Objects.equals(type, "updateUserInfo")){
+            PrintWriter out = response.getWriter();
+            if (UserOperation.updateUserInfo(request.getParameter("userId"), request.getParameter("userName"), request.getParameter("userPhone"), request.getParameter("userEmail"), request.getParameter("userGender"), request.getParameter("userIntroduction"))) {
+                //转发至根页面
+                String contextPath = request.getContextPath();
+                response.sendRedirect(request.getContextPath() + "/html/edit-profile.html");
+            } else {
+                response.sendRedirect(request.getContextPath() + "/html/edit-profile.html");
+            }
+        }
     }
 }

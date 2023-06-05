@@ -73,8 +73,7 @@
         <div class="wrapper">
             <div data-title="base">
                 <h2>基本信息</h2>
-                <div class="contain-box base-info">
-                    <span id="username"></span> 你好，这是您的基本信息
+                <div class="contain-box base-info"> 你好，这是您的基本信息
                     <table>
                         <thead>
                             <tr>
@@ -87,21 +86,21 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>普通用户</td>
-                                <td>1556984648945</td>
-                                <td>男</td>
-                                <td>User</td>
-                                <td>243252334324@rew.cd</td>
+                                <td>加载中</td>
+                                <td>加载中</td>
+                                <td>加载中</td>
+                                <td>加载中</td>
+                                <td>加载中</td>
                             </tr>
                         </tbody>
                     </table>
-                    <div>个人简介如下：<br>
+                    <div id="introduction">个人简介如下：<br>
                         <textarea readonly></textarea>
                     </div>
                 </div>
                 <div data-title="password">
                     <h2>修改密码</h2>
-                    <form method="POST">
+                    <form name="changePassword" method="POST">
                         <div class="contain-box password">
                             <label>原始密码：<input name="oldPassword" type="password"></label>
                             <label>新的密码：<input name="newPassword" type="password"></label>
@@ -127,14 +126,17 @@
                 <div data-title="profile">
                     <h2>修改资料</h2>
                     <div class="contain-box profile">
-                        <form action="" method="POST">
-                            <label>修改昵称：<input name="userName" type="text" /></label>
-                            <label>修改电话：<input name="userPhone" type="text" /></label>
-                            <label>修改邮箱：<input name="userEmail" type="text" /></label>
+                        <form action="http://localhost/YourGourmet/Verify" method="POST" name="changeInfo">
+                            <input type="hidden" name="userId" value="">
+                            <input type="hidden" name="type" value="updateUserInfo">
+                            <label>修改昵称<span class="must"></span>：</span><input name="userName" type="text" /><span class="err"></span></label>
+                            <label>修改电话<span class="must"></span>：<input name="userPhone" type="text" /><span class="err"></span></label>
+                            <label>修改邮箱：<input name="userEmail" type="text" /><span class="err"></span></label>
                             修改性别
-                            <label class="gender-box"><input type="radio" name="userGender" value="male" checked>男</label>
-                            <label  class="gender-box"><input type="radio" name="userGender" value="female">女</label>
-                            <label>修改简介:<textarea name="userIntroduction"></textarea></label>
+                            <label class="gender-box"><input type="radio" name="userGender" value="male"
+                                    checked>男</label>
+                            <label class="gender-box"><input type="radio" name="userGender" value="female">女</label>
+                            <label>修改简介:<textarea name="userIntroduction"></textarea><span class="err"></span></label>
                             <button type="button">确认修改</button>
                         </form>
                     </div>
@@ -148,36 +150,37 @@
                 </div>
             </div>
         </div>
-        <!-- 底部开始 -->
-        <footer>
-            <div class="footer_box">
-                <div class="copy">
-                    <img src="../img/logo.png" alt="">
-                    <p>信息网络传播视听节目许可证：0910417</p>
-                </div>
-                <div class="tel">
-                    <h2>客服电话：3256151</h2>
-                    <h2>商务合作：13415641464</h2>
-                </div>
-                <div class="link">
-
-                    <dl>
-                        <dt>关于你的美食家</dt>
-                        <dd><a href="#">简介</a></dd>
-                        <dd><a href="#">团队管理</a></dd>
-                        <dd><a href="#">工作机会</a></dd>
-                        <dd><a href="#">客户服务</a></dd>
-                        <dd><a href="#">帮助</a></dd>
-                    </dl>
-                </div>
+    </div>
+    <!-- 底部开始 -->
+    <footer>
+        <div class="footer_box">
+            <div class="copy">
+                <img src="../img/logo.png" alt="">
+                <p>信息网络传播视听节目许可证：0910417</p>
             </div>
+            <div class="tel">
+                <h2>客服电话：3256151</h2>
+                <h2>商务合作：13415641464</h2>
+            </div>
+            <div class="link">
 
-        </footer>
-        <!-- js 基础样式引入 -->
-        <script src="../js/public/header.js"></script>
-        <script src="../js/public/jQuery.js"></script>
-        <!-- js 自定义样式引入-->
-        <script src="../js/edit-profile/main.js"></script>
+                <dl>
+                    <dt>关于你的美食家</dt>
+                    <dd><a href="#">简介</a></dd>
+                    <dd><a href="#">团队管理</a></dd>
+                    <dd><a href="#">工作机会</a></dd>
+                    <dd><a href="#">客户服务</a></dd>
+                    <dd><a href="#">帮助</a></dd>
+                </dl>
+            </div>
+        </div>
+
+    </footer>
+    <!-- js 基础样式引入 -->
+    <script src="../js/public/header.js"></script>
+    <script src="../js/public/jQuery.js"></script>
+    <!-- js 自定义样式引入-->
+    <script src="../js/edit-profile/main.js"></script>
 </body>
 
 </html>

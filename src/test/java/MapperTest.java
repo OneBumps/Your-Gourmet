@@ -12,11 +12,9 @@ import java.io.InputStream;
 public class MapperTest {
 
     public void SQLSample(SqlSession session) {
-        //1. new 实体类
         UserMapper mapper = session.getMapper(UserMapper.class);
-        //2. 调用mapper的方法进行SQL操作
-        User user = mapper.selectAllByUserId("ADMINISTRATOR");
-        System.out.println(user);
+        int res = mapper.deleteByUserId("e5114dcf020e11eebd064ccc6a7eb102");
+        System.out.println(res);
     }
 
     @Test

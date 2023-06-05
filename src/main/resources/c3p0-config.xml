@@ -5,17 +5,17 @@
         <property name="user">root</property>
         <property name="password">root</property>
 
-        <property name="acquireIncrement">5</property>
+        <property name="acquireIncrement">50</property>
         <!-- c3p0数据库连接池中初始化时的连接数 -->
-        <property name="initialPoolSize">10</property>
+        <property name="initialPoolSize">50</property>
         <!-- c3p0数据库连接池维护的最少连接数 -->
-        <property name="minPoolSize">10</property>
+        <property name="minPoolSize">50</property>
         <!-- c3p0数据库连接池维护的最多的连接数 -->
-        <property name="maxPoolSize">200</property>
+        <property name="maxPoolSize">50</property>
         <!-- c3p0数据库连接池最多维护的Statement的个数 -->
         <property name="maxStatements">50</property>
         <!-- 每个连接中可以最多使用的Statement的个数 -->
-        <property name="maxStatementsPerConnection">2</property>
+        <property name="maxStatementsPerConnection">30</property>
 
     </named-config>
 </c3p0-config>
