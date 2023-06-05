@@ -1,7 +1,6 @@
 package cn.yourgourmet.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
 
-
-public class RecipeMapper {
+public interface RecipeMapper {
+    Boolean selectByRecipeName(String recipeName);
 }

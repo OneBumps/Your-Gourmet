@@ -14,7 +14,8 @@
         <result column="recipe_like" property="recipeLike"/>
         <result column="recipe_dislike" property="recipeDislike"/>
     </resultMap>
-    <select id="" resultMap="recipeResultMap">
-
+    <select id="selectByRecipeName" resultType="java.lang.Boolean">
+        SELECT EXISTS(SELECT recipe_name FROM recipe WHERE recipe_name = #{recipeName})
     </select>
+
 </mapper>
