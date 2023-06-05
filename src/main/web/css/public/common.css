@@ -7,12 +7,11 @@ header {
   display: flex;
   height: 162px;
   /* background-color: #dc8a0d; */
-  margin: 0 auto 32px;
+  margin: 0 auto 0px;
   justify-content: space-around;
 }
 
 .login {
-
   height: 100px;
   width: 30%;
   margin-top: 30px;
@@ -68,10 +67,13 @@ header {
   float: left;
   background-color: #b1191a;
   color: #f1f1f1;
+  cursor: pointer;
 }
-
+.search button:hover{
+  background-color: #ff6a00;
+}
 .logo {
-
+  flex: 1;
   height: 100px;
   width: 30%;
   /* background-color: #130c52; */

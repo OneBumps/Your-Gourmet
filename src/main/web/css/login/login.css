@@ -27,6 +27,7 @@ body{
     background: #ffffff00;
     color:#fff;
 }
+
 #submit{
     margin-top: 40px;
     width: 190px;
@@ -38,8 +39,9 @@ body{
     border-radius:15px;
 
 }
+
 .register{
-    margin-top: 35px;
+    margin-top: 25px;
     float: right;
     font-size: 18px;
     

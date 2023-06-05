@@ -42,13 +42,16 @@ header{
     float: left;
     background-color: #b1191a;
     color: #f1f1f1;
+    cursor: pointer;
   }
-  
+  .search_s button:hover{
+    background-color: #ff6a00;
+  }
 .wrapper_s{
     background-color: #fff;
     width: 1300px;
     height: 100%;
-    margin: 0 auto;
+    margin: 15px auto;
 }
 .wrapper_s .nav_s{
     width: 500px;
