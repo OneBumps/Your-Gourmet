@@ -1,121 +1,241 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="你的美食家是一个专业的美食网站，提供各式各样的菜谱和食谱，让你轻松学会做出各种美味佳肴。你还可以在这里展示作品，并与其他用户交流心得，分享作品，互相学习">
-    <meta name="keywords" content="菜谱,食谱,美食,家常菜,美食网,你的美食家">
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-    <title>滑动验证test</title>
-    <!-- CSS 基础样式引入-->
-    <link rel="stylesheet" href="../css/public/base.css">
-    <link rel="stylesheet" href="../css/public/common.css">
-    <link rel="stylesheet" href="../iconfont/iconfont.css">
     <style>
-        #canvas {
-            margin: 200px 400px;
-            border: 1px solid grey;
-            border-radius: 25px;
-            box-shadow: 5px 5px 5px grey;
+        * {
+            margin: 0;
+            padding: 0;
         }
-        #block{
-            margin: 100px auto;
-            margin-right: 400px;
-            border: 1px solid grey;
-            border-radius: 25px;
-            box-shadow: 5px 5px 5px grey;
+
+        body {
+            background-color: #E8E8E8;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        #canvas {
+            width: 320px;
+            height: 160px;
+        }
+
+        #block {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+        }
+
+        .slider {
+            position: relative;
+            margin-top: 20px;
+            width: 320px;
+            height: 40px;
+            background-color: #F0F0F0;
+        }
+
+        .slider-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: #BFBFBF;
+        }
+
+        .slider-button {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            background-color: #1890FF;
+        }
+
+        .slider-tip {
+            position: absolute;
+            top: 0;
+            right: 10px;
+            line-height: 40px;
+        }
+
+        .active {
+            background-color: #1890FF;
+        }
+
+        .success {
+            background-color: #52C41A;
+        }
+
+        .fail {
+            background-color: #FF4D4F;
         }
     </style>
-
 </head>
 
 <body>
-    <!-- 图片显示画布 -->
-    <canvas id="canvas" width="500px" height="300px">
-        <h1>您的浏览器不支持canvas!</h1>
-    </canvas>
-    <!-- 拼图块画布 -->
-    <canvas id="block" width="500px" height="300px" class="block">
-        您的浏览器不支持canvas!
-    </canvas>
+    <div class="container">
+        <canvas id="canvas"></canvas>
+        <canvas id="block"></canvas>
+    </div>
+    <div class="slider">
+        <div class="slider-bar"></div>
+        <div class="slider-button" id="button">&gt;</div>
+        <div class="slider-tip" id="tip">向右滑动完成验证</div>
+    </div>
+    <script>
+        // 获取元素
+        const canvas = document.getElementById("canvas");
+        const block = document.getElementById("block");
+        const button = document.getElementById("button");
+        const tip = document.getElementById("tip");
 
-    <script language="javascript">
+        // 获取画笔
+        const ctx = canvas.getContext("2d");
+        const btx = block.getContext("2d");
 
-        var canvas = document.getElementById("canvas");
-        var context = canvas.getContext("2d");
-        var block = document.getElementById("block");
-        var blockCtx = block.getContext("2d");
+        // 设置画布大小
+        canvas.width = 320;
+        canvas.height = 160;
 
-        // 定义画布的宽度和高度
-        const w = 500;
-        const h = 300;
+        // 定义变量
+        let isDown = false; // 是否按下鼠标或触摸
+        let startX = 0; // 按下时的横坐标
+        let distance = 0; // 滑动的距离
+        let x = 0; // 凹槽的横坐标
+        let y = 0; // 凹槽的纵坐标
+        let w = 40; // 凹槽的宽度
+        let r = w / 4; // 凹槽的半径
 
-        //1绘制拼图
-        const x = 30;//起始点x坐标
-        const y = 30;//起始点y坐标
-        const l = 42;//正方形边长
-        const r = 10;//圆的半径
-        const PI = Math.PI;
-        const ll = l + r * 2; // 拼图的边长
+        // 定义图片
+        const img = new Image();
+        img.src = "https://picsum.photos/320/160";
+        img.onload = function () {
+            draw();
+        };
 
-        window.onload = function () {
-            //拼图随机位置也是通过随机函数限定边界在画布内随机出现
-            function draw() {
-                this.x = getRandomNumberByRange(ll + 10, w - (ll + 10));//10为设定的最小空隙,ll是保证滑块到最终位置和初始位置至少不会重叠
-                this.y = getRandomNumberByRange(10 + r * 2, h - (ll + 10));
-                draw(context, "fill", x, y);
-                draw(blockCtx, "clip", x, y);
-            }
-            //2通过基本的随机数字函数调用：
-            function getRandomNumberByRange(start, end) {
-                return Math.round(Math.random() * (end - start) + start);
-            }
-            function getRandomImgSrc() {
-                return (
-                    "../img/icon/slidevirifypage/slideimg.jpg" + getRandomNumberByRange(0, 100)
-                );
-            }
-            // 加载随机图片
-            var img = new Image();
-            img.src = getRandomImgSrc();
-            img.onload = function () {
-                // 绘制背景图像
-                context.drawImage(img, 0, 0, 500, 300);
-                blockCtx.drawImage(img, 0, 0, 500, 300);
-                // 调用draw函数
-                draw();
-            }
+        // 绘制画布
+        function draw() {
+            // 清空画布
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            btx.clearRect(0, 0, block.width, block.height);
+
+            // 绘制背景图
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+            // 随机生成凹槽的位置
+            x = Math.floor(canvas.width / 2 + Math.random() * (canvas.width / 2 - w));
+            y = Math.floor(30 + Math.random() * (canvas.height - w - 30));
+
+            // 绘制凹槽
+            drawClip(ctx, "fill");
+            drawClip(btx, "clip");
+
+            // 裁剪凹槽
+            const imageData = btx.getImageData(x, y - 2 * r, w, w + 1);
+            block.width = w;
+            block.height = w + 1;
+            btx.putImageData(imageData, 0, y - 2 * r);
         }
 
-        // 定义绘制或裁剪拼图的函数
-        function draw(ctx, operation, x, y) {
+        // 绘制凹槽
+        function drawClip(ctx, operation) {
             ctx.beginPath();
             ctx.moveTo(x, y);
-            ctx.lineTo(x + l / 2, y);//绘制边
-            ctx.arc(x + l / 2, y - r + 2, r, 0, 2 * PI);//绘制上圆
-            ctx.lineTo(x + l / 2, y);//返回到边的结束点
-            //1.2绘制第二个圆
-            ctx.lineTo(x + l, y);
-            ctx.lineTo(x + l, y + l / 2);
-            ctx.arc(x + l + r - 2, y + l / 2, r, 0, 2 * PI);
-            ctx.lineTo(x + l, y + l / 2)
-            //1.3绘制剩下的正方形
-            ctx.lineTo(x + l, y + l);
-            ctx.lineTo(x, y + l);
-            ctx.lineTo(x, y);
-            ctx.closePath();
-            //1.4异或处理上述正方形
-            ctx.fillStyle = "#fff";
-            ctx[operation]();//填充或裁剪上述正方形
-            ctx.beginPath();
-            ctx.arc(x, y + l / 2, r, 1.5 * PI, 0.5 * PI);
-            ctx.globalCompositeOperation = "xor";//异或处理
-            ctx.fill();
+            ctx.arc(x + w / 2, y - r + 2, r, 0.72 * Math.PI, 2.26 * Math.PI);
+            ctx.lineTo(x + w, y);
+            ctx.arc(x + w / 2, y + w + r - 2, r, -0.26 * Math.PI, 1.26 * Math.PI);
+            ctx.lineTo(x, y + w);
+            ctx.lineWidth = 2;
+            ctx.fillStyle = "rgba(255,255,255,0.7)";
+            ctx.strokeStyle = "rgba(255,255,255,0.7)";
             ctx.stroke();
+            ctx[operation]();
+            ctx.globalCompositeOperation = "xor";
         }
 
+        // 添加事件监听
+        button.addEventListener("mousedown", handleStart);
+        button.addEventListener("mousemove", handleMove);
+        button.addEventListener("mouseup", handleEnd);
+        button.addEventListener("mouseleave", handleEnd);
+
+        button.addEventListener("touchstart", handleStart);
+        button.addEventListener("touchmove", handleMove);
+        button.addEventListener("touchend", handleEnd);
+
+        // 处理开始滑动
+        function handleStart(e) {
+            e.preventDefault();
+            isDown = true;
+            startX = e.clientX || e.touches[0].clientX;
+        }
+
+        // 处理滑动过程
+        function handleMove(e) {
+            e.preventDefault();
+            if (!isDown) return false;
+            const moveX = e.clientX || e.touches[0].clientX;
+            distance = moveX - startX;
+
+            // 边界处理
+            if (distance < 0) {
+                distance = 0;
+            } else if (distance > canvas.width - w) {
+                distance = canvas.width - w;
+            }
+
+            // 移动滑块
+            button.style.left = distance + "px";
+            block.style.left = distance + "px";
+        }
+
+        // 处理滑动结束
+        function handleEnd(e) {
+            e.preventDefault();
+
+            // 判断是否验证成功
+            if (Math.abs(distance - x) < 5) {
+                // 验证成功
+                tip.innerHTML = "验证成功";
+                button.innerHTML = "√";
+                button.className = "slider-button success";
+                // 移除事件监听
+                button.removeEventListener("mousedown", handleStart);
+                button.removeEventListener("mousemove", handleMove);
+                button.removeEventListener("mouseup", handleEnd);
+                button.removeEventListener("mouseleave", handleEnd);
+
+                button.removeEventListener("touchstart", handleStart);
+                button.removeEventListener("touchmove", handleMove);
+                button.removeEventListener("touchend", handleEnd);
+
+            } else {
+                // 验证失败
+                tip.innerHTML = "验证失败";
+                button.innerHTML = "x";
+                button.className = "slider-button fail";
+
+                // 复位滑块
+                setTimeout(function () {
+                    distance = 0;
+                    button.style.left = distance + "px";
+                    block.style.left = distance + "px";
+                    tip.innerHTML = "向右滑动完成验证";
+                    button.innerHTML = "&gt;";
+                    button.className = "slider-button";
+                }, 1000);
+
+                // 刷新画布
+                draw();
+            }
+            isDown = false;
+        }
     </script>
 </body>
 
