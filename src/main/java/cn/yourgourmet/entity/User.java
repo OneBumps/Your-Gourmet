@@ -19,7 +19,7 @@ public class User implements java.io.Serializable {
     private String userGroup;
     private String userGender;
     private String userIntroduction;
-    private byte[] userAvatar;
+    private String userAvatar;
 
     public User() {
     }
@@ -35,7 +35,7 @@ public class User implements java.io.Serializable {
      * @param userIntroduction 用户简介
      * @param userAvatar    头像
      */
-    public User(String userId, String userName, String userPassword, String userEmail, String userPhone, String userGroup, String userGender, String userIntroduction, byte[] userAvatar) {
+    public User(String userId, String userName, String userPassword, String userEmail, String userPhone, String userGroup, String userGender, String userIntroduction, String userAvatar) {
         this.userId = userId;
         this.userName = userName;
         this.userPassword = userPassword;
@@ -162,29 +162,29 @@ public class User implements java.io.Serializable {
     /**
      * @return 头像
      */
-    public byte[] getUserAvatar() {
+    public String getUserAvatar() {
         return userAvatar;
     }
 
     /**
      * @param userAvatar 头像
      */
-    public void setUserAvatar(byte[] userAvatar) {
+    public void setUserAvatar(String userAvatar) {
         this.userAvatar = userAvatar;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "userId=" + userId +
+                "userId='" + userId + '\'' +
                 ", userName='" + userName + '\'' +
-                ", password='" + userPassword + '\'' +
-                ", email='" + userEmail + '\'' +
-                ", phone='" + userPhone + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userPhone='" + userPhone + '\'' +
                 ", userGroup='" + userGroup + '\'' +
-                ", gender='" + userGender + '\'' +
-                ", userIntro='" + userIntroduction + '\'' +
-                ", avatar=" + Arrays.toString(userAvatar) +
+                ", userGender='" + userGender + '\'' +
+                ", userIntroduction='" + userIntroduction + '\'' +
+                ", userAvatar='" + userAvatar + '\'' +
                 '}';
     }
 }
