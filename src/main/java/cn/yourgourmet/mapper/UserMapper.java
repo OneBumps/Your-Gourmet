@@ -46,4 +46,6 @@ public interface UserMapper {
     int updatePassword(@Param("userId") String username, @Param("userPassword") String password);
 
     User selectAllByUserId(@Param("userId") String userId);
+
+    Integer insert(@Param("userId") String userId,@Param("userPassword") String userPassword ,@Param("userName" )String userName,@Param("userPhone") String userPhone);
 }
