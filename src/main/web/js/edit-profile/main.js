@@ -2,8 +2,8 @@
 
 // 显示用户信息(立即执行)
 (function () {
-  localStorage.setItem("userId", "e5114a96020e11eebd064ccc6a7eb102");
-  localStorage.setItem("userName", "小明");
+  localStorage.setItem("userId", "e5114ea8020e11eebd064ccc6a7eb102");
+  localStorage.setItem("userName", "迷路的男人");
   function PopulateUserInfo(data) {
     const { userName, userPhone, userGender = '未知', userGroup, userEmail = '未知', userIntroduction = '你还没有介绍你自己呢' } = data;
     document.querySelector(".base-info table tbody").innerHTML = `
@@ -136,21 +136,22 @@ document.querySelector("form[name='changeInfo'] button").addEventListener('click
 
 // 删除账户
 document.querySelector("div[data-title='delete'] button").addEventListener('click', function () {
-  let res = confirm("确定要删除账户吗？你将失去所有收藏的菜谱，并且我们会将你的数据抹除");
-  if(res == true){
+  let res = prompt("确定要删除账户吗？你将失去所有收藏的菜谱，并且我们会将你的数据抹除\n请输入你的密码以确认删除");
+  if(res != null){
     $.ajax({
       type: "POST",
       userId: localStorage.getItem("userId"),
-      url: "http://localhost/YourGourmet/Verify",
+      url: "http://localhost/YourGourmet/Delete",
       data: {
         type: "deleteUser",
-        userId: localStorage.getItem("userId")
+        userId: localStorage.getItem("userId"),
+        userPassword: res
       },
       success: function (data) {
         if (data == true) {
-          window.close();
+          window.open(location, '_self').close();
         } else {
-          alert("删除失败,服务器响应出错");
+          alert("删除失败,密码错误,请重试！！");
         }
       }
     });
