@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+
+.verify-container {
+    width: 350px;
+    border: 1px solid #e4e4e4;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+}
+
+.pic {
+    width: 100%;
+    position: relative;
+}
+
+.canvas_img {
+    display: block;
+}
+
+.canvas_block {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.slider {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #e4e4e4;
+    background: #f7f7f7;
+    position: relative;
+}
+
+.tip {
+    width: 100%;
+    height: 100%;
+    color: #666;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
