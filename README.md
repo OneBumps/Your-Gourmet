@@ -5,6 +5,6 @@
 
 ###### 前端采用 HTML5 + CSS3 + 原生JS + Jquery 技术
 
-###### 后端使用 传统 Dao 设计模式，使用Mybatis框架和Druid连接池
+###### 后端使用 传统 Dao 设计模式，使用Mybatis框架
 
 ###### 数据库采用 MySQL5.7
