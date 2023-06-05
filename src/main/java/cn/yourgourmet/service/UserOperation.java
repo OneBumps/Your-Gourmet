@@ -3,6 +3,7 @@ package cn.yourgourmet.service;
 import cn.yourgourmet.entity.User;
 import cn.yourgourmet.mapper.UserMapper;
 import com.alibaba.fastjson2.JSON;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -41,7 +42,8 @@ public class UserOperation {
             }
         }
     }
-    public static String getUserInfo(String userId){
+
+    public static String getUserInfo(String userId) {
         String resource = "mybatis-config.xml";
         InputStream inputStream = null;
         try {
@@ -51,7 +53,7 @@ public class UserOperation {
             throw new RuntimeException(e);
         }
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-        try(SqlSession session = sqlSessionFactory.openSession(true);) {
+        try (SqlSession session = sqlSessionFactory.openSession(true);) {
             UserMapper mapper = session.getMapper(UserMapper.class);
             User user = mapper.selectAllByUserId(userId);
             return JSON.toJSONString(user);
@@ -77,17 +79,42 @@ public class UserOperation {
             throw new RuntimeException(e);
         }
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-        try(SqlSession session = sqlSessionFactory.openSession(true);) {
+        try (SqlSession session = sqlSessionFactory.openSession(true);) {
             UserMapper mapper = session.getMapper(UserMapper.class);
             User user = new User();
             user.setUserId(userId);
             user.setUserName(userName);
             user.setUserPhone(userPhone);
-            if(userEmail != "") user.setUserEmail(userEmail);
+            if (userEmail != "") user.setUserEmail(userEmail);
             user.setUserGender(userGender == "male" ? "男" : "女");
-            if(userIntroduction != "") user.setUserIntroduction(userIntroduction);
+            if (userIntroduction != "") user.setUserIntroduction(userIntroduction);
             int res = mapper.updateUserInfo(user);
             return res > 0 ? true : false;
+        } catch (Exception e) {
+            System.out.println("事务操作失败");
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                System.out.println("关闭输入流失败");
+            }
+        }
+    }
+
+    public static Boolean deleteUser(String userId, String userPassword) {
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = null;
+        try {
+            inputStream = Resources.getResourceAsStream(resource);
+        } catch (IOException e) {
+            System.out.println("读取配置文件失败");
+            throw new RuntimeException(e);
+        }
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        try (SqlSession session = sqlSessionFactory.openSession(true);) {
+            UserMapper mapper = session.getMapper(UserMapper.class);
+            return mapper.deleteUser(userId, userPassword) > 0 ? true : false;
         } catch (Exception e) {
             System.out.println("事务操作失败");
             throw new RuntimeException(e);

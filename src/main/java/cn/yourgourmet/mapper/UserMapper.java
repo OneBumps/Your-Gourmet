@@ -46,12 +46,21 @@ public interface UserMapper {
      */
     User selectAllByUserId(@Param("userId") String userId);
 
-    Integer insert(@Param("userId") String userId,@Param("userPassword") String userPassword ,@Param("userName" )String userName,@Param("userPhone") String userPhone);
-
     /**
-     * 根据用户id删除用户
+     * 插入用户
      * @param userId 用户id
+     * @param userPassword 用户密码
+     * @param userName 用户名
+     * @param userPhone 用户电话
      * @return Integer
      */
-    Integer deleteByUserId(@Param("userId") String userId);
+    Integer insertUser(@Param("userId") String userId,@Param("userPassword") String userPassword ,@Param("userName" )String userName,@Param("userPhone") String userPhone);
+
+    /**
+     * 删除用户
+     * @param userId 用户id
+     * @param userPassword 用户密码
+     * @return Integer
+     */
+    Integer deleteUser(@Param("userId") String userId, @Param("userPassword") String userPassword);
 }

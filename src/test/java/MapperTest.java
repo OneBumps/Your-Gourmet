@@ -13,8 +13,7 @@ public class MapperTest {
 
     public void SQLSample(SqlSession session) {
         UserMapper mapper = session.getMapper(UserMapper.class);
-        int res = mapper.deleteByUserId("e5114dcf020e11eebd064ccc6a7eb102");
-        System.out.println(res);
+        System.out.println(mapper.deleteUser("e5114d9b020e11eebd064ccc6a7eb102", "csirhtvoeirhier"));
     }
 
     @Test
