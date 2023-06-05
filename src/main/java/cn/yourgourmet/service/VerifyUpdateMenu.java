@@ -27,6 +27,13 @@ public class VerifyUpdateMenu {
         } catch (Exception e) {
             System.out.println("事务操作失败");
             throw new RuntimeException(e);
+        } finally {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                System.out.println("关闭输入流失败");
+                throw new RuntimeException(e);
+            }
         }
     }
 }

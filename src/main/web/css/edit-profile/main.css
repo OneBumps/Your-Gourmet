@@ -121,6 +121,15 @@ button:active {
   margin-top: 20px;
 }
 
+/*--- 修改密码配置 ---*/
+.password .err{
+  color: red;
+  font-size: 12px;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+
 /*--- 修改头像 配置 ---*/
 .avatar {
   display: none;

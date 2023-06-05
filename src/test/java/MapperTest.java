@@ -1,5 +1,4 @@
-import cn.yourgourmet.entity.*;
-import cn.yourgourmet.mapper.RecipeMapper;
+import cn.yourgourmet.entity.User;
 import cn.yourgourmet.mapper.UserMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -13,12 +12,13 @@ import java.io.InputStream;
 public class MapperTest {
 
     public void SQLSample(SqlSession session) {
-        RecipeMapper mapper = session.getMapper(RecipeMapper.class);
         //1. new 实体类
-
-        //3. 调用mapper的方法进行SQL操作
-        System.out.println(mapper.selectByRecipeName("er"));
+        UserMapper mapper = session.getMapper(UserMapper.class);
+        //2. 调用mapper的方法进行SQL操作
+        User user = mapper.selectAllByUserId("ADMINISTRATOR");
+        System.out.println(user);
     }
+
     @Test
     public void getMapper() {
         String resource = "mybatis-config.xml";

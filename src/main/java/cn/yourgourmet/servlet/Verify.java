@@ -1,5 +1,6 @@
 package cn.yourgourmet.servlet;
 
+import cn.yourgourmet.service.UserOperation;
 import cn.yourgourmet.service.VerifyUpdateMenu;
 
 import javax.servlet.ServletException;
@@ -32,5 +33,14 @@ public class Verify extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("utf-8");
         response.setContentType("application/json;charset=utf-8");
+        String type = request.getParameter("type");
+        if (Objects.equals(type, "updatePassword")) {
+            PrintWriter out = response.getWriter();
+            if (UserOperation.changePassword(request.getParameter("userId"), request.getParameter("oldPassword"), request.getParameter("newPassword"))) {
+                out.print("true");
+            } else {
+                out.print("false");
+            }
+        }
     }
 }
