@@ -3,7 +3,7 @@
         <property name="driverClass">com.mysql.cj.jdbc.Driver</property>
         <property name="jdbcUrl">jdbc:mysql://localhost:3306/yourgourmet?useSSL=false</property>
         <property name="user">root</property>
-        <property name="password">root</property>
+        <property name="password">123456</property>
 
         <property name="acquireIncrement">50</property>
         <!-- c3p0数据库连接池中初始化时的连接数 -->
