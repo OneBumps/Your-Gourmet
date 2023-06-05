@@ -51,10 +51,43 @@ public class UserOperation {
             throw new RuntimeException(e);
         }
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-        try (SqlSession session = sqlSessionFactory.openSession(true)) {
+        try(SqlSession session = sqlSessionFactory.openSession(true);) {
             UserMapper mapper = session.getMapper(UserMapper.class);
             User user = mapper.selectAllByUserId(userId);
-            return JSON.toJSONString(user.getUserName());
+            return JSON.toJSONString(user);
+        } catch (Exception e) {
+            System.out.println("事务操作失败");
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                System.out.println("关闭输入流失败");
+            }
+        }
+    }
+
+    public static Boolean updateUserInfo(String userId, String userName, String userPhone, String userEmail, String userGender, String userIntroduction) {
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = null;
+        try {
+            inputStream = Resources.getResourceAsStream(resource);
+        } catch (IOException e) {
+            System.out.println("读取配置文件失败");
+            throw new RuntimeException(e);
+        }
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        try(SqlSession session = sqlSessionFactory.openSession(true);) {
+            UserMapper mapper = session.getMapper(UserMapper.class);
+            User user = new User();
+            user.setUserId(userId);
+            user.setUserName(userName);
+            user.setUserPhone(userPhone);
+            if(userEmail != "") user.setUserEmail(userEmail);
+            user.setUserGender(userGender == "male" ? "男" : "女");
+            if(userIntroduction != "") user.setUserIntroduction(userIntroduction);
+            int res = mapper.updateUserInfo(user);
+            return res > 0 ? true : false;
         } catch (Exception e) {
             System.out.println("事务操作失败");
             throw new RuntimeException(e);
