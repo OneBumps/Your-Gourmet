@@ -67,6 +67,10 @@ ul,li{
     margin: 10px 25px;
     justify-content: center;
 }
+.section .menuMessages .text p{
+    width: 500px;
+    border: 1px solid red;
+}
 /* 菜名图片 */
 .section .menuMessages .text > div:nth-child(1){
     /* border: 1px solid blue; */
