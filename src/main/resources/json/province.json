@@ -1,0 +1,140 @@
+{
+  "provinces": [
+    {
+      "id": 1,
+      "provinceName": "北京市"
+    },
+    {
+      "id": 2,
+      "provinceName": "天津市"
+    },
+    {
+      "id": 3,
+      "provinceName": "河北省"
+    },
+    {
+      "id": 4,
+      "provinceName": "山西省"
+    },
+    {
+      "id": 5,
+      "provinceName": "内蒙古自治区"
+    },
+    {
+      "id": 6,
+      "provinceName": "辽宁省"
+    },
+    {
+      "id": 7,
+      "provinceName": "吉林省"
+    },
+    {
+      "id": 8,
+      "provinceName": "黑龙江省"
+    },
+    {
+      "id": 9,
+      "provinceName": "上海市"
+    },
+    {
+      "id": 10,
+      "provinceName": "江苏省"
+    },
+    {
+      "id": 11,
+      "provinceName": "浙江省"
+    },
+    {
+      "id": 12,
+      "provinceName": "安徽省"
+    },
+    {
+      "id": 13,
+      "provinceName": "福建省"
+    },
+    {
+      "id": 14,
+      "provinceName": "江西省"
+    },
+    {
+      "id": 15,
+      "provinceName": "山东省"
+    },
+    {
+      "id": 16,
+      "provinceName": "河南省"
+    },
+    {
+      "id": 17,
+      "provinceName": "湖北省"
+    },
+    {
+      "id": 18,
+      "provinceName": "湖南省"
+    },
+    {
+      "id": 19,
+      "provinceName": "广东省"
+    },
+    {
+      "id": 20,
+      "provinceName": "海南省"
+    },
+    {
+      "id": 21,
+      "provinceName": "广西壮族自治区"
+    },
+    {
+      "id": 22,
+      "provinceName": "甘肃省"
+    },
+    {
+      "id": 23,
+      "provinceName": "陕西省"
+    },
+    {
+      "id": 24,
+      "provinceName": "新疆维吾尔自治区"
+    },
+    {
+      "id": 25,
+      "provinceName": "青海省"
+    },
+    {
+      "id": 26,
+      "provinceName": "宁夏回族自治区"
+    },
+    {
+      "id": 27,
+      "provinceName": "重庆市"
+    },
+    {
+      "id": 28,
+      "provinceName": "四川省"
+    },
+    {
+      "id": 29,
+      "provinceName": "贵州省"
+    },
+    {
+      "id": 30,
+      "provinceName": "云南省"
+    },
+    {
+      "id": 31,
+      "provinceName": "西藏自治区"
+    },
+    {
+      "id": 32,
+      "provinceName": "台湾省"
+    },
+    {
+      "id": 33,
+      "provinceName": "澳门特别行政区"
+    },
+    {
+      "id": 34,
+      "provinceName": "香港特别行政区"
+    }
+  ]
+}

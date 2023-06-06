@@ -1,14 +1,11 @@
-// 电梯导航(立即执行)
-
 // 显示用户信息(立即执行)
 (function () {
   localStorage.setItem("userId", "e5114cee020e11eebd064ccc6a7eb102");
   localStorage.setItem("userName", "孤影メ残刀");
   function PopulateUserInfo(data) {
     const { userName, userPhone, userGender = '未知', userGroup, userEmail = '未知', userIntroduction = '你还没有介绍你自己呢', userAvatar = "avatar/default.jpg" } = data;
-    console.log(userAvatar);
     document.querySelector(".base-info table tbody").innerHTML = `
-    <tr>
+    <tr></tr>
     <td>${userName}</td>
     <td>${userPhone}</td>
     <td>${userGender}</td>
@@ -70,7 +67,7 @@ document.querySelector(".password button").addEventListener('click', function ()
     },
     success: function (checkPassword) {
       if (checkPassword == true) {
-        document.querySelector(".password .err").innerHTML = "修改成功";
+        document.querySelector(".password .err").innerHTML = "修改成功，请重新登录";
         setTimeout(() => {
           location.reload();
         }, 3000);
@@ -89,32 +86,124 @@ document.querySelector("input[name='avatar']").onchange = function () {
 //上传头像
 document.querySelector(".avatar button").addEventListener("click", function () {
   let avatar = document.querySelector("input[name='avatar']").files[0];
+  let err = document.querySelector(".avatar .err");
   if (avatar == undefined) {
-    document.querySelector(".avatar .err").innerHTML = "请选择图片";
+    err.innerHTML = "请选择图片";
     return;
   }
   let userId = localStorage.getItem("userId");
-  let formData = new FormData("changeAvatar");
+  let changeAvatar = document.querySelector("form[name='changeAvatar']");
+  let formData = new FormData(changeAvatar);
   formData.append("type", "updateAvatar");
   formData.append("userId", userId);
   $.ajax({
     type: "POST",
     url: "http://localhost/YourGourmet/Upload",
     data: formData,
+    //关闭 Jquery 对 formData 的默认处理
     processData: false,
     contentType: false,
-    success: function (data) {
-      if (data == true) {
-        document.querySelector(".avatar .err").innerHTML = "上传成功";
+    success: function (st) {
+      if (st == "true") {
+        err.innerHTML = "上传成功,即将刷新页面";
         setTimeout(() => {
           location.reload();
         }, 3000);
       } else {
-        document.querySelector(".avatar .err").innerHTML = "上传失败";
+        err.innerHTML = "上传失败,请重试";
       }
     }
   });
 });
+
+
+
+// 获取定位
+// 自动定位 - 使用百度地图API
+document.querySelector("input[name='autoLocation']").addEventListener("change", getGeolocation);
+function getGeolocation() {
+  if (this.checked == false) return;
+  let geolocation = new BMap.Geolocation();
+  geolocation.getCurrentPosition(function (r) {
+    if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+      // 获取城市名称
+      let province = r.address.province;// 省
+      let cityName = r.address.city;// 市
+      localStorage.setItem("province", province);
+      localStorage.setItem("city", cityName);
+      document.querySelector("span#province").innerHTML = localStorage.getItem("province");
+      document.querySelector("span#city").innerHTML = localStorage.getItem("city");
+    }
+  }, { enableHighAccuracy: true })//高精度方式
+}
+// 手动定位 - 使用ajax获取地址
+(function () {
+  let chooseProvince = document.querySelector("#choose-province");
+  let chooseCity = document.querySelector("#choose-city");
+  // 获取省份列表
+  $.ajax({
+    url: "/YourGourmet/GetInfo",
+    type: "GET",
+    dataType: "json",
+    data: {
+      type: "getProvinceList"
+    },
+    success: function (data) {
+      if(data == "false"){
+        chooseProvince.innerHTML = "<option value='0'>加载失败，请重试</option>";
+        return;
+      }
+      // 添加省份选项
+      chooseProvince.innerHTML = "<option value='0'>请选择省份</option>";
+      data.forEach(function (item) {
+        const { id, provinceName } = item;
+        chooseProvince.innerHTML += `<option value='${id}' data-value='${provinceName}'>${provinceName}</option>`;
+      }
+      );
+      // 添加城市列表
+      chooseProvince.addEventListener("change", function () {
+        let provinceId = this.value;
+        $.ajax({
+          url: "/YourGourmet/GetInfo",
+          type: "GET",
+          dataType: "json",
+          data: {
+            type: "getCityList",
+            provinceId: provinceId
+          },
+          success: function (data) {
+            if (data == "false") {
+              chooseCity.innerHTML = "<option value='0'>加载失败，请重新选择省份</option>";
+              return;
+            }
+            chooseCity.innerHTML = "<option value='0'>请选择城市</option>";
+            data.forEach(function (item) {
+              chooseCity.innerHTML += `<option value='${item}'>${item}</option>`;
+            }
+            );
+            // 显示更改按钮
+            let changeButton = document.querySelector("#ConfirmChange");
+            changeButton.style.display = "inline-block";
+            changeButton.addEventListener("click", function () {
+              localStorage.setItem("province", chooseProvince.options[chooseProvince.selectedIndex].getAttribute("data-value"));
+              localStorage.setItem("city", chooseCity.options[chooseCity.selectedIndex].value);
+              document.querySelector("span#province").innerHTML = localStorage.getItem("province");
+              document.querySelector("span#city").innerHTML = localStorage.getItem("city");
+            });
+          },
+          error: function () {
+            chooseCity.innerHTML = "<option value='0'>服务器错误</option>";
+          }
+        });
+      });
+    },
+    error: function () {
+      chooseProvince.innerHTML = "<option value='0'>服务器错误</option>";
+    }
+  });
+})();
+
+
 
 // 修改用户信息
 document.querySelector("form[name='changeInfo'] button").addEventListener('click', function () {
@@ -128,7 +217,6 @@ document.querySelector("form[name='changeInfo'] button").addEventListener('click
   let userGender = document.querySelector("form[name='changeInfo'] input[name='userGender']:checked").value;
   let userIntroduction = document.querySelector("form[name='changeInfo'] textarea[name='userIntroduction']").value;
   let userIntroErr = document.querySelector("form[name='changeInfo'] textarea[name='userIntroduction']+.err");
-  let flag = true;
   if (userName.trim() == "") {
     userNameErr.innerText = "昵称不能为空";
     return;

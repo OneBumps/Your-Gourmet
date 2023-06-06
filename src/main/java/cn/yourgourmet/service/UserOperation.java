@@ -126,4 +126,29 @@ public class UserOperation {
             }
         }
     }
+
+    public static Boolean updateUserAvatar(String userId, String userAvatar){
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = null;
+        try {
+            inputStream = Resources.getResourceAsStream(resource);
+        } catch (IOException e) {
+            System.out.println("读取配置文件失败");
+            throw new RuntimeException(e);
+        }
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        try (SqlSession session = sqlSessionFactory.openSession(true);) {
+            UserMapper mapper = session.getMapper(UserMapper.class);
+            return mapper.updateUserAvatar(userAvatar, userId) > 0;
+        } catch (Exception e) {
+            System.out.println("事务操作失败");
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                System.out.println("关闭输入流失败");
+            }
+        }
+    }
 }
