@@ -82,7 +82,7 @@ ul,li{
     box-sizing: border-box;
     width: 32px;
     position: fixed;
-    top: 300px;
+    top: 260px;
     right: 50px;
     display: flex;
     flex-direction: column;
@@ -91,19 +91,19 @@ ul,li{
 .section .menuMessages .text > div:nth-child(2) .icon span{
     width: 16px;
     height: 16px;
-    margin: 30px auto;
-    margin-bottom: 30px;
+    margin: 20px auto;
+    margin-bottom: 20px;
     cursor: pointer;
 }
 /* 设置icon变化 */
-/* .section .menuMessages .text > div:nth-child(2) .icon span:nth-child(odd):hover{
+.section .menuMessages .text > div:nth-child(2) .icon span:nth-child(odd):hover{
     transform: rotate(-10deg) scale(2,1.8);
     transition: all 0.3s linear;
 }
 .section .menuMessages .text > div:nth-child(2) .icon span:nth-child(even):hover{
     transform: rotate(10deg) scale(2,1.8);
     transition: all 0.3s linear;
-} */
+}
 .section .menuMessages .text > div:nth-child(2) .icon span > img{
     border: 1px solid red;
     /* position: flex;

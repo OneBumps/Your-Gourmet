@@ -1,14 +1,9 @@
-/* body{
-    background-color: lightgrey;
-} */
-
 .wrapper {
-    width: 1120px;
+    width: 1350px;
     margin: 0 auto;
     margin-top: 100px;
     margin-bottom: 200px;
-    border-radius: 25px;
-    border: 1px solid grey;
+    border-radius: 0 25px 0 25px;
     box-shadow:
         19.4px 20.4px 23.4px rgba(0, 0, 0, 0.068),
         31.1px 32.7px 58.1px rgba(0, 0, 0, 0.108),
@@ -16,39 +11,59 @@
         59px 62px 438px rgba(0, 0, 0, 0.24);
 }
 
-.content h2{
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-left: 30px;
-}
-
-.content p{
-    border: 1px solid red;
-    margin: 0 auto;
-    width: 1000px;
-    font-size: 18px;
-}
-
-.content .main > h2{
+.one {
+    width: 200px;
     text-align: center;
 }
+.two {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
 
-.content .main ul {
-    margin-bottom: 50px;
+.content .introduce{
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 1000px;
+    font-size: 16px;
+    color: grey;
 }
-.content .main .clearFix::after {
-    content: '';
-    display: block;
-    clear: both;
+
+.content .introduce > p{
+    margin: 15px;
+    margin-top: 0px;
 }
-.content .main ul > li {
-    float: left;
-    margin: 10px;
-    width: 200px;
-    height: 200px;
-    background-color: white;
-    border: 1px solid green;
+
+.main {
+    margin-top: 40px;
 }
-.content .main ul > li .margin-off {
-    margin-right: 0px;
+.dishcategory-list {
+    margin: 25px;
+}
+.main .dishcategory-list ul {
+    width: 100%;
+    display: flex;
+}
+.dishcategory-list ul li {
+    flex: 1;
+    width: 250px;
+    height: 325px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    background-color: lightgrey;
+}
+.dishcategory-list ul li h4{
+    margin: 8px 20px 10px 25px;
+    font-size: 18px;
+    color: black;
+    font-weight: bold;
+}
+.dishcategory-list ul li #dish_img {
+    width: 100%;
+    height: 260px;
+}
+.dishcategory-list .info span {
+    color: #ff7c2d;
+    font-weight: bold;
+    margin-right: 100px;
 }
