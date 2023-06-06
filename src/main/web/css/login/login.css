@@ -34,12 +34,15 @@ body{
     height: 30px;
     font-size: 20px;
     font-weight: 700;
-    background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+    /* background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%); */
+    background-color: #74ebd5;
     border:0;
     border-radius:15px;
-
+    cursor: pointer;
 }
-
+#submit:hover{
+    background-color: #ff6a00;
+}
 .register{
     margin-top: 25px;
     float: right;
