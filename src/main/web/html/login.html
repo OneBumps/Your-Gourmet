@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
@@ -21,18 +21,20 @@
     <div class="login">
         <h1>Login</h1>
         <div class="form">
-            <form method="post" action="#">
+
+            <form action="http://localhost/YourGourmet/Verify" method="POST">
                 <ul>
                     <li id="item">
-                        <input type="text" placeholder="用户名：" id="user_name">
+                        <input name="username" type="text" placeholder="用户名：" id="user_name">
                     </li>
                     <li id="item">
-                        <input type="text" placeholder="密码：" id="user_password">
+                        <input name="password" type="text" placeholder="密码：" id="user_password">
                     </li>
                     <li id="sub">
                         <button type="submit" id="submit">登录</button>
                     </li>
                 </ul>
+                <input type="hidden" name="type" value="SignIn"></input>
             </form>
             <div class="register">
                 <a href="../html/register.html">去注册账号~</a>

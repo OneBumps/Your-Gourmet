@@ -62,12 +62,12 @@
     <div class="main">
         <div class="sub-nav">
             <ul>
-                <li>基本信息</li>
-                <li>修改密码</li>
-                <li>修改头像</li>
-                <li>隐私管理</li>
-                <li>修改资料</li>
-                <li>删除用户</li>
+                <li><a href="javascript:;" data-name="base">基本信息</a></li>
+                <li><a href="javascript:;" data-name="password">修改密码</a></li>
+                <li><a href="javascript:;" data-name="avatar">修改头像</a></li>
+                <li><a href="javascript:;" data-name="privacy">隐私管理</a></li>
+                <li><a href="javascript:;" data-name="profile">修改资料</a></li>
+                <li><a href="javascript:;" data-name="delete">删除用户</a></li>
             </ul>
         </div>
         <div class="wrapper">
@@ -98,37 +98,49 @@
                         <textarea readonly></textarea>
                     </div>
                 </div>
-                <div data-title="password">
-                    <h2>修改密码</h2>
-                    <form name="changePassword" method="POST">
-                        <div class="contain-box password">
-                            <label>原始密码：<input name="oldPassword" type="password"></label>
-                            <label>新的密码：<input name="newPassword" type="password"></label>
-                            <label>确认密码：<input name="verify" type="password"></label>
-                            <button type="button">确认修改</button>
-                            <span class="err"></span>
-                        </div>
-                    </form>
-                </div>
-                <div data-title="avatar">
-                    <form name="changeAvatar" method="POST" enctype="multipart/form-data">
-                        <h2>修改头像</h2>
-                        <div class="contain-box avatar">
-                            <img class="show-avatar" src="" />
-                            <label>
-                                <input type="file" name="avatar" id="avatar" accept="image/*" />
-                                <span>上传一张图</span>
-                            </label>
-                            <span class="err"></span>
-                            <button type="button">确认上传</button>
-                        </div>
-                    </form>
-                </div>
+            </div>
+            <div data-title="password">
+                <h2>修改密码</h2>
+                <form name="changePassword" method="POST">
+                    <div class="contain-box password">
+                        <label>原始密码：<input name="oldPassword" type="password"></label>
+                        <label>新的密码：<input name="newPassword" type="password"></label>
+                        <label>确认密码：<input name="verify" type="password"></label>
+                        <button type="button">确认修改</button>
+                        <span class="err"></span>
+                    </div>
+                </form>
+            </div>
+            <div data-title="avatar">
+                <form name="changeAvatar" method="POST" enctype="multipart/form-data">
+                    <h2>修改头像</h2>
+                    <div class="contain-box avatar">
+                        <img class="show-avatar" src="" />
+                        <label>
+                            <input type="file" name="avatar" id="avatar" accept="image/*" />
+                            <span>上传一张图</span>
+                        </label>
+                        <span class="err"></span>
+                        <button type="button">确认上传</button>
+                    </div>
+                </form>
             </div>
             <div data-title="privacy">
                 <h2>隐私管理</h2>
                 <div class="contain-box">
-                    <label>启用自动定位 <input type="checkbox" name="autoLocation"></label>
+                    <h3 class="positioning">定位功能</h3><i class="iconfont icon-jinggao"></i>
+                    <span>获取的定位信息均保存在本地，仅用于菜谱推荐</span>
+                    <label>自动获取定位（需要您同意定位权限）<input type="checkbox" name="autoLocation"></label>
+                    <label>手动获取定位：
+                        <select id="choose-province">
+                            <option value="">请选择省份</option>
+                        </select>
+                        <select id="choose-city">
+                            <option value="">请选择城市</option>
+                        </select>
+                        <button type="button" id="ConfirmChange">确认手动更改</button>
+                    </label>
+                    <div>您现在位于：<span id="province"></span>&nbsp;&nbsp;<span id="city"></span></div>
                 </div>
             </div>
             <div data-title="profile">
@@ -188,8 +200,12 @@
     <!-- js 基础样式引入 -->
     <script src="../js/public/header.js"></script>
     <script src="../js/public/jQuery.js"></script>
+    <!-- 百度地图API -->
+    <script src="http://api.map.baidu.com/api?v=2.0&ak=GKX7q0yX14lztZaemq92ZKeq2FD1egcN"></script>
     <!-- js 自定义样式引入-->
     <script src="../js/edit-profile/main.js"></script>
+    <script src="../js/edit-profile/elevator-navigation.js"></script>
+
 </body>
 
 </html>

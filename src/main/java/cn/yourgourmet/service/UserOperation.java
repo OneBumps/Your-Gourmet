@@ -25,7 +25,7 @@ public class UserOperation {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         try (SqlSession session = sqlSessionFactory.openSession(true)) {
             UserMapper mapper = session.getMapper(UserMapper.class);
-            if (mapper.selectByUserIdAndPassword(username, oldPassword) == 1) {
+            if (mapper.selectByUserNameAndPassword(username, oldPassword) == 1) {
                 if (mapper.updatePassword(username, newPassword) > 0) {
                     return true;
                 }
@@ -115,6 +115,57 @@ public class UserOperation {
         try (SqlSession session = sqlSessionFactory.openSession(true);) {
             UserMapper mapper = session.getMapper(UserMapper.class);
             return mapper.deleteUser(userId, userPassword) > 0 ? true : false;
+        } catch (Exception e) {
+            System.out.println("事务操作失败");
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                System.out.println("关闭输入流失败");
+            }
+        }
+    }
+
+    public static Boolean updateUserAvatar(String userId, String userAvatar){
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = null;
+        try {
+            inputStream = Resources.getResourceAsStream(resource);
+        } catch (IOException e) {
+            System.out.println("读取配置文件失败");
+            throw new RuntimeException(e);
+        }
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        try (SqlSession session = sqlSessionFactory.openSession(true);) {
+            UserMapper mapper = session.getMapper(UserMapper.class);
+            return mapper.updateUserAvatar(userAvatar, userId) > 0;
+        } catch (Exception e) {
+            System.out.println("事务操作失败");
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                System.out.println("关闭输入流失败");
+            }
+        }
+    }
+
+    public static String signIn(String userName, String userPassword) {
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = null;
+        try {
+            inputStream = Resources.getResourceAsStream(resource);
+        } catch (IOException e) {
+            System.out.println("读取配置文件失败");
+            throw new RuntimeException(e);
+        }
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        try (SqlSession session = sqlSessionFactory.openSession(true);) {
+            UserMapper mapper = session.getMapper(UserMapper.class);
+            return mapper.selectUserIdByUserNameAndPassword(userName, userPassword);
+
         } catch (Exception e) {
             System.out.println("事务操作失败");
             throw new RuntimeException(e);
