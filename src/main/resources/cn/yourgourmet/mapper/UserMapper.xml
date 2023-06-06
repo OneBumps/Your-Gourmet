@@ -23,6 +23,9 @@
     <update id="updateUserInfo">
         UPDATE user SET user_name = #{userName}, user_phone = #{userPhone}, user_email = #{userEmail}, user_gender = #{userGender}, user_introduction = #{userIntroduction} WHERE pk_user_id = #{userId};
     </update>
+    <update id="updateUserAvatar">
+        UPDATE user SET user_avatar = #{userAvatar} WHERE pk_user_id = #{userId};
+    </update>
     <delete id="deleteUser">
         DELETE FROM user WHERE pk_user_id = #{userId} AND user_password = #{userPassword};
     </delete>

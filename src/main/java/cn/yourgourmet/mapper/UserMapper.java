@@ -63,4 +63,6 @@ public interface UserMapper {
      * @return Integer
      */
     Integer deleteUser(@Param("userId") String userId, @Param("userPassword") String userPassword);
+
+    Integer updateUserAvatar(@Param("userAvatar") String avatar, @Param("userId") String userId);
 }
