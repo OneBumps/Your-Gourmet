@@ -111,45 +111,54 @@
                     </form>
                 </div>
                 <div data-title="avatar">
-                    <h2>修改头像</h2>
-                    <div class="contain-box avatar">
-                        <img src="" />
-                        <input type="file" name="avatar" id="avatar" />
-                    </div>
+                    <form name="changeAvatar" method="POST" enctype="multipart/form-data">
+                        <h2>修改头像</h2>
+                        <div class="contain-box avatar">
+                            <img class="show-avatar" src="" />
+                            <label>
+                                <input type="file" name="avatar" id="avatar" accept="image/*" />
+                                <span>上传一张图</span>
+                            </label>
+                            <span class="err"></span>
+                            <button type="button">确认上传</button>
+                        </div>
+                    </form>
                 </div>
-                <div data-title="privacy">
-                    <h2>隐私管理</h2>
-                    <div class="contain-box">
-                        <label>启用自动定位 <input type="checkbox" name="autoLocation"></label>
-                    </div>
+            </div>
+            <div data-title="privacy">
+                <h2>隐私管理</h2>
+                <div class="contain-box">
+                    <label>启用自动定位 <input type="checkbox" name="autoLocation"></label>
                 </div>
-                <div data-title="profile">
-                    <h2>修改资料</h2>
-                    <div class="contain-box profile">
-                        <form action="http://localhost/YourGourmet/Verify" method="POST" name="changeInfo">
-                            <input type="hidden" name="userId" value="">
-                            <input type="hidden" name="type" value="updateUserInfo">
-                            <label>修改昵称<span class="must"></span>：</span><input name="userName" type="text" /><span class="err"></span></label>
-                            <label>修改电话<span class="must"></span>：<input name="userPhone" type="text" /><span class="err"></span></label>
-                            <label>修改邮箱：<input name="userEmail" type="text" /><span class="err"></span></label>
-                            修改性别
-                            <label class="gender-box"><input type="radio" name="userGender" value="male"
-                                    checked>男</label>
-                            <label class="gender-box"><input type="radio" name="userGender" value="female">女</label>
-                            <label>修改简介:<textarea name="userIntroduction"></textarea><span class="err"></span></label>
-                            <button type="button">确认修改</button>
-                        </form>
-                    </div>
+            </div>
+            <div data-title="profile">
+                <h2>修改资料</h2>
+                <div class="contain-box profile">
+                    <form action="http://localhost/YourGourmet/Verify" method="POST" name="changeInfo">
+                        <input type="hidden" name="userId" value="">
+                        <input type="hidden" name="type" value="updateUserInfo">
+                        <label>修改昵称<span class="must"></span>：</span><input name="userName" type="text" /><span
+                                class="err"></span></label>
+                        <label>修改电话<span class="must"></span>：<input name="userPhone" type="text" /><span
+                                class="err"></span></label>
+                        <label>修改邮箱：<input name="userEmail" type="text" /><span class="err"></span></label>
+                        修改性别
+                        <label class="gender-box"><input type="radio" name="userGender" value="male" checked>男</label>
+                        <label class="gender-box"><input type="radio" name="userGender" value="female">女</label>
+                        <label>修改简介:<textarea name="userIntroduction"></textarea><span class="err"></span></label>
+                        <button type="button">确认修改</button>
+                    </form>
                 </div>
-                <div data-title="delete">
-                    <h2>删除用户</h2>
-                    <div class="contain-box">
-                        这将会删除您的所有信息，您确定要删除吗？
-                        <button type="button">确认删除</button>
-                    </div>
+            </div>
+            <div data-title="delete">
+                <h2>删除用户</h2>
+                <div class="contain-box">
+                    这将会删除您的所有信息，您确定要删除吗？
+                    <button type="button">确认删除</button>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <!-- 底部开始 -->
     <footer>

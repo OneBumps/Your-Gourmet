@@ -2,10 +2,11 @@
 
 // 显示用户信息(立即执行)
 (function () {
-  localStorage.setItem("userId", "e5114ea8020e11eebd064ccc6a7eb102");
-  localStorage.setItem("userName", "迷路的男人");
+  localStorage.setItem("userId", "e5114cee020e11eebd064ccc6a7eb102");
+  localStorage.setItem("userName", "孤影メ残刀");
   function PopulateUserInfo(data) {
-    const { userName, userPhone, userGender = '未知', userGroup, userEmail = '未知', userIntroduction = '你还没有介绍你自己呢' } = data;
+    const { userName, userPhone, userGender = '未知', userGroup, userEmail = '未知', userIntroduction = '你还没有介绍你自己呢', userAvatar = "avatar/default.jpg" } = data;
+    console.log(userAvatar);
     document.querySelector(".base-info table tbody").innerHTML = `
     <tr>
     <td>${userName}</td>
@@ -19,6 +20,7 @@
       个人简介如下：<br>
       <textarea readonly>${userIntroduction}</textarea>
     `;
+    document.querySelector(".show-avatar").src = `http://localhost/YourGourmet/img/profile/${userAvatar}`;
   }
   $.ajax({
     type: "POST",
@@ -67,7 +69,6 @@ document.querySelector(".password button").addEventListener('click', function ()
       newPassword: newPassword
     },
     success: function (checkPassword) {
-      console.log(checkPassword);
       if (checkPassword == true) {
         document.querySelector(".password .err").innerHTML = "修改成功";
         setTimeout(() => {
@@ -75,6 +76,41 @@ document.querySelector(".password button").addEventListener('click', function ()
         }, 3000);
       } else {
         document.querySelector(".password .err").innerHTML = "修改失败，请检查原密码是否正确";
+      }
+    }
+  });
+});
+
+// 修改头像
+//显示上传的头像
+document.querySelector("input[name='avatar']").onchange = function () {
+  document.querySelector(".show-avatar").src = window.URL.createObjectURL(this.files[0]);
+};
+//上传头像
+document.querySelector(".avatar button").addEventListener("click", function () {
+  let avatar = document.querySelector("input[name='avatar']").files[0];
+  if (avatar == undefined) {
+    document.querySelector(".avatar .err").innerHTML = "请选择图片";
+    return;
+  }
+  let userId = localStorage.getItem("userId");
+  let formData = new FormData("changeAvatar");
+  formData.append("type", "updateAvatar");
+  formData.append("userId", userId);
+  $.ajax({
+    type: "POST",
+    url: "http://localhost/YourGourmet/Upload",
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function (data) {
+      if (data == true) {
+        document.querySelector(".avatar .err").innerHTML = "上传成功";
+        setTimeout(() => {
+          location.reload();
+        }, 3000);
+      } else {
+        document.querySelector(".avatar .err").innerHTML = "上传失败";
       }
     }
   });
@@ -137,7 +173,7 @@ document.querySelector("form[name='changeInfo'] button").addEventListener('click
 // 删除账户
 document.querySelector("div[data-title='delete'] button").addEventListener('click', function () {
   let res = prompt("确定要删除账户吗？你将失去所有收藏的菜谱，并且我们会将你的数据抹除\n请输入你的密码以确认删除");
-  if(res != null){
+  if (res != null) {
     $.ajax({
       type: "POST",
       userId: localStorage.getItem("userId"),
