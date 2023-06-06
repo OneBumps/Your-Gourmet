@@ -11,7 +11,7 @@
 }
 
 .main .main_hea {
-    width: 65%;
+    width: 75%;
     height: 460px;
     background-color: #d74242;
     position: relative;
@@ -35,7 +35,7 @@
 }
 
 .main .rang {
-    width: 25%;
+    width: 15%;
     height: 460px;
     flex: 1;
     background-color: #75d937;
@@ -56,26 +56,38 @@
     height: 100%;
     display: flex;
     animation: 20s move infinite;
+    transition: .5s ease;
 }
 
-.picture #list:hover {
+/* .picture #list:hover {
     animation-play-state: paused;
-}
+} */
 
 .picture #list li {
-    width: 845px;
+    width: 985px;
     height: 100%;
     flex: 1;
 }
 
 .picture #list li img {
-    width: 845px;
+    width: 985px;
     height: 400px;
 }
-.main_hea .picture_text ul li:hover{
-    background-color: #a5a2a2;
+.picture_text ul li{
+    font-size: 20px;
+    font-weight: bold;
+    
+}.picture_text ul li a{
+    color: #000;
 }
-@keyframes move2{
+.picture_text ul .active{
+    background-color: #ff6a00;
+    box-shadow: 0px 0px 5px 2px white;
+}
+.main_hea .picture_text ul li:hover{
+    background-color:#ff6a00;
+}
+/* @keyframes move2{
     0%,
     100%{
         left: -845px;
@@ -112,7 +124,7 @@
         left: 4225px;
     }
 
-}
+} */
 
 /* 轮播图结束 */
 /* 视频开始 */

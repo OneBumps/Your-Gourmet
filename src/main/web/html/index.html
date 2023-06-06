@@ -84,14 +84,14 @@
                             </a></li>
                     </ul>
                 </div>
-
+        
                 <div class="picture_text">
-                    <ul>
-                        <li id="bn1" onmouseover="check()"><a href="#">西餐</a> </li>
-                        <li><a href="">粤菜</a></li>
-                        <li><a href="">川菜</a></li>
-                        <li><a href="">家常菜</a></li>
-                        <li><a href="">点心</a></li>
+                    <ul id="circle-list">
+                        <li class="bn1 active" onclick="" data-n="0"><a href="#">西餐</a> </li>
+                        <li class="bn1" onclick="" data-n="1"><a href="">粤菜</a></li>
+                        <li class="bn1" onclick="" data-n="2"><a href="">川菜</a></li>
+                        <li class="bn1" onclick="" data-n="3"><a href="">家常菜</a></li>
+                        <li class="bn1" onclick="" data-n="4"><a href="">点心</a></li>
                     </ul>
                 </div>
             </div>
@@ -140,7 +140,7 @@
 
                     <li>
                         <img src="../img/logo.png" alt="" id="img_main">
-                        <h4>酸辣土豆丝</h4>
+                        <h4 id="menu_name">酸辣土豆丝</h4>
                         <div class="info">
                             <span>热</span>
                             <img src="" alt=""> 1125
@@ -254,8 +254,10 @@
     </footer>
     <!-- js 基础样式引入 -->
     <script src='../js/public/header.js'></script>
+    <script src='../js/public/jQuery.js'></script>
     <!-- js 自定义样式引入-->
+    <script src="../js/index/main.js"></script>
 </body>
-<script src="../js/index/main.js"></script>
+
 
 </html>
