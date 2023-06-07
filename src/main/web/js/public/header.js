@@ -1,3 +1,4 @@
+
 const script = document.createElement('script');
 script.src = "../js/public/util/colorful-tracker.js";
 // 加载完成后再调用
@@ -6,3 +7,18 @@ script.onload = function () {
 };
 document.body.appendChild(script);
 
+$(function(){
+    var islogin = false; // 假设用户未登录
+    let loginbox=document.getElementById('login_r');
+    let userbox=document.getElementById('user');
+    console.log(userbox.classList.length);
+   
+    if(islogin){
+        userbox.classList.remove("user");
+        loginbox.classList.add("login_r");
+    }else{
+        userbox.classList.add("user");
+        loginbox.classList.remove("login_r");
+    }
+    
+})
