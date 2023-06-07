@@ -34,14 +34,57 @@
     line-height: 60px;
 }
 
-.main .rang {
+.main .hot {
     width: 15%;
     height: 460px;
     flex: 1;
-    background-color: #75d937;
     margin-left: 10px;
+    border: 2px solid #f1ebeb;
+    border-radius: 4%;
 }
-
+.hot .hot-h4{
+    border-left:5px solid #d74242;
+    margin-left: 5px;
+    margin-top: 8px;
+    padding-left: 10px;
+    line-height: 25px;
+}
+.list-info span{
+    margin-left: 8px;
+    margin-top: 6px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(237, 221, 44);
+    text-align: center;
+    line-height: 20px;
+    color: red;
+}
+.list-info .data{
+    float: right;
+    font-size: 10px;
+    margin-top: 8px;
+}
+.hot  .list-info{
+    width: 80px;
+    height: 25px;
+}
+.hot  ul li{
+    height: 45px;
+    margin-bottom: 10px;
+}
+.hot .list-info {
+    flex: 1;
+}
+ .hot  ul li a{
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 5px;
+}
+ .hot ul a:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
 .main_hea .picture {
     height: 400px;
     width: 100%;
@@ -217,7 +260,12 @@ video.prism-big-play-btn {
 .main_f {
     margin-top: 40px;
 }
-
+.main_mid .h2{
+    border-left: 5px solid #d74242;
+}
+.main_f .h2{
+    border-left: 5px solid #d74242;
+}
 .main_f .box-bd ul {
     width: 100%;
     display: flex;
