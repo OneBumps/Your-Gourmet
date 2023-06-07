@@ -31,10 +31,18 @@ header {
   display: none;
 }
 .login #user a{
-  line-height: 140px;
+  line-height: 40px;
+}
+.login #login_r img{
+  height: 35px;
+  width: 35px;
+  margin-right: 5px;
+  position: absolute;
+  bottom: 35px;
+  left: 160px;
 }
 .login #user img{
-  width: 40px;
+    width: 40px;
     height: 40px;
     border-radius: 50%;
     margin: 5px 5px 5px 0;
@@ -43,6 +51,17 @@ header {
   margin-left: 5px;
   position: absolute;
   bottom: 13px;
+}
+.login #user button{
+  width: 100px;
+  height: 35px;
+  border-radius: 10px;
+  background-color: inherit;
+  border: 2px solid rgb(115, 115, 119);
+}
+.login #user button:hover {
+  background-color: rgba(115, 115, 119, 0.151);
+  cursor: pointer;
 }
 .login li a {
   line-height: 100px;

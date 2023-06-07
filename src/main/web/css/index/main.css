@@ -303,7 +303,10 @@ video.prism-big-play-btn {
     font-weight: bold;
     margin-right: 100px;
 }
-
+.box-bd .info img{
+    width: 20px;
+    height: 17px;
+}
 .main_mid .video video::-webkit-media-controls-current-time-display{
     display: none;
 }

@@ -24,18 +24,25 @@
         </div>
 
         <div class="search">
-            <div class="s_i_b">
-                <input type="search" name="search" placeholder="想吃什么~">
-                <button>
-                    搜索
-                </button>
-            </div>
-
+            <form method="get" action="#" >
+                <div class="s_i_b">
+                    <input type="search" name="search" placeholder="想吃什么~">
+                    <button type="submit">
+                        搜索
+                    </button>
+                </div>
+            </form>
+           
         </div>
         <div class="login">
-            <ul>
-                <li><img src="" alt=""><a href="../html/login.html">登录</a> | <a href="../html/register.html">注册</a></li>
+            <ul id="login_r">
+                <li><img src="../img/icon/用户.png" alt=""><a href="../html/login.html">登录</a> | <a href="../html/register.html">注册</a></li>
             </ul>
+            <ul id="user" class="user">
+                <li><a href="../html/edit-profile.html"><img src="../img/login.png" alt=""></a> <a href="../html/edit-profile.html"><span>青蛙哥</span></a></li>
+                <li><a href="../html/space.html"><button>个人中心</button></a> &nbsp;<a href="../html/release-menu.html"><button>发布菜谱</button> </a></li>
+            </ul>
+            
         </div>
     </header>
 
@@ -198,8 +205,8 @@
 
     </footer>
     <!-- js 基础样式引入 -->
-    <script src="../js/public/header.js"></script>
     <script src="../js/public/jQuery.js"></script>
+    <script src="../js/public/header.js"></script>
     <!-- 百度地图API -->
     <script src="http://api.map.baidu.com/api?v=2.0&ak=GKX7q0yX14lztZaemq92ZKeq2FD1egcN"></script>
     <!-- js 自定义样式引入-->
