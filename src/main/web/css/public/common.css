@@ -17,13 +17,33 @@ header {
   margin-top: 30px;
   /* background-color: rgb(135, 235, 210); */
 }
-
+/* 登录模块 */
 .login ul li {
   text-align: center;
   font-size: 16px;
   font-weight: bold;
+  position: relative;
 }
-
+.login .login_r{
+ display: none;
+}
+.login .user{
+  display: none;
+}
+.login #user a{
+  line-height: 140px;
+}
+.login #user img{
+  width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 5px 5px 5px 0;
+}
+.login #user span{
+  margin-left: 5px;
+  position: absolute;
+  bottom: 13px;
+}
 .login li a {
   line-height: 100px;
 }
@@ -31,7 +51,7 @@ header {
 .login li a:hover {
   color: red;
 }
-
+/* 登录模块 */
 .search {
   position: relative;
   width: 40%;

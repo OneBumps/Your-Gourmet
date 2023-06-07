@@ -66,6 +66,22 @@ $(function(){
 
 })
 
+$(function(){
+    var islogin = false; // 假设用户未登录
+    let loginbox=document.getElementById('login_r');
+    let userbox=document.getElementById('user');
+    console.log(userbox.classList.length);
+    userbox.classList.remove("user");
+    loginbox.classList.add("login_r");
+    // if(islogin){
+    //     userbox.classList.remove("user");
+    //     loginbox.classList.add("login_r");
+    // }else{
+    //     userbox.classList.add("user");
+    //     loginbox.classList.remove("login_r");
+    // }
+    
+})
 // $(function(){
 //     $.ajax({
 //         type:"get",
