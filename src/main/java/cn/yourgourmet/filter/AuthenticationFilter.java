@@ -19,20 +19,23 @@ public class AuthenticationFilter implements Filter {
         if (session != null && session.getAttribute("user_id") != null) {
             // 用户已经登录，继续处理请求
             chain.doFilter(request, response);
-        } else {
-            // 判断是否已经是登录或注册页面
-            String path = httpRequest.getRequestURI();
-            if (path.endsWith("/html/login.html") || path.endsWith("/html/register.html")) {
-                chain.doFilter(request, response);
-                return;
-            } else if (path.endsWith("Verify")) {
-                if (httpRequest.getParameter("type").equals("SignIn") || httpRequest.getParameter("type").equals("SignUp")) {
-                    chain.doFilter(request, response);
-                    return;
-                }
-            }
-            // 用户未登录，重定向到登录页面
-            httpResponse.sendRedirect(httpRequest.getContextPath() + "/html/login.html");
         }
+        /**
+         * 下面注释的代码可能用不到了吧
+         */
+//        else {
+//            // 判断是否已经是登录或注册页面
+//            String path = httpRequest.getRequestURI();
+//            if (path.endsWith("/html/login.html") || path.endsWith("/html/register.html")) {
+//                chain.doFilter(request, response);
+//                return;
+//            } else if (path.endsWith("Verify")) {
+//                if (httpRequest.getParameter("type").equals("SignIn") || httpRequest.getParameter("type").equals("SignUp")) {
+//                    chain.doFilter(request, response);
+//                    return;
+//                }
+//            }
+        // 用户未登录，重定向到登录页面
+        httpResponse.sendRedirect(httpRequest.getContextPath() + "/html/login.html");
     }
 }

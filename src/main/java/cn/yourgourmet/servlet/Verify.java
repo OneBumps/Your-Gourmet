@@ -52,12 +52,11 @@ public class Verify extends HttpServlet {
             }
         }
         if (Objects.equals(type, "SignIn")) {
-            String usernames = request.getParameter("username");
             String userId = UserOperation.signIn(request.getParameter("username"), request.getParameter("password"));
             if (!userId.isEmpty()) {
                 // 创建会话
                 HttpSession session = request.getSession();
-                session.setAttribute("user_id", request.getParameter("username"));
+                session.setAttribute("user_id", userId);
                 // 设置cookie
                 Cookie cookie = new Cookie("JSESSIONID", session.getId());
                 cookie.setMaxAge(15 * 24 * 60 * 60); // 保存15天
@@ -65,6 +64,21 @@ public class Verify extends HttpServlet {
                 response.sendRedirect(request.getContextPath() + "/html/index.html");
             } else {
                 response.sendRedirect(request.getContextPath() + "/html/login.html");
+            }
+        }
+        if (Objects.equals(type, "SignUp")) {
+            String userId = UserOperation.signUp(request.getParameter("username"), request.getParameter("user_password"),request.getParameter("user_email"),request.getParameter("user_phone"));
+            if (!userId.isEmpty()) {
+                // 创建会话
+                HttpSession session = request.getSession();
+                session.setAttribute("user_id", userId);
+                // 设置cookie
+                Cookie cookie = new Cookie("JSESSIONID", session.getId());
+                cookie.setMaxAge(15 * 24 * 60 * 60); // 保存15天
+                response.addCookie(cookie);
+                response.sendRedirect(request.getContextPath() + "/html/index.html");
+            } else {
+                response.sendRedirect(request.getContextPath() + "/html/register.html");
             }
         }
     }
