@@ -66,5 +66,5 @@ public interface UserMapper {
 
     Integer updateUserAvatar(@Param("userAvatar") String avatar, @Param("userId") String userId);
 
-    String selectUserIdByUserNameAndPassword(String userName, String userPassword);
+    String selectUserIdByUserNameAndPassword(@Param("userName") String userName, @Param("userPassword") String userPassword);
 }

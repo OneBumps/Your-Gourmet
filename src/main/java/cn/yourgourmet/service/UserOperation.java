@@ -164,8 +164,8 @@ public class UserOperation {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         try (SqlSession session = sqlSessionFactory.openSession(true);) {
             UserMapper mapper = session.getMapper(UserMapper.class);
-            return mapper.selectUserIdByUserNameAndPassword(userName, userPassword);
-
+            String userId = mapper.selectUserIdByUserNameAndPassword(userName, userPassword);
+            return userId != null ? userId : "";
         } catch (Exception e) {
             System.out.println("事务操作失败");
             throw new RuntimeException(e);
