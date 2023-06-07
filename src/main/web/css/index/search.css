@@ -42,16 +42,19 @@ header{
     float: left;
     background-color: #b1191a;
     color: #f1f1f1;
+    cursor: pointer;
   }
-  
+  .search_s button:hover{
+    background-color: #ff6a00;
+  }
 .wrapper_s{
     background-color: #fff;
     width: 1300px;
     height: 100%;
-    margin: 0 auto;
+    margin: 15px auto;
 }
 .wrapper_s .nav_s{
-    width: 500px;
+    width: 1300px;
     height: 100px;
     
 }
@@ -59,22 +62,42 @@ header{
     position: relative;
     overflow: hidden;
     padding-top: 20px;
+    width: 1300px;
 }
-.wrapper_s .nav li{
+.wrapper_s .nav_s li{
     width: 150px;
     float: left;
     text-align: center;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
 }
-.nav_s .public_nav-tracker{
-    position: absolute;
-    bottom: 0;
-    margin-right: 0 15px;
-    width: 120px;
+.navitems .tracker{
+    width: 150px;
     height: 5px;
-    transition: all 0.3s ease-in-out;
 }
+/* 筛选开始 */
+.nav_s ul li>ul{
+    display: none;
+    background-color: #7a6c6c;
+}
+.navitems ul #select-item li{
+    font-size: 18px;
+}
+.nav_s ul li:hover ul{
+    display: block;
+}
+.nav_s ul li>ul li:hover{
+    background-color: #a49898;
+}
+.wrapper_s .nav_s li a:hover{
+    color:#b1191a;
+}
+.wrapper_s .nav_s #select{
+    float: right;
+    margin-right: 30px;
+}
+/* 筛选结束 */
+
 .wrapper_s .list{
     margin: 0 20px;
 }
