@@ -17,11 +17,11 @@
       个人简介如下：<br>
       <textarea readonly>${userIntroduction}</textarea>
     `;
-    document.querySelector(".show-avatar").src = `http://localhost/YourGourmet/img/profile/${userAvatar}`;
+    document.querySelector(".show-avatar").src = `/img/profile/${userAvatar}`;
   }
   $.ajax({
     type: "POST",
-    url: "http://localhost/YourGourmet/GetInfo",
+    url: "/GetInfo",
     datatype: "json",
     data: {
       type: "getUserInfo",
@@ -58,7 +58,7 @@ document.querySelector(".password button").addEventListener('click', function ()
   // 发送AJAX请求
   $.ajax({
     type: "POST",
-    url: "http://localhost/YourGourmet/Verify",
+    url: "/Verify",
     data: {
       type: "updatePassword",
       userId: userId,
@@ -98,7 +98,7 @@ document.querySelector(".avatar button").addEventListener("click", function () {
   formData.append("userId", userId);
   $.ajax({
     type: "POST",
-    url: "http://localhost/YourGourmet/Upload",
+    url: "/Upload",
     data: formData,
     //关闭 Jquery 对 formData 的默认处理
     processData: false,
@@ -265,7 +265,7 @@ document.querySelector("div[data-title='delete'] button").addEventListener('clic
     $.ajax({
       type: "POST",
       userId: localStorage.getItem("userId"),
-      url: "http://localhost/YourGourmet/Delete",
+      url: "/Delete",
       data: {
         type: "deleteUser",
         userId: localStorage.getItem("userId"),
