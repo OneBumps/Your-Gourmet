@@ -13,8 +13,13 @@ public class MapperTest {
 
     public void SQLSample(SqlSession session) {
         UserMapper mapper = session.getMapper(UserMapper.class);
-        String userId = mapper.selectUserIdByUserNameAndPassword("一滴水的际遇", "csirhtvoeirhier");
-        System.out.println(userId);
+        User user = new User();
+        user.setUserName("wwwwww");
+        user.setUserPassword("111111");
+        user.setUserEmail("qq@qq.qq");
+        user.setUserPhone("12121111111");
+        mapper.insertUser(user);
+        session.commit();
     }
 
     @Test
@@ -28,7 +33,7 @@ public class MapperTest {
             throw new RuntimeException(e);
         }
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-        try (SqlSession session = sqlSessionFactory.openSession(true)) {
+        try (SqlSession session = sqlSessionFactory.openSession()) {
             SQLSample(session);
         } catch (Exception e) {
             System.out.println("事务操作失败");

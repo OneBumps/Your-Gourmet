@@ -15,13 +15,15 @@
         <result column="user_introduction" property="userIntroduction"/>
     </resultMap>
     <insert id="insertUser">
-        INSERT INTO user(pk_user_id, user_name, user_password, user_phone) VALUES(#{userId}, #{userName}, #{userPassword}, #{userPhone});
+        INSERT INTO user(pk_user_id, user_name, user_phone, user_password, user_Email) VALUES (REPLACE(UUID(), "-", ""),
+        #{userName}, #{userPhone}, #{userPassword}, <if test="userEmail!=null">#{userEmail}</if>);
     </insert>
     <update id="updatePassword">
         UPDATE user SET user_password = #{userPassword} WHERE pk_user_id = #{userId};
     </update>
     <update id="updateUserInfo">
-        UPDATE user SET user_name = #{userName}, user_phone = #{userPhone}, user_email = #{userEmail}, user_gender = #{userGender}, user_introduction = #{userIntroduction} WHERE pk_user_id = #{userId};
+        UPDATE user SET user_name = #{userName}, user_phone = #{userPhone}, user_email = #{userEmail}, user_gender =
+        #{userGender}, user_introduction = #{userIntroduction} WHERE pk_user_id = #{userId};
     </update>
     <update id="updateUserAvatar">
         UPDATE user SET user_avatar = #{userAvatar} WHERE pk_user_id = #{userId};
@@ -36,7 +38,8 @@
         SELECT EXISTS(SELECT pk_user_id FROM user WHERE pk_user_id = #{userId});
     </select>
     <select id="selectAllByUserId" resultMap="userResultMap">
-        SELECT user_name, user_phone, user_group, user_gender, user_email, user_avatar, user_introduction FROM user WHERE pk_user_id = #{userId};
+        SELECT user_name, user_phone, user_group, user_gender, user_email, user_avatar, user_introduction FROM user
+        WHERE pk_user_id = #{userId};
     </select>
     <select id="selectUserIdByUserNameAndPassword" resultType="java.lang.String">
         SELECT pk_user_id FROM user WHERE user_name = #{userName} AND user_password = #{userPassword};
