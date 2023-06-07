@@ -7,9 +7,8 @@ import com.alibaba.fastjson2.JSONObject;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 
-public class FileToJSON {
+public class GetGeoList {
     public static String getProvinceList() throws IOException {
         InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("json/province.json");
         StringBuilder sb = new StringBuilder();
