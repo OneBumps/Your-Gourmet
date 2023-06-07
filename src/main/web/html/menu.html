@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="../iconfont/iconfont.css">
     <!-- CSS 自定义样式引入-->
     <link rel="stylesheet" href="../css/menu/menu.css" type="text/css">
-    <script src="../js/menu/menu.js" language="javascript"> </script>
 </head>
 
 <body>
@@ -34,7 +33,7 @@
                     </button>
                 </div>
             </form>
-           
+
         </div>
         <div class="login">
             <ul id="login_r">
@@ -44,7 +43,7 @@
                 <li><a href="../html/edit-profile.html"><img src="../img/login.png" alt=""></a> <a href="../html/edit-profile.html"><span>青蛙哥</span></a></li>
                 <li><a href="../html/space.html"><button>个人中心</button></a> &nbsp;<a href="../html/release-menu.html"><button>发布菜谱</button> </a></li>
             </ul>
-            
+
         </div>
     </header>
     <nav>
@@ -108,8 +107,9 @@
 
                         <div id="material">
                             菜品用料:
-                            <p id="materials">
-                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span>八角，蒜，五花肉，料酒，小葱，大蒜叶，生姜，盐300g，胡椒粉，青花椒</span></p>
+                            <p>
+                                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span id="materials">八角，蒜，五花肉，料酒，小葱，大蒜叶，生姜，盐300g，胡椒粉，青花椒</span>
+                            </p>
                         </div>
                     </div>
 
@@ -118,8 +118,8 @@
 
                 </section>
                 <section class="text1">
-                    <div>
-                        <span id="steps">步骤:</span>
+                    <div id="steps">
+                        <span>步骤:</span>
                         <ul>
                             <li>
                                 <h4>步骤一</h4>
@@ -170,7 +170,7 @@
 
             </article>
         </section>
-       
+
     </main>
     <footer>
         <div class="footer">
@@ -198,6 +198,8 @@
     <script src='../js/public/jQuery.js'></script>
     <script src='../js/public/header.js'></script>
     <!-- js 自定义样式引入-->
+    <script src="../js/menu/menu.js" language="javascript"> </script>
+    <script src="../js/menu/menuajax.js" language="javascript"></script>
 </body>
 
 </html>

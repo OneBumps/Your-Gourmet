@@ -46,3 +46,6 @@ $.ajax({
     else console.log("修改失败");
   }
 });
+// 如果是json对象
+//flag.参数名
+//a.innerHTML = flag.参数名;

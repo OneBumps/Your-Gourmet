@@ -33,7 +33,7 @@
             </h3>
             <!-- 注册模块开始 -->
             <div class="reg_form">
-                <form action="" method="post">
+                <form action="/Verify" method="POST">
                     <ul>
                         <li>
                             <label>用户名</label>
@@ -67,7 +67,7 @@
                                 required="required">同意协议并注册 <a href="#">《用户协议》</a></li>
                         <li>
                             <input type="submit" value="完成注册" class="btn" id="submit">
-
+                            <input type="hidden" name="type" value="SignUp">
                         </li>
                     </ul>
                 </form>

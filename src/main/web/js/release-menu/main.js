@@ -33,7 +33,7 @@
       // 菜谱不能与已有的重复
       $.ajax({
         method: 'GET',
-        url: 'http://localhost/YourGourmet/Verify',
+        url: '/Verify',
         data: {
           type: 'verifyMenuName',
           name: name.value.trim()

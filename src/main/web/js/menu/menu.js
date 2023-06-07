@@ -20,8 +20,6 @@ function createXMLHttpRequest() {
 		xmlHttpRequest = new XMLHttpRequest();
 	}
 }
-
-
 function get() {
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET",'url',true);
