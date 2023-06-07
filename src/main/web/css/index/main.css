@@ -11,7 +11,7 @@
 }
 
 .main .main_hea {
-    width: 65%;
+    width: 75%;
     height: 460px;
     background-color: #d74242;
     position: relative;
@@ -34,14 +34,57 @@
     line-height: 60px;
 }
 
-.main .rang {
-    width: 25%;
+.main .hot {
+    width: 15%;
     height: 460px;
     flex: 1;
-    background-color: #75d937;
     margin-left: 10px;
+    border: 2px solid #f1ebeb;
+    border-radius: 4%;
 }
-
+.hot .hot-h4{
+    border-left:5px solid #d74242;
+    margin-left: 5px;
+    margin-top: 8px;
+    padding-left: 10px;
+    line-height: 25px;
+}
+.list-info span{
+    margin-left: 8px;
+    margin-top: 6px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(237, 221, 44);
+    text-align: center;
+    line-height: 20px;
+    color: red;
+}
+.list-info .data{
+    float: right;
+    font-size: 10px;
+    margin-top: 8px;
+}
+.hot  .list-info{
+    width: 80px;
+    height: 25px;
+}
+.hot  ul li{
+    height: 45px;
+    margin-bottom: 10px;
+}
+.hot .list-info {
+    flex: 1;
+}
+ .hot  ul li a{
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 5px;
+}
+ .hot ul a:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+}
 .main_hea .picture {
     height: 400px;
     width: 100%;
@@ -56,26 +99,38 @@
     height: 100%;
     display: flex;
     animation: 20s move infinite;
+    transition: .5s ease;
 }
 
-.picture #list:hover {
+/* .picture #list:hover {
     animation-play-state: paused;
-}
+} */
 
 .picture #list li {
-    width: 845px;
+    width: 985px;
     height: 100%;
     flex: 1;
 }
 
 .picture #list li img {
-    width: 845px;
+    width: 985px;
     height: 400px;
 }
-.main_hea .picture_text ul li:hover{
-    background-color: #a5a2a2;
+.picture_text ul li{
+    font-size: 20px;
+    font-weight: bold;
+    
+}.picture_text ul li a{
+    color: #000;
 }
-@keyframes move2{
+.picture_text ul .active{
+    background-color: #ff6a00;
+    box-shadow: 0px 0px 5px 2px white;
+}
+.main_hea .picture_text ul li:hover{
+    background-color:#ff6a00;
+}
+/* @keyframes move2{
     0%,
     100%{
         left: -845px;
@@ -112,7 +167,7 @@
         left: 4225px;
     }
 
-}
+} */
 
 /* 轮播图结束 */
 /* 视频开始 */
@@ -205,7 +260,12 @@ video.prism-big-play-btn {
 .main_f {
     margin-top: 40px;
 }
-
+.main_mid .h2{
+    border-left: 5px solid #d74242;
+}
+.main_f .h2{
+    border-left: 5px solid #d74242;
+}
 .main_f .box-bd ul {
     width: 100%;
     display: flex;
