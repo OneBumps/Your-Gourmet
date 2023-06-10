@@ -15,7 +15,14 @@
         <result column="recipe_dislike" property="recipeDislike"/>
     </resultMap>
     <select id="existMenu" resultType="java.lang.Boolean">
-        SELECT EXISTS(SELECT recipe_name FROM recipe WHERE recipe_name = #{recipeName})
+        SELECT EXISTS(SELECT recipe_name
+        FROM recipe
+        WHERE recipe_name = #{recipeName})
+    </select>
+    <select id="selectByMenuName" resultMap="recipeResultMap">
+        SELECT pk_recipe_id, fk_user_id, recipe_name, recipe_image, recipe_introduction
+        FROM recipe
+        WHERE recipe_name LIKE CONCAT('%', #{name}, '%')
     </select>
 
 </mapper>

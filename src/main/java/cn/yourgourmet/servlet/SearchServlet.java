@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet("/SearchEngine")
+@WebServlet("/Search")
 public class SearchServlet extends HttpServlet {
     private List<Recipe> dataList = new ArrayList<>();
     @Override

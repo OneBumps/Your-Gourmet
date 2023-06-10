@@ -1,4 +1,5 @@
 import cn.yourgourmet.entity.User;
+import cn.yourgourmet.mapper.RecipeMapper;
 import cn.yourgourmet.mapper.UserMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -12,14 +13,8 @@ import java.io.InputStream;
 public class MapperTest {
 
     public void SQLSample(SqlSession session) {
-        UserMapper mapper = session.getMapper(UserMapper.class);
-        User user = new User();
-        user.setUserName("wwwwww");
-        user.setUserPassword("111111");
-        user.setUserEmail("qq@qq.qq");
-        user.setUserPhone("12121111111");
-        mapper.insertUser(user);
-        session.commit();
+        RecipeMapper mapper = session.getMapper(RecipeMapper.class);
+        System.out.println(mapper.selectByMenuName("汤"));
     }
 
     @Test
