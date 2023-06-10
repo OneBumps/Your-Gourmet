@@ -13,11 +13,10 @@ import java.io.PrintWriter;
 import java.util.Objects;
 
 @WebServlet("/Verify")
-public class Verify extends HttpServlet {
+public class VerifyServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=utf-8");
         String type = request.getParameter("type");
         if (Objects.equals(type, "verifyMenuName")) {
             PrintWriter out = response.getWriter();
@@ -31,7 +30,6 @@ public class Verify extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
         String type = request.getParameter("type");
         if (Objects.equals(type, "updatePassword")) {
             PrintWriter out = response.getWriter();
@@ -67,7 +65,7 @@ public class Verify extends HttpServlet {
             }
         }
         if (Objects.equals(type, "SignUp")) {
-            String userId = UserOperation.signUp(request.getParameter("username"), request.getParameter("user_password"),request.getParameter("user_email"),request.getParameter("user_phone"));
+            String userId = UserOperation.signUp(request.getParameter("username"), request.getParameter("user_password"), request.getParameter("user_email"), request.getParameter("user_phone"));
             if (!userId.isEmpty()) {
                 // 创建会话
                 HttpSession session = request.getSession();

@@ -1,24 +1,19 @@
-import cn.yourgourmet.entity.User;
+package cn.yourgourmet.service;
+
+import cn.yourgourmet.entity.Recipe;
 import cn.yourgourmet.mapper.RecipeMapper;
-import cn.yourgourmet.mapper.UserMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
+import java.util.Map;
 
-public class MapperTest {
-
-    public void SQLSample(SqlSession session) {
-        RecipeMapper mapper = session.getMapper(RecipeMapper.class);
-        System.out.println(mapper.selectByMenuName("汤"));
-    }
-
-    @Test
-    public void getMapper() {
+public class SearchEngine {
+    public static List<Recipe> search(String content) {
         String resource = "mybatis-config.xml";
         InputStream inputStream = null;
         try {
@@ -28,11 +23,19 @@ public class MapperTest {
             throw new RuntimeException(e);
         }
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-        try (SqlSession session = sqlSessionFactory.openSession()) {
-            SQLSample(session);
-        } catch (Exception e) {
+        try (SqlSession session = sqlSessionFactory.openSession(true);) {
+            RecipeMapper mapper = session.getMapper(RecipeMapper.class);
+            return mapper.selectByMenuName(content);
+        } catch (
+                Exception e) {
             System.out.println("事务操作失败");
             throw new RuntimeException(e);
+        } finally {
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                System.out.println("关闭输入流失败");
+            }
         }
     }
 }

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 import cn.yourgourmet.service.UserOperation;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +16,7 @@ import javax.servlet.http.Part;
 
 @WebServlet("/Upload")
 @MultipartConfig
-public class Upload extends HttpServlet {
+public class UploadServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String type = request.getParameter("type");
@@ -32,10 +33,10 @@ public class Upload extends HttpServlet {
             //最终路径
             String filePath = savePath + File.separator + fileName;
             // 存入数据库
-            if (UserOperation.updateUserAvatar(userId, "avatar/" + fileName )){
+            if (UserOperation.updateUserAvatar(userId, "avatar/" + fileName)) {
                 filePart.write(filePath);
                 response.getWriter().print("true");
-            } else{
+            } else {
                 response.getWriter().print("false");
             }
         }

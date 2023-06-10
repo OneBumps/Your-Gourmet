@@ -14,4 +14,8 @@
         <filter-name>AuthenticationFilter</filter-name>
         <url-pattern>/html/space.html</url-pattern>
     </filter-mapping>
+    <filter-mapping>
+        <filter-name>SearchFilter</filter-name>
+        <url-pattern>/Search</url-pattern>
+    </filter-mapping>
 </web-app>
