@@ -10,7 +10,7 @@
         <result column="recipe_publish_time" property="recipePublishTime"/>
         <result column="recipe_image" property="recipeImage"/>
         <result column="recipe_video" property="recipeVideo"/>
-        <result column="recipe_introduce" property="recipeIntroduction"/>
+        <result column="recipe_introduction" property="recipeIntroduction"/>
         <result column="recipe_like" property="recipeLike"/>
         <result column="recipe_dislike" property="recipeDislike"/>
     </resultMap>
@@ -23,6 +23,11 @@
         SELECT pk_recipe_id, fk_user_id, recipe_name, recipe_image, recipe_introduction
         FROM recipe
         WHERE recipe_name LIKE CONCAT('%', #{name}, '%')
+    </select>
+    <select id="selectById" resultMap="recipeResultMap">
+        SELECT fk_user_id, recipe_name, recipe_publish_time, recipe_image, recipe_video, recipe_introduction, recipe_like, recipe_dislike
+        FROM recipe
+        WHERE pk_recipe_id = #{recipeId};
     </select>
 
 </mapper>

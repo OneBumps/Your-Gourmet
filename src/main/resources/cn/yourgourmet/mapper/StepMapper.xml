@@ -9,7 +9,7 @@
         <result column="step_image" property="stepImage"/>
         <result column="step_description" property="stepDescription"/>
     </resultMap>
-    <select id="" resultMap="stepResultMap">
-
+    <select id="selectBySteps" resultMap="stepResultMap">
+        SELECT pk_step_number, step_image, step_description FROM step WHERE pk_fk_recipe_id = #{recipeId};
     </select>
 </mapper>

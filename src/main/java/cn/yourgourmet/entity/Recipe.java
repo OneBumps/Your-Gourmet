@@ -187,4 +187,5 @@ public class Recipe implements java.io.Serializable {
                 ", recipeDislike=" + recipeDislike +
                 '}';
     }
+
 }
