@@ -9,6 +9,6 @@ $(function(){
         name_arr[i].innerHTML=menu_arr[i];
     }
     for(var i=0;i<name_arr.length;i++){
-        id_arr[i].href="http://localhost/YourGourmet/recipe?id="+menu_id[i];
+        id_arr[i].href="html/menu.html?id="+menu_id[i];
     }
 })
