@@ -23,7 +23,7 @@ public class VerifyUpdateMenu {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         try (SqlSession session = sqlSessionFactory.openSession(true)) {
             RecipeMapper mapper = session.getMapper(RecipeMapper.class);
-            return mapper.selectByRecipeName(menuName);
+            return mapper.existMenu(menuName);
         } catch (Exception e) {
             System.out.println("事务操作失败");
             throw new RuntimeException(e);

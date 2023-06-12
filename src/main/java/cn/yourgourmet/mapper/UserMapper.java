@@ -8,7 +8,7 @@ public interface UserMapper {
     /**
      * 根据用户id查询用户
      *
-     * @param userId 用户Id
+     * @param userId       用户Id
      * @param userPassword 用户密码
      * @return User
      */
@@ -27,7 +27,6 @@ public interface UserMapper {
      *
      * @param user 用户Id
      */
-    void insertUser(User user);
 
     /**
      * 更新密码
@@ -37,28 +36,21 @@ public interface UserMapper {
      * @return Boolean
      */
     int updatePassword(@Param("userId") String username, @Param("userPassword") String password);
+
     int updateUserInfo(User user);
 
     /**
      * 根据用户id查询用户
+     *
      * @param userId 用户id
      * @return User
      */
     User selectAllByUserId(@Param("userId") String userId);
-
-    /**
-     * 插入用户
-     * @param userId 用户id
-     * @param userPassword 用户密码
-     * @param userName 用户名
-     * @param userPhone 用户电话
-     * @return Integer
-     */
-    Integer insertUser(@Param("userId") String userId,@Param("userPassword") String userPassword ,@Param("userName" )String userName,@Param("userPhone") String userPhone);
-
+    Integer insertUser(User user);
     /**
      * 删除用户
-     * @param userId 用户id
+     *
+     * @param userId       用户id
      * @param userPassword 用户密码
      * @return Integer
      */
@@ -66,5 +58,5 @@ public interface UserMapper {
 
     Integer updateUserAvatar(@Param("userAvatar") String avatar, @Param("userId") String userId);
 
-    String selectUserIdByUserNameAndPassword(String userName, String userPassword);
+    String selectUserIdByUserNameAndPassword(@Param("userName") String userName, @Param("userPassword") String userPassword);
 }
