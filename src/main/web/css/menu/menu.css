@@ -53,7 +53,7 @@ ul,li{
     padding-bottom: 25px;
 }
 /* 右边区块标题菜名 */
-.section .menuMessages #dishname{
+.section .menuMessages #dish_name{
     display: block;
     margin: 15px 25px;
     font-size: 20px;
@@ -135,7 +135,7 @@ ul,li{
     margin: 10px 25px;
     /* border: 1px solid red; */
 }
-.section .menuMessages .text1 #steps{
+.section .menuMessages .text1 > div{
     margin-bottom: 10px;
     font-size: 18px;
 }

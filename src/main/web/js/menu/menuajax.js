@@ -8,29 +8,42 @@ $.ajax({
     },
     success: function (event) {
         if (event == true) {
-            var dish_name = document.getElementById("dishname");
+            var dish_name = document.getElementById("dish_name");
             var ingredients = document.getElementById("materials");
             dish_name.innerHTML = event.name;
             ingredients.innerHTML = event.materials;
 
-            //遍历服务器返回的数据数组
-            $.each(event, function (index, value) {
-                /**
-                 * //根据索引找到对应的span元素，用步骤内容替换它的内容
-                $("ul.steps li:eq(" + index + ") span").html(value.content);
-                //根据索引找到对应的电话号码span元素，用电话号码替换它的内容
-                $("ul.steps li:eq(" + index + ") span.phone").html(value.phone);
-                 */
+            // var dish_name = $("#dish_name");
+            // var materials = $("#materials");
+            // dish_name.html(event.name);
+            // materials.html(event.materials);
 
-                for(var i = 0; index < 6; i++){
-                    $("li.steps > span").text(index);
+            //定义基础的步骤span个数
+            var basic_count = 4;
+            //获取步骤数组中有几个数据（对应有几个span步骤）
+            var counts = event.steps.length;
+
+            if (counts == basic_count) {
+                //为span元素设置返回数据数组的相应数据
+                $("span").each(function (index) {
+                    $(this).html(event.steps[index]);
+                });
+            } else {
+                //增加span元素
+                for (var i = 0; i < counts - basic_count; i++) {
+                    var newElement = "<li><h4>步骤四</h4> <div><img src=\"../img/icon/menupage/dishexm.png\" alt=\"\"><span>步骤四内容</span></div></li>";
+                    $("#steps").append(newElement);
                 }
-            });
+
+                //为span元素设置返回数据数组的相应数据
+                $("span").each(function (index) {
+                    $(this).html(event.steps[index]);
+                });
+            }
         }
     }
 });
 /**
  * 菜名：name(string)=""
  * 菜品用料：materials(string)=""
- * 
 */
