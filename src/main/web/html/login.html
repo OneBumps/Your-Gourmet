@@ -24,25 +24,27 @@
             <form action="/Verify" method="POST">
                 <ul>
                     <li id="item">
-                        <input name="username" type="text" placeholder="用户名：" id="user_name">
+                        <input name="username" type="text" placeholder="用户名：" id="user_name"  required="required"><span  class="error-u"></span>
                     </li>
                     <li id="item">
-                        <input name="password" type="text" placeholder="密码：" id="user_password">
+                        <input name="password" type="text" placeholder="密码：" id="user_password"  required="required"> <span class="error-p"></span>
                     </li>
                     <li id="sub">
-                        <button type="submit" id="submit">登录</button>
+                        <button type="submit" id="submit" onsubmit="submitForm(event)">登录</button>
                     </li>
                 </ul>
                 <input type="hidden" name="type" value="SignIn"></input>
             </form>
+            <div id="errorMessage" class="error-message"></div>
             <div class="register">
                 <a href="../html/register.html">去注册账号~</a>
             </div>
         </div>
     </div>
     <!-- js 基础样式引入 -->
-    <script src='../js/public/header.js'></script>
+    <script src="../js/public/jQuery.js"></script>
     <!-- js 自定义样式引入-->
+    <script src="../js/register/login.js"></script>
 </body>
 
 </html>
