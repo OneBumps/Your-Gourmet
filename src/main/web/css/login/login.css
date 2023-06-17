@@ -1,25 +1,27 @@
 body{
-    background: url('../../img/login.png');
+    background: url('../../img/icon/loginpage/login.jpg');
     background-repeat: no-repeat;
     background-size: 100% auto;
 }
 .login{
     width:30%;
-    height: 250px;;
+    height: 280px;
     margin:0 auto ;
     margin-top:20%;
     text-align:center;
-    background:#00000060;
+    background:#1f1b1bee;
     padding:20px 50px;
+    box-shadow:6px 6px 20px 15px black;
 }
 .login h1{
-    color:#fff;
+    color:#b23939;
+    text-shadow:-2px 3px 5px rgb(141, 37, 37);
 }
 #item{
     margin-top:15px;
 }
  .form #item input{
-    width: 220px;
+    width: 320px;
     font-size: 18px;
     border: 0;
     border-bottom: 2px solid #fff;
@@ -27,7 +29,16 @@ body{
     background: #ffffff00;
     color:#fff;
 }
-
+.form .error-u{
+    padding-left: 25px;
+    color: red;
+   
+}
+.form .error-p{
+    padding-left: 25px;
+    color: red;
+    
+}
 #submit{
     margin-top: 40px;
     width: 190px;
@@ -35,7 +46,7 @@ body{
     font-size: 20px;
     font-weight: 700;
     /* background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%); */
-    background-color: #74ebd5;
+    background-color: #b23939;
     border:0;
     border-radius:15px;
     cursor: pointer;
@@ -43,8 +54,15 @@ body{
 #submit:hover{
     background-color: #ff6a00;
 }
+.error-message{
+    margin: 0 auto;
+    color: red;
+    padding-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
 .register{
-    margin-top: 25px;
+    margin-top: 15px;
     float: right;
     font-size: 18px;
     
