@@ -47,7 +47,7 @@ $(function(){
         };
 
     const oCircle = document.getElementById("circle-list");
-    oCircle.addEventListener("mouseover", (e) => {
+    oCircle.addEventListener("mouseover", function(e){
         // 当我点击小圆点的时候
         // console.dir(e.target)获取节点信息
         if (e.target.nodeName.toLowerCase() == "li") {
@@ -61,20 +61,19 @@ $(function(){
     });
     let autoplay = setInterval(handleRightBtn, 2500);
     const oWrap = document.getElementById("list");
-    oWrap.addEventListener("mouseenter", () => {
+    oWrap.addEventListener("mouseenter", function(){
      clearInterval(autoplay);
      });
-     oWrap.addEventListener("mouseleave", () => {
-         // 设表先关，避免堆积
+     oWrap.addEventListener("mouseleave", function(){
          clearInterval(autoplay);
          autoplay = setInterval(handleRightBtn, 2500);
      });
      const oWrap2 = document.getElementById("circle-list");
-    oWrap2.addEventListener("mouseenter", () => {
+    oWrap2.addEventListener("mouseenter", function(){
      clearInterval(autoplay);
      });
-     oWrap2.addEventListener("mouseleave", () => {
-         // 设表先关，避免堆积
+     oWrap2.addEventListener("mouseleave", function(){
+         
          clearInterval(autoplay);
          autoplay = setInterval(handleRightBtn, 2500);
      });
@@ -82,19 +81,6 @@ $(function(){
 })
 
 
-// $(function(){
-//     $.ajax({
-//         type:"get",
-//         url:"",
-//         dataType:"json",
-//         data: {
-//             type: "getRecipe_name",//获取菜名
-//             pk_recipe_id:"3"
-//         },
-//         success: function (data){
-//             console.log(data)
-//         }
-//     })
 
 
 

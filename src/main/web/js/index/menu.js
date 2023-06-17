@@ -12,3 +12,17 @@ $(function(){
         id_arr[i].href="html/menu.html?id="+menu_id[i];
     }
 })
+
+// $(function(){
+//     $.ajax({
+//         type:"get",
+//         url:"",
+//         dataType:"json",
+//         data: {
+//             type: "getRecipe_name",//获取菜名
+//             pk_recipe_id:"3"
+//         },
+//         success: function (data){
+//             console.log(data)
+//         }
+//     })
