@@ -47,7 +47,6 @@ a:hover {
 /*字体统一设置*/
 input[type="text"],
 textarea {
-  height: 28px;
   border: 1px solid #dddddd;
   outline: 0;
   border-radius: 5px;
@@ -134,6 +133,7 @@ button:active {
 
 .menu-name input[type="text"] {
   width: 200px;
+  height: 30px;
 }
 
 .menu-name input[type="text"]:focus {
@@ -261,6 +261,8 @@ button:active {
   width: 250px;
   height: 200px;
   padding-top: 15%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .menu-steps label span {
@@ -286,7 +288,7 @@ button:active {
   line-height: 30px;
 }
 
-.menu-steps textarea[name="stepDescription"] {
+.stepDescription {
   flex: 1 1 0;
   margin-left: 10px;
   box-sizing: border-box;
