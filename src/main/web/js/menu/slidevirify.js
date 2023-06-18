@@ -102,6 +102,8 @@ function handleMove(e) {
     // 移动滑块
     button.style.left = distance + "px";
     block.style.left = distance + "px";
+
+    requestAnimationFrame(handleMove);
 }
 
 // 处理滑动结束
