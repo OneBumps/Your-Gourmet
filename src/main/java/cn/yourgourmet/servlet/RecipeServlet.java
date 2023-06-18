@@ -13,11 +13,14 @@ public class RecipeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=utf-8");
-        String id = request.getParameter("id");
-        PrintWriter out = response.getWriter();
-        String recipe = MenuOperation.getRecipe(id);
-        out.print(recipe);
+        String type = request.getParameter("type");
+        if(type.equals("getMenuMessage")){
+            response.setContentType("text/html;charset=utf-8");
+            String id = request.getParameter("id");
+            PrintWriter out = response.getWriter();
+            String recipe = MenuOperation.getRecipe(id);
+            out.print(recipe);
+        }
     }
 
     @Override

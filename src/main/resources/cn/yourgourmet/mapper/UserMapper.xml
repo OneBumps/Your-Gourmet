@@ -32,7 +32,7 @@
         DELETE FROM user WHERE pk_user_id = #{userId} AND user_password = #{userPassword};
     </delete>
     <select id="selectByUserNameAndPassword" resultType="java.lang.Integer">
-        SELECT EXISTS(SELECT pk_user_id FROM user WHERE user_name = #{userName} AND user_password = #{userPassword});
+        SELECT EXISTS(SELECT pk_user_id FROM user WHERE pk_user_id = #{userId} AND user_password = #{userPassword});
     </select>
     <select id="selectByUserId" resultType="java.lang.Boolean">
         SELECT EXISTS(SELECT pk_user_id FROM user WHERE pk_user_id = #{userId});

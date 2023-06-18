@@ -18,13 +18,14 @@
 </head>
 
 <body>
+    <!-- 头部开始 -->
     <header>
         <div class="logo">
             <img src="../img/logo.png">
         </div>
 
         <div class="search">
-            <form method="get" action="#" >
+            <form method="get" action="/Search" >
                 <div class="s_i_b">
                     <input type="search" name="search" placeholder="想吃什么~">
                     <button type="submit">
@@ -32,7 +33,7 @@
                     </button>
                 </div>
             </form>
-           
+            
         </div>
         <div class="login">
             <ul id="login_r">
@@ -154,7 +155,6 @@
                 <h2>修改资料</h2>
                 <div class="contain-box profile">
                     <form action="/Verify" method="POST" name="changeInfo">
-                        <input type="hidden" name="userId" value="">
                         <input type="hidden" name="type" value="updateUserInfo">
                         <label>修改昵称<span class="must"></span>：</span><input name="userName" type="text" /><span
                                 class="err"></span></label>

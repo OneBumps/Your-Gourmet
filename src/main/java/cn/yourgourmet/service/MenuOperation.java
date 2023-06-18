@@ -5,6 +5,8 @@ import cn.yourgourmet.entity.Step;
 import cn.yourgourmet.mapper.RecipeMapper;
 import cn.yourgourmet.mapper.StepMapper;
 import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONArray;
+import com.alibaba.fastjson2.JSONObject;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -30,8 +32,11 @@ public class MenuOperation {
             Recipe recipe = recipeMapper.selectById(id);
             StepMapper stepMapper = session.getMapper(StepMapper.class);
             List<Step> steps = stepMapper.selectBySteps(id);
-            //得到json
-            return JSON.toJSONString(recipe) + JSON.toJSONString(steps);
+            // 得到JSON
+            JSONObject jsonObject = JSON.parseObject(JSON.toJSONString(recipe));
+            JSONArray stepsJson = new JSONArray(steps);
+            jsonObject.put("steps", stepsJson);
+            return jsonObject.toJSONString();
         } catch (
                 Exception e) {
             System.out.println("事务操作失败");

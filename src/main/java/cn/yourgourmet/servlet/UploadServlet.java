@@ -9,10 +9,7 @@ import cn.yourgourmet.service.UserOperation;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
+import javax.servlet.http.*;
 
 @WebServlet("/Upload")
 @MultipartConfig
@@ -22,7 +19,8 @@ public class UploadServlet extends HttpServlet {
         String type = request.getParameter("type");
         if (Objects.equals(type, "updateAvatar")) {
             Part filePart = request.getPart("avatar");
-            String userId = request.getParameter("userId");
+            HttpSession session = request.getSession();
+            String userId = (String) session.getAttribute("user_id");
             //存入盘中
             String fileExt = filePart.getSubmittedFileName().substring(filePart.getSubmittedFileName().lastIndexOf(".") + 1);
             // 获取userId作为文件名

@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class UserOperation {
-    public static Boolean changePassword(String username, String oldPassword, String newPassword) {
+    public static Boolean changePassword(String userId, String oldPassword, String newPassword) {
         String resource = "mybatis-config.xml";
         InputStream inputStream = null;
         try {
@@ -24,8 +24,8 @@ public class UserOperation {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         try (SqlSession session = sqlSessionFactory.openSession(true)) {
             UserMapper mapper = session.getMapper(UserMapper.class);
-            if (mapper.selectByUserNameAndPassword(username, oldPassword) == 1) {
-                if (mapper.updatePassword(username, newPassword) > 0) {
+            if (mapper.selectByUserNameAndPassword(userId, oldPassword) == 1) {
+                if (mapper.updatePassword(userId, newPassword) > 0) {
                     return true;
                 }
             }

@@ -1,10 +1,11 @@
+let searchParams = new URLSearchParams(window.location.search);
 $.ajax({
-    type: "POST",
-    url: "",
+    type: "GET",
+    url: "/recipe",
     datatype: "json",
     data: {
         type: "getMenuMessage",
-        userId: ""
+        id: searchParams.get('id')
     },
     success: function (event) {
         if (event == true) {

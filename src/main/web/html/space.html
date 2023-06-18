@@ -25,62 +25,51 @@
     <!-- 头部开始 -->
     <header>
       <div class="logo">
-        <img src="../img/logo.png" />
+          <img src="../img/logo.png">
       </div>
 
       <div class="search">
-        <form method="get" action="/Search">
-          <div class="s_i_b">
-            <input type="search" name="search" placeholder="想吃什么~" />
-            <button type="submit">搜索</button>
-          </div>
-        </form>
+          <form method="get" action="/Search" >
+              <div class="s_i_b">
+                  <input type="search" name="search" placeholder="想吃什么~">
+                  <button type="submit">
+                      搜索
+                  </button>
+              </div>
+          </form>
+          
       </div>
       <div class="login">
-        <ul id="login_r">
-          <li>
-            <img src="../img/icon/用户.png" alt="" /><a
-              href="../html/login.html"
-              >登录</a
-            >
-            | <a href="../html/register.html">注册</a>
-          </li>
-        </ul>
-        <ul id="user" class="user">
-          <li>
-            <a href="../html/edit-profile.html"
-              ><img src="../img/login.png" alt=""
-            /></a>
-            <a href="../html/edit-profile.html"><span>青蛙哥</span></a>
-          </li>
-          <li>
-            <a href="../html/space.html"><button>个人中心</button></a> &nbsp;<a
-              href="../html/release-menu.html"
-              ><button>发布菜谱</button>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </header>
-
-    <!-- 头部介绍 -->
-    <!-- 导航栏开始 -->
-    <nav>
-      <div class="nav">
-        <div class="navitems">
-          <ul>
-            <li><a>首页</a></li>
-            <li><a href="#">家常菜谱</a></li>
-            <li><a href="#">家常菜谱</a></li>
-            <li><a href="#">家常菜谱</a></li>
-            <li><a href="#">家常菜谱</a></li>
-            <li><a href="#">家常菜谱</a></li>
+          <ul id="login_r">
+              <li><img src="../img/icon/用户.png" alt=""><a href="../html/login.html">登录</a> | <a href="../html/register.html">注册</a></li>
           </ul>
-          <div id="public_nav-tracker"></div>
-        </div>
+          <ul id="user" class="user">
+              <li><a href="../html/edit-profile.html"><img src="../img/login.png" alt=""></a> <a href="../html/edit-profile.html"><span>青蛙哥</span></a></li>
+              <li><a href="../html/space.html"><button>个人中心</button></a> &nbsp;<a href="../html/release-menu.html"><button>发布菜谱</button> </a></li>
+          </ul>
+          
       </div>
-    </nav>
-    <!-- 导航栏结束 -->
+  </header>
+
+  <!-- 头部介绍 -->
+  <!-- 导航栏开始 -->
+  <nav>
+      <div class="nav">
+          <div class="navitems">
+              <ul>
+                  <li><a>首页</a></li>
+                  <li><a href="#">家常菜谱</a></li>
+                  <li><a href="#">家常菜谱</a></li>
+                  <li><a href="#">家常菜谱</a></li>
+                  <li><a href="#">家常菜谱</a></li>
+                  <li><a href="#">家常菜谱</a></li>
+              </ul>
+              <div id="public_nav-tracker"></div>
+          </div>
+      </div>
+
+  </nav>
+  <!-- 导航栏结束 -->
     <div class="wrapper">
       <!-- 简介区 -->
       <div id="profile">
@@ -90,10 +79,9 @@
         <div id="detail-list">
           <form action="" method="GET">
             <h1 class="desc" id="username">美食家</h1>
-            <p class="desc" id="location">成都</p>
+            <p class="desc" id="location">正在获取</p>
             <button id="edit-profile" onclick="window.open('edit-profile.html', '_blank');">编辑个人资料</button>
             <button id="edit-menu" onclick="window.open('manage-menu.html', '_blank');">编辑菜谱信息</button>
-            <input type="hidden" name="userId" value="test" />
           </form>
         </div>
       </div>
@@ -153,6 +141,9 @@
           </ul>
         </div>
         <div class="list-box" id="my-menu">
+          <div style="overflow: hidden; padding: 5px;">
+            <button id="releaseMenu" type="button" style="float: right;">发布菜谱</button>
+          </div>
           <ul>
             <li>
               <a href="#">
@@ -176,6 +167,7 @@
     <script src="../js/public/util/colorful-tracker.js"></script>
     <!-- 代替header.js -->
     <script src="../js/public/jQuery.js"></script>
+    <script src="../js/public/header.js"></script>
     <!-- js 自定义样式引入-->
     <script src="../js/space/page.js"></script>
     <script src="../js/space/once-animation.js"></script>
