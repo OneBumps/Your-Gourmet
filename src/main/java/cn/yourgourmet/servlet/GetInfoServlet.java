@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,6 +21,7 @@ public class GetInfoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String type = request.getParameter("type");
         if (Objects.equals(type, "getProvinceList")) {
+            response.setContentType("application/json;charset=utf-8");
             PrintWriter out = response.getWriter();
             String provinceList = GetGeoList.getProvinceList();
             if (!provinceList.isEmpty()) {
@@ -29,6 +31,7 @@ public class GetInfoServlet extends HttpServlet {
             }
         }
         if (Objects.equals(type, "getCityList")) {
+            response.setContentType("application/json;charset=utf-8");
             PrintWriter out = response.getWriter();
             String provinceId = request.getParameter("provinceId");
             String cityList = GetGeoList.getCityList(provinceId);
@@ -46,7 +49,8 @@ public class GetInfoServlet extends HttpServlet {
         if (Objects.equals(type, "getUserInfo")) {
             response.setContentType("application/json;charset=utf-8");
             PrintWriter out = response.getWriter();
-            String userId = request.getParameter("userId");
+            HttpSession session = request.getSession(false);
+            String userId = (String)session.getAttribute("user_id");
             String userInfo = UserOperation.getUserInfo(userId);
             if (!userInfo.isEmpty()) {
                 out.print(userInfo);
