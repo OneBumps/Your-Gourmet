@@ -10,7 +10,7 @@ import java.util.Map;
 public interface RecipeMapper {
     Boolean existMenu(String recipeName);
 
-    List<Recipe> selectByMenuName(String content);
+    List<Map<String, Object>> selectByMenuName(String content);
 
     Recipe selectById(@Param("recipeId") String id);
 }

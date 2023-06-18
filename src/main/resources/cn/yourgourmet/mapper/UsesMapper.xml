@@ -8,7 +8,7 @@
         <result column="pk_fk_ingredient_id" property="ingredientId"/>
         <result column="ingredient_amount" property="ingredientAmount"/>
     </resultMap>
-    <select id="" resultMap="usesResultMap">
-
+    <select id="selectUsesByRecipeId" resultType="map">
+        SELECT ingredient.ingredient_name, uses.ingredient_amount FROM uses INNER JOIN ingredient ON uses.pk_fk_ingredient_id = ingredient.pk_ingredient_id AND uses.pk_fk_recipe_id = #{recipeId};
     </select>
 </mapper>

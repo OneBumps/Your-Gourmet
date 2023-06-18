@@ -7,6 +7,7 @@
         <result column="pk_fk_recipe_id" property="recipeId"/>
         <result column="fk_cuisine_id" property="cuisineId"/>
     </resultMap>
-    <select id="" resultMap="belongResultMap">
+    <select id="selectCuisineIdByRecipeId" resultType="java.lang.Integer">
+        SELECT fk_cuisine_id FROM belong WHERE pk_fk_recipe_id = #{recipeId}
     </select>
 </mapper>
