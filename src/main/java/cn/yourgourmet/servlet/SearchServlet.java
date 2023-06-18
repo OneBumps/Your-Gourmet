@@ -23,7 +23,7 @@ public class SearchServlet extends HttpServlet {
         String type = request.getParameter("type");
         if(type == null) {
             response.sendRedirect(getServletContext().getRealPath("/html/search.html" + "?search=" + request.getParameter("search")));
-        }else if(type.equals("search")){
+        }else if(type.equals("start")){
             String recipeList = SearchEngine.search(request.getParameter("search"));
             PrintWriter out = response.getWriter();
             out.print(recipeList);

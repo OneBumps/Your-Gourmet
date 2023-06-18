@@ -24,8 +24,8 @@ function searchmenu(searchValue) {
         url: "/Search",
         datatype: "json",
         data: {
-            type: "search",
-            search: '汤'
+            type: "start",
+            search: searchValue
         },
         success: function (data) {
             console.log(data.length);
