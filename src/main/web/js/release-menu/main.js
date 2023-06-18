@@ -3,11 +3,11 @@
   function fixedTitleBar() {
     let topBar = document.querySelector('.top-bar');
     if (document.documentElement.scrollTop > titleBarTop) {
-      document.querySelector('main .top-bar+form div').classList.add('add-first-item-margin');
+      document.querySelector('.menu-name').classList.add('add-first-item-margin');
       topBar.classList.add('fixed-top-bar');
       topBar.classList.remove('wrapper');
     } else {
-      document.querySelector('main .top-bar+form div').classList.remove('add-first-item-margin');
+      document.querySelector('.menu-name').classList.remove('add-first-item-margin');
       topBar.classList.remove('fixed-top-bar');
       topBar.classList.add('wrapper');
     }
@@ -15,6 +15,7 @@
   let titleBarTop = document.querySelector('.top-bar').offsetTop;
   window.addEventListener('scroll', fixedTitleBar);
 })();
+
 // 校验菜谱名称是否重复
 document.querySelector(".menu-name input[name='menuName']").addEventListener('blur', function () {
   $.ajax({
@@ -132,20 +133,21 @@ document.querySelector(".menu-steps").addEventListener('change', function (e) {
 
 // 校验表单
 (function () {
-  let form = document.querySelector('form');
+  let form = document.querySelector('form[id="uploadMenu"]');
   function verif() {
-    const [name, , description] = form;
+    const { menuName, menuIntroduction } = form;
+    console.log(menuName, menuIntroduction);
     let menuNameWarning = document.querySelector('.menu-name #unavailable');
     let menuDescWarning = document.querySelector('.menu-introduction .text-warning');
     // 菜谱名字不能为空
-    if (name.value.trim() === '') {
+    if (menuName.value.trim() === '') {
       menuNameWarning.classList.add('show-info');
       menuNameWarning.classList.remove('hide-info');
       menuNameWarning.innerHTML = '菜谱名字不能为空';
       return;
     }
-    // 菜谱名字不能超过300个字符
-    if (description.value.trim().length > 30) {
+    // 菜谱名字不能超过30个字符
+    if (menuIntroduction.value.trim().length > 30) {
       menuDescWarning.classList.add('show-info');
       menuDescWarning.classList.remove('hide-info');
       return;
@@ -163,11 +165,11 @@ document.querySelector(".save-menu").addEventListener('click', function () {
   localStorage.setItem('menuIntroduction', document.querySelector('textarea[name=menuIntroduction]').value.trim());
 });
 // 取出
-(function() {
-  if(localStorage.getItem('menuName')){
+(function () {
+  if (localStorage.getItem('menuName')) {
     document.querySelector('input[name=menuName]').value = localStorage.getItem('menuName');
   }
-  if(localStorage.getItem('menuIntroduction')){
+  if (localStorage.getItem('menuIntroduction')) {
     document.querySelector('textarea[name=menuIntroduction]').value = localStorage.getItem('menuIntroduction');
   }
 })();

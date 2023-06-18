@@ -33,7 +33,8 @@ public class VerifyServlet extends HttpServlet {
         String type = request.getParameter("type");
         if (Objects.equals(type, "updatePassword")) {
             PrintWriter out = response.getWriter();
-            if (UserOperation.changePassword(request.getParameter("userId"), request.getParameter("oldPassword"), request.getParameter("newPassword"))) {
+            HttpSession session = request.getSession(false);
+            if (UserOperation.changePassword((String) session.getAttribute("user_id"), request.getParameter("oldPassword"), request.getParameter("newPassword"))) {
                 out.print("true");
             } else {
                 out.print("false");
@@ -41,7 +42,8 @@ public class VerifyServlet extends HttpServlet {
         }
         if (Objects.equals(type, "updateUserInfo")) {
             PrintWriter out = response.getWriter();
-            if (UserOperation.updateUserInfo(request.getParameter("userId"), request.getParameter("userName"), request.getParameter("userPhone"), request.getParameter("userEmail"), request.getParameter("userGender"), request.getParameter("userIntroduction"))) {
+            HttpSession session = request.getSession(false);
+            if (UserOperation.updateUserInfo((String) session.getAttribute("user_id"), request.getParameter("userName"), request.getParameter("userPhone"), request.getParameter("userEmail"), request.getParameter("userGender"), request.getParameter("userIntroduction"))) {
                 //转发至个人信息页面
                 String contextPath = request.getContextPath();
                 response.sendRedirect(request.getContextPath() + "/html/edit-profile.html");
@@ -53,7 +55,7 @@ public class VerifyServlet extends HttpServlet {
             String userId = UserOperation.signIn(request.getParameter("username"), request.getParameter("password"));
             if (!userId.isEmpty()) {
                 // 创建会话
-                HttpSession session = request.getSession();
+                HttpSession session = request.getSession(false);
                 session.setAttribute("user_id", userId);
                 // 设置cookie
                 Cookie cookie = new Cookie("JSESSIONID", session.getId());
@@ -68,7 +70,7 @@ public class VerifyServlet extends HttpServlet {
             String userId = UserOperation.signUp(request.getParameter("username"), request.getParameter("user_password"), request.getParameter("user_email"), request.getParameter("user_phone"));
             if (!userId.isEmpty()) {
                 // 创建会话
-                HttpSession session = request.getSession();
+                HttpSession session = request.getSession(false);
                 session.setAttribute("user_id", userId);
                 // 设置cookie
                 Cookie cookie = new Cookie("JSESSIONID", session.getId());

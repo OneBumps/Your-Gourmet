@@ -1,7 +1,5 @@
 // 显示用户信息(立即执行)
 (function () {
-  localStorage.setItem("userId", "e5114cee020e11eebd064ccc6a7eb102");
-  localStorage.setItem("userName", "孤影メ残刀");
   function PopulateUserInfo(data) {
     const { userName, userPhone, userGender = '未知', userGroup, userEmail = '未知', userIntroduction = '你还没有介绍你自己呢', userAvatar = "avatar/default.jpg" } = data;
     document.querySelector(".base-info table tbody").innerHTML = `
@@ -24,8 +22,7 @@
     url: "/GetInfo",
     datatype: "json",
     data: {
-      type: "getUserInfo",
-      userId: localStorage.getItem("userId")
+      type: "getUserInfo"
     },
     success: PopulateUserInfo
   });
@@ -52,8 +49,6 @@ document.querySelector(".password button").addEventListener('click', function ()
     document.querySelector(".password .err").innerHTML = "密码长度应在6-14位之间";
     return;
   }
-  //获取userId
-  let userId = localStorage.getItem("userId");
 
   // 发送AJAX请求
   $.ajax({
@@ -61,12 +56,11 @@ document.querySelector(".password button").addEventListener('click', function ()
     url: "/Verify",
     data: {
       type: "updatePassword",
-      userId: userId,
       oldPassword: oldPassword,
       newPassword: newPassword
     },
     success: function (checkPassword) {
-      if (checkPassword == true) {
+      if (checkPassword == 'true') {
         document.querySelector(".password .err").innerHTML = "修改成功，请重新登录";
         setTimeout(() => {
           location.reload();
@@ -91,11 +85,9 @@ document.querySelector(".avatar button").addEventListener("click", function () {
     err.innerHTML = "请选择图片";
     return;
   }
-  let userId = localStorage.getItem("userId");
   let changeAvatar = document.querySelector("form[name='changeAvatar']");
   let formData = new FormData(changeAvatar);
   formData.append("type", "updateAvatar");
-  formData.append("userId", userId);
   $.ajax({
     type: "POST",
     url: "/Upload",
@@ -119,6 +111,10 @@ document.querySelector(".avatar button").addEventListener("click", function () {
 
 
 // 获取定位
+// 获取缓存的定位
+document.querySelector("span#province").innerHTML = localStorage.getItem("province");
+document.querySelector("span#city").innerHTML = localStorage.getItem("city");
+
 // 自动定位 - 使用百度地图API
 document.querySelector("input[name='autoLocation']").addEventListener("change", getGeolocation);
 function getGeolocation() {
@@ -142,14 +138,14 @@ function getGeolocation() {
   let chooseCity = document.querySelector("#choose-city");
   // 获取省份列表
   $.ajax({
-    url: "/YourGourmet/GetInfo",
+    url: "/GetInfo",
     type: "GET",
     dataType: "json",
     data: {
       type: "getProvinceList"
     },
     success: function (data) {
-      if(data == "false"){
+      if (data == "false") {
         chooseProvince.innerHTML = "<option value='0'>加载失败，请重试</option>";
         return;
       }
@@ -164,7 +160,7 @@ function getGeolocation() {
       chooseProvince.addEventListener("change", function () {
         let provinceId = this.value;
         $.ajax({
-          url: "/YourGourmet/GetInfo",
+          url: "/GetInfo",
           type: "GET",
           dataType: "json",
           data: {
@@ -254,7 +250,6 @@ document.querySelector("form[name='changeInfo'] button").addEventListener('click
     return;
   }
   userIntroErr.innerText = "";
-  document.querySelector("form[name='changeInfo'] input[type='hidden']").value = localStorage.getItem("userId");
   document.querySelector("form[name='changeInfo']").submit();
 });
 
@@ -264,15 +259,14 @@ document.querySelector("div[data-title='delete'] button").addEventListener('clic
   if (res != null) {
     $.ajax({
       type: "POST",
-      userId: localStorage.getItem("userId"),
       url: "/Delete",
       data: {
         type: "deleteUser",
-        userId: localStorage.getItem("userId"),
         userPassword: res
       },
       success: function (data) {
-        if (data == true) {
+        if (data == "true") {
+          alert("删除成功,感谢您的支持！");
           window.open(location, '_self').close();
         } else {
           alert("删除失败,密码错误,请重试！！");
