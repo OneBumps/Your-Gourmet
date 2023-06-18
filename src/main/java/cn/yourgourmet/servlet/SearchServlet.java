@@ -24,7 +24,7 @@ public class SearchServlet extends HttpServlet {
         if(type == null) {
             response.sendRedirect(getServletContext().getRealPath("/html/search.html" + "?search=" + request.getParameter("search")));
         }else if(type.equals("search")){
-            List<Recipe> recipeList = SearchEngine.search(request.getParameter("search"));
+            String recipeList = SearchEngine.search(request.getParameter("search"));
             PrintWriter out = response.getWriter();
             out.print(recipeList);
         }

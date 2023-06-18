@@ -20,7 +20,7 @@
         WHERE recipe_name = #{recipeName})
     </select>
     <select id="selectByMenuName" resultType="map">
-        SELECT DISTINCT cuisine.cuisine_name, recipe.recipe_name, recipe.recipe_image, recipe.recipe_introduction
+        SELECT DISTINCT recipe.pk_recipe_id, cuisine.cuisine_name, recipe.recipe_name, recipe.recipe_image, recipe.recipe_introduction
         FROM cuisine,
         recipe,
         belong

@@ -19,11 +19,6 @@ import java.util.List;
 
 public class SearchTest {
     @Test
-    public void testSearch() {
-        List<Recipe> recipeList = SearchEngine.search("莲鱼");
-        System.out.println(recipeList);
-    }
-    @Test
     public void testMapper() {
         String resource = "mybatis-config.xml";
         InputStream inputStream = null;

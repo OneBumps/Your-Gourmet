@@ -13,9 +13,10 @@ public class SearchFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
-        if (httpRequest.getHeader("Referer").endsWith("/html/search.html")) {
+        if (httpRequest.getHeader("Referer").contains("/html/search.html")) {
             chain.doFilter(request, response);
+        }else{
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/html/search.html" + "?search=" + httpRequest.getParameter("search"));
         }
-        httpResponse.sendRedirect(httpRequest.getContextPath() + "/html/search.html" + "?search=" + httpRequest.getParameter("search"));
     }
 }
