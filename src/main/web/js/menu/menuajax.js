@@ -2,7 +2,7 @@ let searchParams = new URLSearchParams(window.location.search);
 $.ajax({
     type: "GET",
     url: "/recipe",
-    dataType : "json",
+    dataType: "json",
     data: {
         type: "getMenuMessage",
         id: searchParams.get('id')
@@ -13,26 +13,37 @@ $.ajax({
             console.log(event.recipeIntroduction)
             $("#description").html(event.recipeIntroduction);
             $("#publishTime").html(event.recipePublishTime);
-            $("#hot").html(event.recipeLike-event.recipeDislike);
+            $("#hot").html(event.recipeLike - event.recipeDislike);
             $("#author").html(event.userId);
             $("#dish_name").html(event.recipeName);
 
-            var steps = event.steps;
-            //使用each()函数遍历数组
-            $.each(steps,function(index,element){
+            // var steps = event.steps;
+            // //使用each()函数遍历数组
+            // $.each(steps, function (index, element) {
 
-                var html = '<li><h4>步骤${element.stepNumber}</h4><div><img src="../img/icon/menupage/dishexm.png" alt=""><span id="step${element.stepNumber}">${element.stepDescription}</span></div></li>'
-                $("#steps").append(html);
-                // // 根据元素中的步骤编号，找到对应的span标签
-                // var span =$("#step"+element.stepNumber);
-                // // 将span标签的内容修改为元素中的步骤描述
-                // span.text(element.stepDescription);
-            });
+            //     var html = '<li><h4>步骤${element.stepNumber}</h4><div><img src="../img/icon/menupage/dishexm.png" alt=""><span id="step${element.stepNumber}">${element.stepDescription}</span></div></li>'
+            //     $("#steps").append(html);
+            //     // // 根据元素中的步骤编号，找到对应的span标签
+            //     // var span =$("#step"+element.stepNumber);
+            //     // // 将span标签的内容修改为元素中的步骤描述
+            //     // span.text(element.stepDescription);
+            // });
+            //步骤
+            for (var i = 0; i < data.steps.length; i++) {
+                var stepNumber = data.steps[i].stepNumber;
+                var stepDescription = data.steps[i].stepDescription;
+            
+                $("#step" + stepNumber).text(stepDescription);
+                $("h4:nth-child(" + (i+1) + ")").html("步骤" + stepNumber);
+            }
 
-            var ingredient = event.ingredient;
-            $.each(ingredient,function(index,element){
-                $("#materials").html(element.ingredient_name+ ":" +element.ingredient_amount);
-            });
+            //菜品用料
+            var ingredients = "";
+            for (var i = 0; i < data.ingredient.length; i++) {
+                ingredients += data.ingredient[i].ingredient_name + "：" + data.ingredient[i].ingredient_amount + "<br>";
+            }
+
+            $("#materials").html(ingredients);
         }
     }
 });
