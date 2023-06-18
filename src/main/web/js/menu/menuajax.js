@@ -9,42 +9,47 @@ $.ajax({
     },
     success: function (event) {
         if (event == true) {
-            var dish_name = document.getElementById("dish_name");
-            var ingredients = document.getElementById("materials");
-            dish_name.innerHTML = event.name;
-            ingredients.innerHTML = event.materials;
+            $("#description").html(event.recipeIntroduction);
+            $("#publishTime").html(event.recipePublishTime);
+            $("#hot").html(event.recipeLike-event.recipeDislike);
+            $("#author").html(event.userId);
+            $("#dish_name").html(event.recipeName);
 
-            // var dish_name = $("#dish_name");
-            // var materials = $("#materials");
-            // dish_name.html(event.name);
-            // materials.html(event.materials);
+            var steps = event.steps;
+            //使用each()函数遍历数组
+            $.each(steps,function(index,element){
 
-            //定义基础的步骤span个数
-            var basic_count = 4;
-            //获取步骤数组中有几个数据（对应有几个span步骤）
-            var counts = event.steps.length;
+                var html = '<li><h4>步骤${element.stepNumber}</h4><div><img src="../img/icon/menupage/dishexm.png" alt=""><span id="step${element.stepNumber}">${element.stepDescription}</span></div></li>'
+                $("#steps").append(html);
+                // // 根据元素中的步骤编号，找到对应的span标签
+                // var span =$("#step"+element.stepNumber);
+                // // 将span标签的内容修改为元素中的步骤描述
+                // span.text(element.stepDescription);
+            });
 
-            if (counts == basic_count) {
-                //为span元素设置返回数据数组的相应数据
-                $("span").each(function (index) {
-                    $(this).html(event.steps[index]);
-                });
-            } else {
-                //增加span元素
-                for (var i = 0; i < counts - basic_count; i++) {
-                    var newElement = "<li><h4>步骤四</h4> <div><img src=\"../img/icon/menupage/dishexm.png\" alt=\"\"><span>步骤四内容</span></div></li>";
-                    $("#steps").append(newElement);
-                }
-
-                //为span元素设置返回数据数组的相应数据
-                $("span").each(function (index) {
-                    $(this).html(event.steps[index]);
-                });
-            }
+            var ingredient = event.ingredient;
+            $.each(ingredient,function(index,element){
+                $("#materials").html(element.ingredient_name+ ":" +element.ingredient_amount);
+            });
         }
     }
 });
-/**
- * 菜名：name(string)=""
- * 菜品用料：materials(string)=""
-*/
+
+// $.getJSON("../../../../test/", {type: "getMenuMessage", userId: ""}, function (event) {
+//     if (event == true) {
+//         // 使用html()方法修改网页元素的内容
+//         $("#dish_name").html(event.recipeName);
+//         $("#materials").html(event.recipeMaterial);
+
+//         var steps = event.steps;
+//         // 使用each()方法遍历数组
+//         $.each(steps,function(index,element){
+//             // 使用模板字符串拼接HTML代码
+//             var html = `<li>
+//                             <span id="step${element.stepNumber}">${element.stepDescription}</span>
+//                         </li>`;
+//             // 将HTML代码追加到ul元素中
+//             $("#steps").append(html);
+//         });
+//     }
+// });
