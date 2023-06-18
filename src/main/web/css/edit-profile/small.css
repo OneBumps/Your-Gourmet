@@ -1,0 +1,11 @@
+@media (max-width: 1545px) {
+  .sub-nav ul{
+    left: 50px;
+  }
+}
+
+@media (max-width: 860px) {
+  .sub-nav ul{
+    display: none;
+  }
+}
