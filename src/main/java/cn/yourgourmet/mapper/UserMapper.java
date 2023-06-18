@@ -12,7 +12,7 @@ public interface UserMapper {
      * @param userPassword 用户密码
      * @return User
      */
-    Integer selectByUserNameAndPassword(@Param("userName") String userId, @Param("userPassword") String userPassword);
+    Integer selectByUserNameAndPassword(@Param("userId") String userId, @Param("userPassword") String userPassword);
 
     /**
      * 查询用户名是否存在
@@ -35,7 +35,7 @@ public interface UserMapper {
      * @param password 密码
      * @return Boolean
      */
-    int updatePassword(@Param("userId") String username, @Param("userPassword") String password);
+    int updatePassword(@Param("userId") String userId, @Param("userPassword") String password);
 
     int updateUserInfo(User user);
 

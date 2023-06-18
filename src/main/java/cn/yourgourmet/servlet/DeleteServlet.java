@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/Delete")
 public class DeleteServlet extends HttpServlet {
@@ -26,7 +27,8 @@ public class DeleteServlet extends HttpServlet {
         String type = request.getParameter("type");
         if (Objects.equals(type, "deleteUser")) {
             PrintWriter out = response.getWriter();
-            Boolean result = UserOperation.deleteUser(request.getParameter("userId"), request.getParameter("userPassword"));
+            HttpSession session = request.getSession();
+            Boolean result = UserOperation.deleteUser((String) session.getAttribute("user_id"), request.getParameter("userPassword"));
             if (result) {
                 out.print("true");
             } else {
