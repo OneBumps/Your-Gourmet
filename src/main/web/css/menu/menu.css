@@ -22,6 +22,23 @@ ul,li{
     margin: 10px;
 }
 
+/* .newTag > div{
+    margin: 10px 25px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    display: flex;
+    margin: 10px;
+}
+.newTag > img{
+    width: 150px;
+    height: 100px;
+}
+.newTag > div > span{
+    display: block;
+    margin-left: 20px;
+    margin-top: 20px;
+} */
+
 .header1{
     height: 40px;
     background-color: white;
@@ -44,6 +61,23 @@ ul,li{
     width: 30%;
     background-color: white;
     border-right: 1px solid green;
+}
+.section .menuNavi section{
+    margin: 0 auto;
+    margin-top: 100px;
+}
+.section .menuNavi section > div{
+    box-sizing: border-box;
+    border: 1px solid green;
+    border-radius: 25px;
+    margin: 30px;
+    width: 300px;
+    height: 30px;
+}
+.section .menuNavi section > div span{
+    margin-left: 20px;
+    margin-bottom: 0;
+    font-size: 20px;
 }
 /* 导航栏右边区块 */
 .section .menuMessages{
@@ -133,11 +167,9 @@ ul,li{
 }
 .section .menuMessages .text1 > div{
     margin: 10px 25px;
-    /* border: 1px solid red; */
-}
-.section .menuMessages .text1 > div{
     margin-bottom: 10px;
     font-size: 18px;
+    /* border: 1px solid red; */
 }
 .section .menuMessages .text1 li div{
     display: flex;

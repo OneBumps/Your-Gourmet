@@ -1,0 +1,32 @@
+{
+    "recipeDislike":3336,
+    "recipeImage":"img/test/test.png",
+    "recipeIntroduction":"这是一个汤，真好喝",
+    "recipeLike":888,
+    "recipeName":"蛋花丝瓜汤",
+    "recipePublishTime":"2023-06-03 21:02:18",
+    "userId":"ADMINISTRATOR",
+    "cuisineName":"家常菜",
+    "steps":[
+        {
+            "stepDescription":"丝瓜洗净，去皮切片；香菜择洗干净切段。",
+            "stepImage":"img/test/test.png",
+            "stepNumber":1
+        },
+        {
+            "stepDescription":"油锅烧热，放入葱花炝锅，下丝瓜煸炒，加适量清水、盐煮沸后，倒入蛋花液，加香菜、味精即成。",
+            "stepImage":"img/test/test.png",
+            "stepNumber":2
+        }
+    ],
+    "ingredient":[
+        {
+            "ingredient_name":"丝瓜",
+            "ingredient_amount":"480克"
+        },
+        {
+            "ingredient_name":"鸡蛋",
+            "ingredient_amount":"200克"
+        }
+    ]
+}
