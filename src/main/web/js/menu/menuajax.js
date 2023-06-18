@@ -2,13 +2,15 @@ let searchParams = new URLSearchParams(window.location.search);
 $.ajax({
     type: "GET",
     url: "/recipe",
-    datatype: "json",
+    dataType : "json",
     data: {
         type: "getMenuMessage",
         id: searchParams.get('id')
     },
     success: function (event) {
-        if (event == true) {
+        if (event != "null") {
+            console.log(event)
+            console.log(event.recipeIntroduction)
             $("#description").html(event.recipeIntroduction);
             $("#publishTime").html(event.recipePublishTime);
             $("#hot").html(event.recipeLike-event.recipeDislike);
