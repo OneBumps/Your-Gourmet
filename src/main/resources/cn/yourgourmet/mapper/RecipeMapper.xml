@@ -19,13 +19,18 @@
         FROM recipe
         WHERE recipe_name = #{recipeName})
     </select>
-    <select id="selectByMenuName" resultMap="recipeResultMap">
-        SELECT pk_recipe_id, fk_user_id, recipe_name, recipe_image, recipe_introduction
-        FROM recipe
-        WHERE recipe_name LIKE CONCAT('%', #{name}, '%')
+    <select id="selectByMenuName" resultType="map">
+        SELECT DISTINCT cuisine.cuisine_name, recipe.recipe_name, recipe.recipe_image, recipe.recipe_introduction
+        FROM cuisine,
+        recipe,
+        belong
+        WHERE recipe.recipe_name LIKE CONCAT('%', #{context}, '%')
+        AND cuisine.pk_cuisine_id = belong.fk_cuisine_id
+        AND recipe.pk_recipe_id = belong.pk_fk_recipe_id;
     </select>
     <select id="selectById" resultMap="recipeResultMap">
-        SELECT fk_user_id, recipe_name, recipe_publish_time, recipe_image, recipe_video, recipe_introduction, recipe_like, recipe_dislike
+        SELECT fk_user_id, recipe_name, recipe_publish_time, recipe_image, recipe_video, recipe_introduction,
+        recipe_like, recipe_dislike
         FROM recipe
         WHERE pk_recipe_id = #{recipeId};
     </select>

@@ -7,7 +7,7 @@
         <result column="pk_cuisine_id" property="cuisineId"/>
         <result column="cuisine_name" property="cuisineName"/>
     </resultMap>
-    <select id="" resultMap="cuisineResultMap">
-
+    <select id="selectCuisineNameByRecipeId" resultType="java.lang.String">
+        SELECT cuisine_name FROM cuisine WHERE pk_cuisine_id = #{cuisineId}
     </select>
 </mapper>
