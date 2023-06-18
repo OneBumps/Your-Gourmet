@@ -29,9 +29,9 @@ $.ajax({
             //     // span.text(element.stepDescription);
             // });
             //步骤
-            for (var i = 0; i < data.steps.length; i++) {
-                var stepNumber = data.steps[i].stepNumber;
-                var stepDescription = data.steps[i].stepDescription;
+            for (var i = 0; i < event.steps.length; i++) {
+                var stepNumber = event.steps[i].stepNumber;
+                var stepDescription = event.steps[i].stepDescription;
             
                 $("#step" + stepNumber).text(stepDescription);
                 $("h4:nth-child(" + (i+1) + ")").html("步骤" + stepNumber);
@@ -39,8 +39,8 @@ $.ajax({
 
             //菜品用料
             var ingredients = "";
-            for (var i = 0; i < data.ingredient.length; i++) {
-                ingredients += data.ingredient[i].ingredient_name + "：" + data.ingredient[i].ingredient_amount + "<br>";
+            for (var i = 0; i < event.ingredient.length; i++) {
+                ingredients += event.ingredient[i].ingredient_name + "：" + event.ingredient[i].ingredient_amount + "<br>";
             }
 
             $("#materials").html(ingredients);
