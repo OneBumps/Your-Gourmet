@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +20,13 @@ public class SearchServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json;charset=utf-8");
-        List<Recipe> recipeList = SearchEngine.search(request.getParameter("search"));
-        response.sendRedirect(getServletContext().getRealPath("/html/search.html" + "?search=" + request.getParameter("search")));
+        String type = request.getParameter("type");
+        if(type == null) {
+            response.sendRedirect(getServletContext().getRealPath("/html/search.html" + "?search=" + request.getParameter("search")));
+        }else if(type.equals("search")){
+            String recipeList = SearchEngine.search(request.getParameter("search"));
+            PrintWriter out = response.getWriter();
+            out.print(recipeList);
+        }
     }
 }
